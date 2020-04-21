@@ -67,3 +67,11 @@ bind(
     name = "default_scala",
     actual = "@rules_scala_annex//src/main/scala:zinc_2_12_10",
 )
+
+load("//maven:deps.bzl", "install_maven_deps")
+
+install_maven_deps()
+
+load("@scala_2_12//:defs.bzl", "pinned_maven_install")
+
+pinned_maven_install()
