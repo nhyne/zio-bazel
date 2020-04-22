@@ -4,11 +4,11 @@ load(
 )
 
 scala_binary(
-    name = "example",
+    name = "tictactoe",
     srcs = [
         "main.scala",
     ],
     deps = [
-        "@scala_2_12//:dev_zio_zio_2_12"
+        "@scala_2_12//:dev_zio_zio_2_12",
     ],
-    )
+)
