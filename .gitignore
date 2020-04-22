@@ -4,3 +4,4 @@ bazel-bin
 bazel-out
 bazel-testlogs
 bazel-zio-bazel
+explain.txt
