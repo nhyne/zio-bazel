@@ -8,11 +8,11 @@ scala_binary(
     name = "tictactoe",
     srcs = [
         "Main.scala",
-        "MenuCommand.scala",
-        "MenuCommandParser.scala",
-        "MenuCommandParserLive.scala",
-        "Terminal.scala",
-        "TerminalLive.scala",
+        "domain/MenuCommand.scala",
+        "parser/MenuCommandParser.scala",
+        "parser/MenuCommandParserLive.scala",
+        "cli/Terminal.scala",
+        "cli/TerminalLive.scala",
     ],
     deps = [
         "@scala_2_12//:dev_zio_zio_2_12",
@@ -23,7 +23,7 @@ scala_test(
     name = "test",
     size = "small",
     srcs = [
-        "MenuCommandParserSpec.scala",
+        "parser/MenuCommandParserSpec.scala",
     ],
     frameworks = [
         "zio.test.sbt.ZTestFramework",
