@@ -11,6 +11,7 @@ scala_binary(
         "MenuCommand.scala",
         "MenuCommandParser.scala",
         "MenuCommandParserLive.scala",
+        "Terminal.scala",
     ],
     deps = [
         "@scala_2_12//:dev_zio_zio_2_12",
