@@ -8,12 +8,13 @@ scala_binary(
     name = "tictactoe",
     srcs = [
         "Main.scala",
-        "domain/MenuCommand.scala",
-        "parser/MenuCommandParser.scala",
-        "parser/MenuCommandParserLive.scala",
+        "app/RunLoop.scala",
+        "app/RunLoopLive.scala",
         "cli/Terminal.scala",
         "cli/TerminalLive.scala",
-    ],
+        "parser/MenuCommandParser.scala",
+        "parser/MenuCommandParserLive.scala",
+    ] + glob(include = ["domain/*.scala"]),
     deps = [
         "@scala_2_12//:dev_zio_zio_2_12",
     ],
