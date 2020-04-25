@@ -17,6 +17,7 @@ scala_binary(
             "logic/*.scala",
             "mode/*.scala",
             "parser/*.scala",
+            "view/*.scala",
         ],
         exclude = ["parser/MenuCommandParserSpec.scala"],
     ),
@@ -36,7 +37,7 @@ scala_test(
     name = "test",
     size = "small",
     srcs = [
-        "parser/MenuCommandParserSpec.scala",
+        "parser/MenuCommandParser.scala",
     ],
     frameworks = [
         "zio.test.sbt.ZTestFramework",
@@ -50,3 +51,4 @@ scala_test(
         "@scala_2_12//:dev_zio_zio_test_2_12",
     ],
 )
+

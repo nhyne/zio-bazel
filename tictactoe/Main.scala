@@ -1,21 +1,35 @@
 package dev.nhyne.tictactoe
 
+import dev.nhyne.tictactoe.app.ControllerLive
 import zio.console.Console
-import zio.{App, UIO, ZIO, console}
+import zio.{App, UIO, ZEnv, ZIO, console}
+import dev.nhyne.tictactoe.domain.State
 
 object TicTacToe extends App {
-  val program: ZIO[Console, Int, Unit] = console.putStrLn("Hello World!")
+  val program = {
+    def loop(state: State): ZIO[app.RunLoop, Nothing, Unit] =
+      app.RunLoop.>.step(state)
+        .foldM(_ => UIO.unit, nextState => loop(nextState))
 
-  def run(args: List[String]): ZIO[Console, Nothing, Int] =
+    loop(State.default)
+  }
+
+  def run(args: List[String]): ZIO[ZEnv, Nothing, Int] =
     for {
-      env <- UIO.succeed(zio.console.Console.live)
+      env <- prepareEnvironment
       out <- program
-//        .provide(env)
-        .foldM(
-          error => console.putStrLn("failure") *> UIO.succeed(1),
-          _ => UIO.succeed(0)
-        )
-    } yield {
-      out
-    }
+        .provide(env)
+              .
+    } yield out
+
+  private val prepareEnvironment =
+    UIO.succeed(
+      new app.ControllerLive with app.RunLoopLive with cli.TerminalLive
+      with logic.GameLogicLive with logic.OpponentAiLive
+      with mode.ConfirmModeLive with mode.GameModeLive with mode.MenuModeLive
+      with parser.ConfirmCommandParserLive with parser.GameCommandParserLive
+      with parser.MenuCommandParserLive with view.ConfirmViewLive
+      with view.GameViewLive with view.MenuViewLive
+      with zio.console.Console.Service with zio.random.Random.Service {}
+    )
 }
