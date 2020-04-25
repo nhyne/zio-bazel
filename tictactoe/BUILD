@@ -2,6 +2,7 @@ load(
     "@rules_scala_annex//rules:scala.bzl",
     "scala_binary",
     "scala_test",
+    "scala_repl",
 )
 
 scala_binary(
@@ -10,10 +11,11 @@ scala_binary(
         "Main.scala",
     ] + glob(
         include = [
-            "domain/*.scala",
             "app/*.scala",
-            "mode/*.scala",
             "cli/*.scala",
+            "domain/*.scala",
+            "logic/*.scala",
+            "mode/*.scala",
             "parser/*.scala",
         ],
         exclude = ["parser/MenuCommandParserSpec.scala"],
@@ -23,6 +25,11 @@ scala_binary(
         "@scala_2_12//:dev_zio_zio_2_12",
         "@scala_2_12//:org_tpolecat_atto_core_2_12",
     ],
+)
+
+scala_repl(
+    name = "repl",
+    deps = ["tictactoe"]
 )
 
 scala_test(
