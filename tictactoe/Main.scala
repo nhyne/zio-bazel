@@ -8,7 +8,7 @@ object TicTacToe extends App {
 
   def run(args: List[String]): ZIO[Console, Nothing, Int] =
     for {
-//      env <- UIO.succeed(zio.console.Console.live)
+      env <- UIO.succeed(zio.console.Console.live)
       out <- program
 //        .provide(env)
         .foldM(

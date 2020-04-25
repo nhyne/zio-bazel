@@ -8,17 +8,20 @@ scala_binary(
     name = "tictactoe",
     srcs = [
         "Main.scala",
-        "cli/Terminal.scala",
-        "cli/TerminalLive.scala",
-        "parser/MenuCommandParser.scala",
-        "parser/MenuCommandParserLive.scala",
-    ] + glob(include = [
-        "domain/*.scala",
-        "app/*.scala",
-    ]),
+    ] + glob(
+        include = [
+            "domain/*.scala",
+            "app/*.scala",
+            "mode/*.scala",
+            "cli/*.scala",
+            "parser/*.scala",
+        ],
+        exclude = ["parser/MenuCommandParserSpec.scala"],
+    ),
     deps = [
         "@scala_2_12//:com_beachape_enumeratum_2_12",
         "@scala_2_12//:dev_zio_zio_2_12",
+        "@scala_2_12//:org_tpolecat_atto_core_2_12",
     ],
 )
 
