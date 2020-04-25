@@ -3,5 +3,6 @@ package dev.nhyne.tictactoe.domain
 sealed trait MenuMessage
 
 object MenuMessage{
-    val empty = new MenuMessage {}
+    case object Empty extends MenuMessage
+    case object InvalidCommand extends MenuMessage
 }
