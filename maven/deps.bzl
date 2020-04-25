@@ -8,6 +8,7 @@ def install_maven_deps():
         artifacts = [
             "dev.zio:zio-test_2.12:1.0.0-RC18-2",
             "dev.zio:zio-test-sbt_2.12:1.0.0-RC18-2",
+            "com.beachape:enumeratum_2.12:1.5.13",
             #            "dev.zio:zio-config_2.12:1.0.0-RC16-1",
             #            "dev.zio:zio-config-magnolia_2.12:1.0.0-RC16-1",
             #            "dev.zio:zio-config-magnolia_2.12:1.0.0-RC16-1",
