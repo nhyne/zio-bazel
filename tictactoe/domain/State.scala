@@ -26,5 +26,5 @@ object State {
 
     case object Shutdown extends State
 
-    def default(): State = State.Menu(None, MenuMessage.empty)
+    def default(): State = State.Menu(None, MenuMessage.Empty)
 }

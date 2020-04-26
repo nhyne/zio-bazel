@@ -12,4 +12,10 @@ object RunLoop {
         def step(state: State): ZIO[R, Unit, State]
     }
 
+    object > extends RunLoop.Service[RunLoop] {
+        def step(state: State): ZIO[RunLoop, Unit, State] = {
+            ZIO.accessM(_.runLoop.step(state))
+        }
+    }
+
 }

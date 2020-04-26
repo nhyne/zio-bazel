@@ -2,4 +2,7 @@ package dev.nhyne.tictactoe.domain
 
 sealed trait Player
 
-object Player {}
+object Player {
+    case object Human extends Player
+    case object Ai extends Player
+}
