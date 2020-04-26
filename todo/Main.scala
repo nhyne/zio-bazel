@@ -2,9 +2,9 @@ package dev.nhyne.todo
 
 import java.io.IOException
 import dev.nhyne.todo.domain.{Task, TodoList, MenuCommand}
-import dev.nhyne.todo.parser.{MenuCommandParser, MenuCommandParserLive}
+import dev.nhyne.todo.parser.MenuCommandParser
 import zio.console.{Console, getStrLn, putStrLn}
-import zio.{App, UIO, ZIO, console}
+import zio.{App, UIO, ZIO, console, ZLayer, ZEnv, Has}
 
 object Todo extends App {
 
@@ -16,25 +16,24 @@ object Todo extends App {
 
   def programLoop(
     list: TodoList
-  ): ZIO[MenuCommandParserLive with Console, IOException, TodoList] =
+  ): ZIO[MenuCommandParser.MenuCommandParser with Console, IOException, TodoList] =
     for {
       _ <- putStrLn("What would you like to do? (new)")
       inputCommand <- getStrLn
-      command <- MenuCommandParser.>.parse(inputCommand)
+      command <- MenuCommandParser.parse(inputCommand)
       x <- command match {
         case MenuCommand.NewTask => putStrLn("cool")
         case _                   => putStrLn("not cool")
       }
     } yield TodoList(Seq.empty)
 
-  def run(args: List[String]): ZIO[Console, Nothing, Int] =
-    for {
-      env <- prepEnv
-      out <- program
-        .provide(env)
-        .foldM(_ => UIO.succeed(1), _ => UIO.succeed(0))
-    } yield out
+  val env = MenuCommandParser.live ++ Console.live
 
-  def prepEnv =
-    UIO.succeed(new MenuCommandParserLive with zio.console.Console.Service)
+  def run(args: List[String]): ZIO[ZEnv, Nothing, Int] =
+    (for {
+      out <- program
+        .foldM(_ => UIO.succeed(1), _ => UIO.succeed(0))
+    } yield out)
+      .provideCustomLayer(env)
+
 }
