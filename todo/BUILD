@@ -8,7 +8,10 @@ scala_binary(
     name = "todo",
     srcs = [
         "Main.scala",
-    ] + glob(include = ["domain/*.scala"]),
+    ] + glob(include = [
+        "domain/*.scala",
+        "parser/*.scala",
+    ]),
     deps = [
         "@scala_2_12//:dev_zio_zio_2_12",
     ],
