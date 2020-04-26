@@ -10,10 +10,11 @@ scala_binary(
         "Main.scala",
     ] + glob(include = [
         "domain/*.scala",
-#        "mode/*.scala",
+        #        "mode/*.scala",
         "parser/*.scala",
     ]),
     deps = [
+        "@scala_2_12//:dev_zio_izumi_reflect_2_12",
         "@scala_2_12//:dev_zio_zio_2_12",
     ],
 )
