@@ -4,7 +4,7 @@ import zio.ZIO
 import zio.console.Console
 
 trait TerminalLive extends Terminal {
-  val console: Console.Service
+  val console: Console.Service = Console.Service.live
 
   final val terminal = new Terminal.Service[Any] {
     val getUserInput = console.getStrLn.orDie

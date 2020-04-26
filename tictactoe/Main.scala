@@ -1,9 +1,10 @@
 package dev.nhyne.tictactoe
 
-import dev.nhyne.tictactoe.app.ControllerLive
 import zio.console.Console
+import zio.random.Random
 import zio.{App, UIO, ZEnv, ZIO, console}
 import dev.nhyne.tictactoe.domain.State
+import dev.nhyne.tictactoe.app._
 
 object TicTacToe extends App {
   val program = {
@@ -19,17 +20,27 @@ object TicTacToe extends App {
       env <- prepareEnvironment
       out <- program
         .provide(env)
-              .
+              .as(0)
+
     } yield out
 
   private val prepareEnvironment =
     UIO.succeed(
-      new app.ControllerLive with app.RunLoopLive with cli.TerminalLive
-      with logic.GameLogicLive with logic.OpponentAiLive
-      with mode.ConfirmModeLive with mode.GameModeLive with mode.MenuModeLive
-      with parser.ConfirmCommandParserLive with parser.GameCommandParserLive
-      with parser.MenuCommandParserLive with view.ConfirmViewLive
-      with view.GameViewLive with view.MenuViewLive
-      with zio.console.Console.Service with zio.random.Random.Service {}
+      new app.ControllerLive
+        with app.RunLoopLive
+        with cli.TerminalLive
+        with logic.GameLogicLive
+        with logic.OpponentAiLive
+        with mode.ConfirmModeLive
+        with mode.GameModeLive
+        with mode.MenuModeLive
+        with parser.ConfirmCommandParserLive
+        with parser.GameCommandParserLive
+        with parser.MenuCommandParserLive
+        with view.ConfirmViewLive
+        with view.GameViewLive
+        with view.MenuViewLive
+        with Console.Service
+        with Random.Service {}
     )
 }

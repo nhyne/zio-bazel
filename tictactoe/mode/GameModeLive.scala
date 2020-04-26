@@ -30,7 +30,7 @@ trait GameModeLive extends GameMode {
       else if (isAiTurn(state))
         opponentAi
           .randomMove(state.board)
-          .orDieWith(_ => new IllegalStateException) >>= (takeField(_, state))
+          .orDieWith(_ => new Throwable) >>= (takeField(_, state))
       else
         gameCommandParser.parse(input) >>= {
           case GameCommand.Menu =>
