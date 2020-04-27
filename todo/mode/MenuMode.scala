@@ -9,35 +9,39 @@ import zio.console.{Console, getStrLn, putStrLn}
 import zio.{Has, UIO, ZIO, ZLayer}
 
 trait MenuMode {
-  val menuMode: MenuMode.Service[Any]
+  val menuMode: MenuMode.Service
 }
 
 object MenuMode {
   trait Service {
     // This Any feels weird. Should be more specific about what requirements are needed?
-    def process(input: String, state: State): ZIO[Any, Nothing, State]
+    def process(
+      input: String,
+      state: State
+    ): ZIO[MenuMode with MenuCommandParser, Nothing, State]
   }
 
-  val menuCommandParser: MenuCommandParser.Service
+  type MenuCommandParser = Has[MenuCommandParser.Service]
   type MenuMode = Has[Service]
-//  object > extends MenuMode.Service[MenuMode] {
-//    def process(input: String, todoList: TodoList) = {
-//      ZIO.accessM(_.menuMode.process(input, todoList))
-//    }
-//  }
 
   val live = ZLayer.succeed(new Service {
-    def process(input: String, state: State): UIO[State] =
-      menuCommandParser.parse(input) map {
+    def process(
+      input: String,
+      state: State
+    ): ZIO[MenuMode with MenuCommandParser, Nothing, State] =
+      ZIO.accessM[MenuCommandParser](_.get.parse(input) map {
         case MenuCommand.NewTask =>
           State.NewTask(state.getList(), None)
         case MenuCommand.Invalid =>
           State.Menu(state.getList())
-      }
+      })
   })
 
-  def process(input: String, state: State): ZIO[MenuMode, Nothing, State] =
-    ZIO.accessM[MenuMode](_.get.process(input, state))
+  def process(
+    input: String,
+    state: State
+  ): ZIO[MenuMode with MenuCommandParser, Nothing, State] =
+    ZIO.accessM[MenuMode with MenuCommandParser](_.get.process(input, state))
 
   val createTask: ZIO[Console, IOException, Task] = for {
     _ <- putStrLn("What do you need to get done?")
