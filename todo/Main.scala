@@ -40,7 +40,7 @@ object Todo extends App {
 //        case _ => programLoop(list)
 //      }
 //      newList = list.addTask(x)
-    } yield
+    } yield State.default()
 
   def run(args: List[String]): ZIO[ZEnv, Nothing, Int] =
     (for {
