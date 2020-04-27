@@ -1,6 +1,11 @@
 package dev.nhyne.todo.mode
 
-import dev.nhyne.todo.domain.State
+import java.io.IOException
+
+import dev.nhyne.todo.Todo
+import dev.nhyne.todo.domain.{MenuCommand, State, Task, TodoList}
+import dev.nhyne.todo.parser.MenuCommandParser
+import zio.console.{Console, getStrLn, putStrLn}
 import zio.{Has, UIO, ZIO, ZLayer}
 
 trait MenuMode {
@@ -13,6 +18,7 @@ object MenuMode {
     def process(input: String, state: State): ZIO[Any, Nothing, State]
   }
 
+  val menuCommandParser: MenuCommandParser.Service
   type MenuMode = Has[Service]
 //  object > extends MenuMode.Service[MenuMode] {
 //    def process(input: String, todoList: TodoList) = {
@@ -24,21 +30,14 @@ object MenuMode {
     def process(input: String, state: State): UIO[State] =
       menuCommandParser.parse(input) map {
         case MenuCommand.NewTask =>
-          for {
-            newTask <- createTask
-          } yield UIO.succeed(list.addTask(newTask))
+          State.NewTask(state.getList(), None)
         case MenuCommand.Invalid =>
-          UIO.succeed(list)
+          State.Menu(state.getList())
       }
   })
 
   def process(input: String, state: State): ZIO[MenuMode, Nothing, State] =
     ZIO.accessM[MenuMode](_.get.process(input, state))
-}
-
-trait MenuModeLive extends MenuMode {
-
-  val menuCommandParser: MenuCommandParser.Service
 
   val createTask: ZIO[Console, IOException, Task] = for {
     _ <- putStrLn("What do you need to get done?")
@@ -47,5 +46,4 @@ trait MenuModeLive extends MenuMode {
     taskDescription <- getStrLn
     task = Task(taskTitle, taskDescription)
   } yield task
-
 }

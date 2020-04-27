@@ -1,13 +1,21 @@
 package dev.nhyne.todo.domain
 
-sealed trait State
+sealed trait State {
+  def getList(): TodoList
+}
 
 object State {
-  final case class NewTask(list: TodoList, task: Task) extends State
+  final case class NewTask(list: TodoList, task: Option[Task]) extends State {
+    def getList() = list
+  }
 
-  final case class Menu(list: TodoList) extends State
+  final case class Menu(list: TodoList) extends State {
+    def getList() = list
+  }
 
-  case object Shutdown extends State
+  case object Shutdown extends State {
+    def getList() = TodoList.default()
+  }
 
   def default(): State = State.Menu(TodoList.default())
 }
