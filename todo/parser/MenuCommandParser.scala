@@ -10,14 +10,14 @@ object MenuCommandParser {
 
   type MenuCommandParser = Has[Service]
 
-  val live = ZLayer.succeed(new Service  {
+  val live = ZLayer.succeed(new Service {
     def parse(input: String): UIO[MenuCommand] =
       UIO.succeed(input).map {
-        case "new task" => MenuCommand.NewTask
-        case _          => MenuCommand.Invalid
+        case "new" => MenuCommand.NewTask
+        case _     => MenuCommand.Invalid
       }
   })
 
-  def parse(input: String) =
+  def parse(input: String): ZIO[MenuCommandParser, Nothing, MenuCommand] =
     ZIO.accessM[MenuCommandParser](_.get.parse(input))
 }

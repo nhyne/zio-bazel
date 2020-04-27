@@ -1,33 +1,46 @@
 package dev.nhyne.todo
 
 import java.io.IOException
-import dev.nhyne.todo.domain.{Task, TodoList, MenuCommand}
+
+import dev.nhyne.todo.domain.{MenuCommand, State, Task, TodoList}
 import dev.nhyne.todo.parser.MenuCommandParser
 import zio.console.{Console, getStrLn, putStrLn}
-import zio.{App, UIO, ZIO, console, ZLayer, ZEnv, Has}
+import zio.{App, Has, UIO, ZEnv, ZIO, ZLayer, console}
 
 object Todo extends App {
 
+  val env = MenuCommandParser.live ++ Console.live
+
   val program = for {
     _ <- putStrLn("Beginning todo list")
-    list = TodoList(Seq.empty)
-    _ <- programLoop(list)
+    state = State.default()
+    _ <- programLoop(state)
   } yield ()
 
+  val createTask: ZIO[Console, IOException, Task] = for {
+    _ <- putStrLn("What do you need to get done?")
+    taskTitle <- getStrLn
+    _ <- putStrLn("Enter a description.")
+    taskDescription <- getStrLn
+    task = Task(taskTitle, taskDescription)
+  } yield task
+
   def programLoop(
-    list: TodoList
-  ): ZIO[MenuCommandParser.MenuCommandParser with Console, IOException, TodoList] =
+    state: State
+  ): ZIO[MenuCommandParser.MenuCommandParser with Console, IOException, State] =
     for {
       _ <- putStrLn("What would you like to do? (new)")
       inputCommand <- getStrLn
       command <- MenuCommandParser.parse(inputCommand)
-      x <- command match {
-        case MenuCommand.NewTask => putStrLn("cool")
-        case _                   => putStrLn("not cool")
-      }
-    } yield TodoList(Seq.empty)
-
-  val env = MenuCommandParser.live ++ Console.live
+//      _ <- command match {
+//        case MenuCommand.NewTask =>
+//          for {
+//            x <- createTask
+//          } yield ()
+//        case _ => programLoop(list)
+//      }
+//      newList = list.addTask(x)
+    } yield
 
   def run(args: List[String]): ZIO[ZEnv, Nothing, Int] =
     (for {
