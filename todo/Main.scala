@@ -10,6 +10,7 @@ import java.io.IOException
 object Todo extends App {
 
   val env = MenuCommandParser.live ++ TaskCreator.live ++ Console.live
+    type programEnv = MenuCommandParser.MenuCommandParser with TaskCreator.TaskCreator with Console
 
   val program = for {
     _ <- putStrLn("Beginning todo list")
@@ -19,7 +20,7 @@ object Todo extends App {
 
   def programLoop(
     state: State
-  ): ZIO[MenuCommandParser.MenuCommandParser with TaskCreator.TaskCreator with Console, IOException, State] =
+  ): ZIO[programEnv, IOException, State] =
     for {
       _ <- putStrLn("What would you like to do? (new, exit)")
       inputCommand <- getStrLn
