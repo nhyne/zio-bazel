@@ -1,7 +1,7 @@
 package dev.nhyne.todo
 
 import dev.nhyne.todo.domain.{MenuCommand, State, Task, TodoList}
-import dev.nhyne.todo.mode.TaskCreatorMode
+import dev.nhyne.todo.mode.TaskCreator
 import dev.nhyne.todo.parser.MenuCommandParser
 import zio.console.{Console, getStrLn, putStrLn}
 import zio.{App, Has, UIO, ZEnv, ZIO, ZLayer, console}
@@ -9,7 +9,7 @@ import java.io.IOException
 
 object Todo extends App {
 
-  val env = MenuCommandParser.live ++ TaskCreatorMode.live ++ Console.live
+  val env = MenuCommandParser.live ++ TaskCreator.live ++ Console.live
 
   val program = for {
     _ <- putStrLn("Beginning todo list")
@@ -17,27 +17,17 @@ object Todo extends App {
     _ <- programLoop(state)
   } yield ()
 
-  val createTask: ZIO[Console, IOException, Task] = for {
-    _ <- putStrLn("What do you need to get done?")
-    taskTitle <- getStrLn
-    _ <- putStrLn("Enter a description.")
-    taskDescription <- getStrLn
-    task = Task(taskTitle, taskDescription)
-  } yield task
-
   def programLoop(
     state: State
-  ): ZIO[MenuCommandParser.MenuCommandParser with TaskCreatorMode.TaskCreatorMode with Console, IOException, State] =
+  ): ZIO[MenuCommandParser.MenuCommandParser with TaskCreator.TaskCreator with Console, IOException, State] =
     for {
-      _ <- putStrLn("What would you like to do? (new)")
+      _ <- putStrLn("What would you like to do? (new, exit)")
       inputCommand <- getStrLn
       command <- MenuCommandParser.parse(inputCommand)
         newState <- command match {
-            case MenuCommand.NewTask => TaskCreatorMode.createTask(state = state)
-            case MenuCommand.Exit => UIO.succeed(state)
+            case MenuCommand.NewTask => TaskCreator.createTask(state = state)
             case _ => UIO.succeed(state)
         }
-        _ <- putStrLn(s"Current state is: $newState")
         _ <- if (command == MenuCommand.Exit) UIO.succeed(newState) else programLoop(newState)
     } yield newState
 
