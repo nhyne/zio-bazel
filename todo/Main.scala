@@ -34,10 +34,11 @@ object Todo extends App {
       command <- MenuCommandParser.parse(inputCommand)
         newState <- command match {
             case MenuCommand.NewTask => TaskCreatorMode.createTask(state = state)
+            case MenuCommand.Exit => UIO.succeed(state)
             case _ => UIO.succeed(state)
         }
         _ <- putStrLn(s"Current state is: $newState")
-        _ <- programLoop(newState)
+        _ <- if (command == MenuCommand.Exit) UIO.succeed(newState) else programLoop(newState)
     } yield newState
 
   def run(args: List[String]): ZIO[ZEnv, Nothing, Int] =
