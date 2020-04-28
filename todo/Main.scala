@@ -1,10 +1,10 @@
 package dev.nhyne.todo
 
-import dev.nhyne.todo.domain.{MenuCommand, State, Task, TodoList}
+import dev.nhyne.todo.domain.{MenuCommand, State}
 import dev.nhyne.todo.mode.TaskCreator
 import dev.nhyne.todo.parser.MenuCommandParser
 import zio.console.{Console, getStrLn, putStrLn}
-import zio.{App, Has, UIO, ZEnv, ZIO, ZLayer, console}
+import zio.{App, UIO, ZEnv, ZIO}
 import java.io.IOException
 
 object Todo extends App {
