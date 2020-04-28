@@ -15,6 +15,7 @@ object MenuCommandParser {
       UIO.succeed(input).map {
         case "new" => MenuCommand.NewTask
         case "exit" => MenuCommand.Exit
+        case "display" => MenuCommand.Display
         case _     => MenuCommand.Invalid
       }
   })

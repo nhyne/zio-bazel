@@ -22,12 +22,14 @@ object Todo extends App {
     state: State
   ): ZIO[programEnv, IOException, State] =
     for {
-      _ <- putStrLn("What would you like to do? (new, exit)")
+      _ <- putStrLn("What would you like to do? (new, exit, display)")
       inputCommand <- getStrLn
       command <- MenuCommandParser.parse(inputCommand)
         newState <- command match {
             case MenuCommand.NewTask => TaskCreator.createTask(state = state)
-            case _ => UIO.succeed(state)
+            case MenuCommand.Display => UIO.succeed(state).tap(x => putStrLn(s"$x"))
+            case MenuCommand.Exit => UIO.succeed(state)
+            case _ => UIO.succeed(state).tap(_ => putStrLn("Invalid Command"))
         }
         _ <- if (command == MenuCommand.Exit) UIO.succeed(newState) else programLoop(newState)
     } yield newState
