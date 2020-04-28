@@ -10,7 +10,7 @@ scala_binary(
         "Main.scala",
     ] + glob(include = [
         "domain/*.scala",
-                "mode/*.scala",
+        "mode/*.scala",
         "parser/*.scala",
     ]),
     deps = [

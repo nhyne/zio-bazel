@@ -17,5 +17,6 @@ targets:
 
 additional_languages:
   scala
+  java
 
 shard_sync: true

@@ -8,10 +8,6 @@ import dev.nhyne.todo.parser.MenuCommandParser
 import zio.console.{Console, getStrLn, putStrLn}
 import zio.{Has, UIO, ZIO, ZLayer}
 
-trait MenuMode {
-  val menuMode: MenuMode.Service
-}
-
 object MenuMode {
   trait Service {
     // This Any feels weird. Should be more specific about what requirements are needed?
@@ -30,8 +26,7 @@ object MenuMode {
       state: State
     ): ZIO[MenuMode with MenuCommandParser, Nothing, State] =
       ZIO.accessM[MenuCommandParser](_.get.parse(input) map {
-        case MenuCommand.NewTask =>
-          State.NewTask(state.getList(), None)
+        case MenuCommand.NewTask => State.NewTask(state.getList(), None)
         case MenuCommand.Invalid =>
           State.Menu(state.getList())
       })
@@ -43,11 +38,4 @@ object MenuMode {
   ): ZIO[MenuMode with MenuCommandParser, Nothing, State] =
     ZIO.accessM[MenuMode with MenuCommandParser](_.get.process(input, state))
 
-  val createTask: ZIO[Console, IOException, Task] = for {
-    _ <- putStrLn("What do you need to get done?")
-    taskTitle <- getStrLn
-    _ <- putStrLn("Enter a description.")
-    taskDescription <- getStrLn
-    task = Task(taskTitle, taskDescription)
-  } yield task
 }

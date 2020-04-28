@@ -11,7 +11,7 @@ def install_maven_deps():
             "com.beachape:enumeratum_2.12:1.5.13",
             "org.tpolecat:atto-core_2.12:0.6.5",
             "org.tpolecat:atto-refined_2.12:0.6.5",
-            "io.tryp:splain_2.12.10:0.5.1",
+            #            "io.tryp:splain_2.12.10:0.5.1",
             #            "dev.zio:zio-config_2.12:1.0.0-RC16-1",
             #            "dev.zio:zio-config-magnolia_2.12:1.0.0-RC16-1",
             #            "dev.zio:zio-config-magnolia_2.12:1.0.0-RC16-1",

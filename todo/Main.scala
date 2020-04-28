@@ -32,6 +32,7 @@ object Todo extends App {
       _ <- putStrLn("What would you like to do? (new)")
       inputCommand <- getStrLn
       command <- MenuCommandParser.parse(inputCommand)
+
 //      _ <- command match {
 //        case MenuCommand.NewTask =>
 //          for {
