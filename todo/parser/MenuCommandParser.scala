@@ -13,10 +13,10 @@ object MenuCommandParser {
   val live = ZLayer.succeed(new Service {
     def parse(input: String): UIO[MenuCommand] =
       UIO.succeed(input).map {
-        case "new" => MenuCommand.NewTask
-        case "exit" => MenuCommand.Exit
+        case "new"     => MenuCommand.NewTask
+        case "exit"    => MenuCommand.Exit
         case "display" => MenuCommand.Display
-        case _     => MenuCommand.Invalid
+        case _         => MenuCommand.Invalid
       }
   })
 
