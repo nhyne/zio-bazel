@@ -8,6 +8,7 @@ def install_maven_deps():
         artifacts = [
             "dev.zio:zio-test_2.12:1.0.0-RC18-2",
             "dev.zio:zio-test-sbt_2.12:1.0.0-RC18-2",
+            "dev.zio:zio-query_2.12:0.2.0",
             "com.beachape:enumeratum_2.12:1.5.13",
             "org.tpolecat:atto-core_2.12:0.6.5",
             "org.tpolecat:atto-refined_2.12:0.6.5",
