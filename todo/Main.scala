@@ -9,8 +9,9 @@ import java.io.IOException
 
 object Todo extends App {
 
-  val env = MenuCommandParser.live ++ TaskCreator.live ++ Console.live
+  val env = MenuCommandParser.live ++ TaskCreator.live ++ Console.live ++ PostgresConnection.live
   type programEnv = MenuCommandParser.MenuCommandParser
+    with PostgresConnection.PostgresConnection
     with TaskCreator.TaskCreator
     with Console
 
@@ -25,6 +26,7 @@ object Todo extends App {
   ): ZIO[programEnv, IOException, State] =
     for {
       _ <- putStrLn("What would you like to do? (new, exit, display)")
+      _ <- PostgresConnection.printVal()
       inputCommand <- getStrLn
       command <- MenuCommandParser.parse(inputCommand)
       newState <- command match {
