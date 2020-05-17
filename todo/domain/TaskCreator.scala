@@ -19,7 +19,11 @@ object TaskCreator {
         taskTitle <- getStrLn
         _ <- putStrLn("Enter a description.")
         taskDescription <- getStrLn
-        task = Task(taskTitle, taskDescription)
+        task = Task(
+          title = taskTitle,
+          description = taskDescription,
+          listId = 2
+        )
         newList = State.Menu(state.getList().addTask(task))
 
       } yield newList
