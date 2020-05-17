@@ -23,7 +23,7 @@ object PostgresConnection {
 
   val live = ZLayer.succeed(new Service {
     override def printVal(): ZIO[PostgresConnection, IOException, Unit] = {
-      val program1 = 42.pure[ConnectionIO]
+      val program1 = sql"select name from todo_lists".query[String].unique
       implicit val cs = IO.contextShift(ExecutionContexts.synchronous)
       val xa = Transactor.fromDriverManager[IO](
         "org.postgresql.Driver",

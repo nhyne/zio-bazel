@@ -14,6 +14,8 @@ scala_binary(
         "parser/*.scala",
     ]),
     deps = [
+        "@scala_2_12//:com_chuusai_shapeless_2_12",
+        "@scala_2_12//:com_lihaoyi_sourcecode_2_12",
         "@scala_2_12//:dev_zio_izumi_reflect_2_12",
         "@scala_2_12//:dev_zio_zio_2_12",
         "@scala_2_12//:dev_zio_zio_query_2_12",
