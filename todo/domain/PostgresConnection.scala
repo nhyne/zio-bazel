@@ -56,17 +56,9 @@ object PostgresConnection {
     ] = {
       val statement =
         sql"insert into tasks (title, description, completed, list_id) values (${task.title}, ${task.description}, ${task.completed}, ${task.listId})".update
-      implicit val cs = IO.contextShift(ExecutionContexts.synchronous)
-      val xa = Transactor.fromDriverManager[IO](
-        "org.postgresql.Driver",
-        "jdbc:postgresql:todo",
-        "todo",
-        "password"
-      )
-      val io = statement.run.transact(xa)
-      val something = io.unsafeRunSync
+      val result = statement.run.transact(xa).unsafeRunSync
       for {
-        _ <- putStrLn(s"$something")
+        _ <- putStrLn(s"$result")
       } yield ()
 
     }
@@ -80,17 +72,9 @@ object PostgresConnection {
     ] = {
       val statement =
         sql"insert into todo_lists (name) values (${list.name})".update
-      implicit val cs = IO.contextShift(ExecutionContexts.synchronous)
-      val xa = Transactor.fromDriverManager[IO](
-        "org.postgresql.Driver",
-        "jdbc:postgresql:todo",
-        "todo",
-        "password"
-      )
-      val io = statement.run.transact(xa)
-      val something = io.unsafeRunSync
+      val result = statement.run.transact(xa).unsafeRunSync
       for {
-        _ <- putStrLn(s"$something")
+        _ <- putStrLn(s"$result")
       } yield ()
     }
 
@@ -114,7 +98,8 @@ object PostgresConnection {
 
   case class GetTodoItem(id: Int) extends Request[Nothing, String]
 
-  lazy val TodoItemDataSource =
+  lazy val TodoItemDataSource
+      : DataSource.Batched[PostgresConnection, GetTodoItem] =
     new DataSource.Batched[PostgresConnection, GetTodoItem] {
       override val identifier: String = "TodoItemDataSource"
       def run(
@@ -143,6 +128,15 @@ object PostgresConnection {
         result.either.map(resultMap.insert(request))
       case batch =>
         val result: Task[List[(Int, String)]] = ???
+//        {
+//            val ids = batch.map(_.id)
+//           val program1 =
+//            sql"select id, name from todo_lists where id in $ids"
+//              .query[(Int, String)]
+//               .to[List]
+//          val io = program1.transact(xa)
+//          Task.succeed(io.unsafeRunSync)
+//        }
         result.fold(
           err =>
             requests.foldLeft(resultMap) {
