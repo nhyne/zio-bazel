@@ -17,7 +17,7 @@ import dev.nhyne.todo.domain.TodoList
 object PostgresConnection {
 
   trait Service {
-    def printVal(): ZIO[PostgresConnection, IOException, Unit]
+    def printVal(): ZIO[PostgresConnection, Nothing, String]
 
 //      def getList(id: Int): ZIO[PostgresConnection, IOException, TodoList]
 
@@ -33,21 +33,8 @@ object PostgresConnection {
   type PostgresConnection = Has[Service] with Console
 
   val live = ZLayer.succeed(new Service {
-    override def printVal(): ZIO[PostgresConnection, IOException, Unit] = {
-      val program1 = sql"select name from todo_lists".query[String].unique
-      implicit val cs = IO.contextShift(ExecutionContexts.synchronous)
-      val xa = Transactor.fromDriverManager[IO](
-        "org.postgresql.Driver",
-        "jdbc:postgresql:todo",
-        "todo",
-        "password"
-      )
-      val io = program1.transact(xa)
-      val something = io.unsafeRunSync
-
-      for {
-        _ <- putStrLn(s"$something")
-      } yield ()
+    override def printVal(): ZIO[PostgresConnection, Nothing, String] = {
+      getTodoItemById(2).run
     }
 
     override def insertTask(
@@ -99,7 +86,7 @@ object PostgresConnection {
 
   })
 
-  def printVal(): ZIO[PostgresConnection, IOException, Unit] = {
+  def printVal(): ZIO[PostgresConnection, Nothing, String] = {
     ZIO.accessM[PostgresConnection](_.get.printVal())
   }
 
@@ -117,23 +104,36 @@ object PostgresConnection {
 
   case class GetTodoItem(id: Int) extends Request[Nothing, String]
 
-  lazy val TodoItemDataSource = new DataSource.Batched[Any, GetTodoItem] {
-    override val identifier: String = "TodoItemDataSource"
-    def run(
-        requests: Chunk[GetTodoItem]
-    ): ZIO[Any, Nothing, CompletedRequestMap] = ???
-  }
+  lazy val TodoItemDataSource =
+    new DataSource.Batched[PostgresConnection, GetTodoItem] {
+      override val identifier: String = "TodoItemDataSource"
+      def run(
+          requests: Chunk[GetTodoItem]
+      ): ZIO[PostgresConnection, Nothing, CompletedRequestMap] =
+        PostgresConnection.run(requests)
+    }
 
-  def getTodoItemById(id: Int): ZQuery[Any, Nothing, String] =
+  def getTodoItemById(id: Int): ZQuery[PostgresConnection, Nothing, String] =
     ZQuery.fromRequest(GetTodoItem(id))(TodoItemDataSource)
 
   def run(
       requests: Chunk[GetTodoItem]
-  ): ZIO[Any, Nothing, CompletedRequestMap] = {
+  ): ZIO[PostgresConnection, Nothing, CompletedRequestMap] = {
     val resultMap = CompletedRequestMap.empty
     requests.toList match {
       case request :: Nil =>
-        val result: Task[String] = ???
+        val result: Task[String] = {
+          val program1 = sql"select name from todo_lists".query[String].unique
+          implicit val cs = IO.contextShift(ExecutionContexts.synchronous)
+          val xa = Transactor.fromDriverManager[IO](
+            "org.postgresql.Driver",
+            "jdbc:postgresql:todo",
+            "todo",
+            "password"
+          )
+          val io = program1.transact(xa)
+          Task.succeed(io.unsafeRunSync)
+        }
         result.either.map(resultMap.insert(request))
       case batch =>
         val result: Task[List[(Int, String)]] = ???

@@ -26,13 +26,8 @@ object Todo extends App {
   ): ZIO[programEnv, IOException, State] =
     for {
       _ <- putStrLn("What would you like to do? (new, exit, display)")
-      _ <- PostgresConnection.insertTask(
-        dev.nhyne.todo.domain.Task(
-          title = "something",
-          description = "cool",
-          listId = 2
-        )
-      )
+      something <- PostgresConnection.printVal()
+      _ <- putStrLn(something)
       inputCommand <- getStrLn
       command <- MenuCommandParser.parse(inputCommand)
       newState <- command match {
