@@ -16,8 +16,16 @@ import dev.nhyne.todo.domain.TodoList
 
 object PostgresConnection {
 
-  trait Service {
-    def printVal(): ZIO[PostgresConnection, Nothing, String]
+    implicit val cs = IO.contextShift(ExecutionContexts.synchronous)
+    val xa = Transactor.fromDriverManager[IO](
+        "org.postgresql.Driver",
+        "jdbc:postgresql:todo",
+        "todo",
+        "password"
+    )
+
+    trait Service {
+        def printVal(): ZIO[PostgresConnection, Nothing, String]
 
 //      def getList(id: Int): ZIO[PostgresConnection, IOException, TodoList]
 
@@ -123,14 +131,7 @@ object PostgresConnection {
     requests.toList match {
       case request :: Nil =>
         val result: Task[String] = {
-          val program1 = sql"select name from todo_lists".query[String].unique
-          implicit val cs = IO.contextShift(ExecutionContexts.synchronous)
-          val xa = Transactor.fromDriverManager[IO](
-            "org.postgresql.Driver",
-            "jdbc:postgresql:todo",
-            "todo",
-            "password"
-          )
+          val program1 = sql"select name from todo_lists where id = ${request.id}".query[String].unique
           val io = program1.transact(xa)
           Task.succeed(io.unsafeRunSync)
         }
