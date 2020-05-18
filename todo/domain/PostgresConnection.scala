@@ -16,16 +16,16 @@ import dev.nhyne.todo.domain.TodoList
 
 object PostgresConnection {
 
-    implicit val cs = IO.contextShift(ExecutionContexts.synchronous)
-    val xa = Transactor.fromDriverManager[IO](
-        "org.postgresql.Driver",
-        "jdbc:postgresql:todo",
-        "todo",
-        "password"
-    )
+  implicit val cs = IO.contextShift(ExecutionContexts.synchronous)
+  val xa = Transactor.fromDriverManager[IO](
+    "org.postgresql.Driver",
+    "jdbc:postgresql:todo",
+    "todo",
+    "password"
+  )
 
-    trait Service {
-        def printVal(): ZIO[PostgresConnection, Nothing, String]
+  trait Service {
+    def getTodoListName(id: Int): ZIO[PostgresConnection, Nothing, String]
 
 //      def getList(id: Int): ZIO[PostgresConnection, IOException, TodoList]
 
@@ -41,8 +41,10 @@ object PostgresConnection {
   type PostgresConnection = Has[Service] with Console
 
   val live = ZLayer.succeed(new Service {
-    override def printVal(): ZIO[PostgresConnection, Nothing, String] = {
-      getTodoItemById(2).run
+    override def getTodoListName(
+        id: Int
+    ): ZIO[PostgresConnection, Nothing, String] = {
+      getTodoItemById(id).run
     }
 
     override def insertTask(
@@ -94,8 +96,8 @@ object PostgresConnection {
 
   })
 
-  def printVal(): ZIO[PostgresConnection, Nothing, String] = {
-    ZIO.accessM[PostgresConnection](_.get.printVal())
+  def getTodoListName(id: Int): ZIO[PostgresConnection, Nothing, String] = {
+    ZIO.accessM[PostgresConnection](_.get.getTodoListName(id))
   }
 
   def insertTask(
@@ -131,7 +133,10 @@ object PostgresConnection {
     requests.toList match {
       case request :: Nil =>
         val result: Task[String] = {
-          val program1 = sql"select name from todo_lists where id = ${request.id}".query[String].unique
+          val program1 =
+            sql"select name from todo_lists where id = ${request.id}"
+              .query[String]
+              .unique
           val io = program1.transact(xa)
           Task.succeed(io.unsafeRunSync)
         }

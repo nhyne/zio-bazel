@@ -26,7 +26,7 @@ object Todo extends App {
   ): ZIO[programEnv, IOException, State] =
     for {
       _ <- putStrLn("What would you like to do? (new, exit, display)")
-      something <- PostgresConnection.printVal()
+      something <- PostgresConnection.getTodoListName(2)
       _ <- putStrLn(something)
       inputCommand <- getStrLn
       command <- MenuCommandParser.parse(inputCommand)
