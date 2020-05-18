@@ -24,6 +24,10 @@ object PostgresConnection {
     def insertTask(
         task: dev.nhyne.todo.domain.Task
     ): ZIO[PostgresConnection, IOException, Unit]
+
+    def insertTodoList(
+        list: TodoList
+    ): ZIO[PostgresConnection, IOException, Unit]
   }
 
   type PostgresConnection = Has[Service] with Console
@@ -70,6 +74,29 @@ object PostgresConnection {
 
     }
 
+    override def insertTodoList(
+        list: _root_.dev.nhyne.todo.domain.TodoList
+    ): _root_.zio.ZIO[
+      _root_.dev.nhyne.todo.PostgresConnection.PostgresConnection,
+      _root_.java.io.IOException,
+      Unit
+    ] = {
+      val statement =
+        sql"insert into todo_lists (name) values (${list.name})".update
+      implicit val cs = IO.contextShift(ExecutionContexts.synchronous)
+      val xa = Transactor.fromDriverManager[IO](
+        "org.postgresql.Driver",
+        "jdbc:postgresql:todo",
+        "todo",
+        "password"
+      )
+      val io = statement.run.transact(xa)
+      val something = io.unsafeRunSync
+      for {
+        _ <- putStrLn(s"$something")
+      } yield ()
+    }
+
   })
 
   def printVal(): ZIO[PostgresConnection, IOException, Unit] = {
@@ -80,6 +107,12 @@ object PostgresConnection {
       task: dev.nhyne.todo.domain.Task
   ): ZIO[PostgresConnection, IOException, Unit] = {
     ZIO.accessM[PostgresConnection](_.get.insertTask(task))
+  }
+
+  def insertTodoList(
+      list: TodoList
+  ): ZIO[PostgresConnection, IOException, Unit] = {
+    ZIO.accessM[PostgresConnection](_.get.insertTodoList(list))
   }
 
   case class GetTodoItem(id: Int) extends Request[Nothing, String]
