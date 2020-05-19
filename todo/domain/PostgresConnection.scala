@@ -30,7 +30,7 @@ object PostgresConnection {
 //      def getList(id: Int): ZIO[PostgresConnection, IOException, TodoList]
 
     def insertTask(
-        task: dev.nhyne.todo.domain.Task
+        task: dev.nhyne.todo.domain.TodoItem
     ): ZIO[PostgresConnection, IOException, Unit]
 
     def insertTodoList(
@@ -48,7 +48,7 @@ object PostgresConnection {
     }
 
     override def insertTask(
-        task: _root_.dev.nhyne.todo.domain.Task
+        task: _root_.dev.nhyne.todo.domain.TodoItem
     ): _root_.zio.ZIO[
       _root_.dev.nhyne.todo.PostgresConnection.PostgresConnection,
       _root_.java.io.IOException,
@@ -85,7 +85,7 @@ object PostgresConnection {
   }
 
   def insertTask(
-      task: dev.nhyne.todo.domain.Task
+      task: dev.nhyne.todo.domain.TodoItem
   ): ZIO[PostgresConnection, IOException, Unit] = {
     ZIO.accessM[PostgresConnection](_.get.insertTask(task))
   }

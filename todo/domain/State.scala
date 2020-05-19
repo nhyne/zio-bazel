@@ -7,7 +7,8 @@ sealed trait State {
 }
 
 object State {
-  final case class NewTask(list: TodoList, task: Option[Task]) extends State {
+  final case class NewTask(list: TodoList, task: Option[TodoItem])
+      extends State {
     def getList() = list
   }
 

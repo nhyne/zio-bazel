@@ -1,11 +1,11 @@
 package dev.nhyne.todo.mode
 
-import dev.nhyne.todo.domain.{State, Task}
+import dev.nhyne.todo.domain.{State, TodoItem}
 import zio.{Has, ZIO, ZLayer}
 import zio.console.{Console, getStrLn, putStrLn}
 import java.io.IOException
 
-object TaskCreator {
+object TodoItemCreator {
   trait Service {
     def createTask(state: State): ZIO[TaskCreator, IOException, State]
   }
@@ -19,7 +19,7 @@ object TaskCreator {
         taskTitle <- getStrLn
         _ <- putStrLn("Enter a description.")
         taskDescription <- getStrLn
-        task = Task(
+        task = TodoItem(
           title = taskTitle,
           description = taskDescription,
           listId = 2

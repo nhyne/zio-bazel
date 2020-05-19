@@ -20,6 +20,7 @@ def install_maven_deps():
             "org.http4s:http4s-blaze-server_2.12:0.21.1",
             "org.http4s:http4s-circe_2.12:0.21.1",
             "org.http4s:http4s-dsl_2.12:0.21.1",
+            "com.github.pureconfig:pureconfig_2.12:0.12.3",
             #            "io.tryp:splain_2.12.10:0.5.1",
         ],
         repositories = [

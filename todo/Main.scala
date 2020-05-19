@@ -1,7 +1,7 @@
 package dev.nhyne.todo
 
 import dev.nhyne.todo.domain.{MenuCommand, State}
-import dev.nhyne.todo.mode.TaskCreator
+import dev.nhyne.todo.mode.TodoItemCreator
 import dev.nhyne.todo.parser.MenuCommandParser
 import zio.console.{Console, getStrLn, putStrLn}
 import zio.{App, UIO, ZEnv, ZIO}
@@ -9,10 +9,10 @@ import java.io.IOException
 
 object Todo extends App {
 
-  val env = MenuCommandParser.live ++ TaskCreator.live ++ Console.live ++ PostgresConnection.live
+  val env = MenuCommandParser.live ++ TodoItemCreator.live ++ Console.live ++ PostgresConnection.live
   type programEnv = MenuCommandParser.MenuCommandParser
     with PostgresConnection.PostgresConnection
-    with TaskCreator.TaskCreator
+    with TodoItemCreator.TaskCreator
     with Console
 
   val program = for {
@@ -31,7 +31,7 @@ object Todo extends App {
       inputCommand <- getStrLn
       command <- MenuCommandParser.parse(inputCommand)
       newState <- command match {
-        case MenuCommand.NewTask => TaskCreator.createTask(state = state)
+        case MenuCommand.NewTask => TodoItemCreator.createTask(state = state)
         case MenuCommand.Display => UIO.succeed(state).tap(x => putStrLn(s"$x"))
         case MenuCommand.Exit    => UIO.succeed(state)
         case _                   => UIO.succeed(state).tap(_ => putStrLn("Invalid Command"))
