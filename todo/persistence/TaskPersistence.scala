@@ -1,10 +1,13 @@
 package dev.nhyne.todo.persistence
 
+import dev.nhyne.todo.configuration.DbConfig
 import doobie.{Query0, Transactor, Update0}
 import zio._
 import doobie.implicits._
 import zio.interop.catz._
 import dev.nhyne.todo.domain.{TodoItem, TodoItemNotFound}
+
+import scala.concurrent.ExecutionContext
 
 final class TaskPersistence(tnx: Transactor[Task])
     extends Persistence.Service[TodoItem] {
@@ -52,6 +55,25 @@ object TaskPersistence {
 
     def delete(id: Int): Update0 =
       sql"""DELETE FROM TASKS WHERE id = $id""".update
+  }
+
+  def mkTransactor(
+      conf: DbConfig,
+      connectEC: ExecutionContext,
+      transactEC: ExecutionContext
+  ) = {
+    val managedTransactor = Managed.fromEffect(
+      // TODO: Is this a reasonable call?
+      Task.apply(
+        Transactor.fromDriverManager[Task](
+          driver = "org.postgresql.Driver",
+          url = conf.url,
+          user = conf.user,
+          pass = conf.password
+        )
+      )
+    )
+    managedTransactor.map(new TaskPersistence(_))
   }
 
 }

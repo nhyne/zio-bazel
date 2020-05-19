@@ -5,7 +5,6 @@ import zio.query.{CompletedRequestMap, DataSource, Request, ZQuery}
 import doobie._
 import doobie.implicits._
 import doobie.util.ExecutionContexts
-import doobie.postgres.pgisimplicits._
 import cats._
 import cats.effect._
 import cats.implicits._
