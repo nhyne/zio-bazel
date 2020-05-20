@@ -1,17 +1,21 @@
 package dev.nhyne.todo.persistence
 
-import dev.nhyne.todo.configuration.DbConfig
+import dev.nhyne.todo.configuration.Configuration.Configuration
+import dev.nhyne.todo.configuration.{Configuration, DbConfig}
 import doobie.{Query0, Transactor, Update0}
 import zio._
 import doobie.implicits._
 import zio.interop.catz._
 import dev.nhyne.todo.domain.{TodoItem, TodoItemNotFound}
+import zio.blocking.Blocking
 
 import scala.concurrent.ExecutionContext
 
-final class TaskPersistence(tnx: Transactor[Task])
+final class TodoItemPersistenceService(tnx: Transactor[Task])
     extends Persistence.Service[TodoItem] {
-  import TaskPersistence._
+  import TodoItemPersistenceService._
+
+
 
   override def get(id: Int): Task[TodoItem] =
     SQL
@@ -45,7 +49,20 @@ final class TaskPersistence(tnx: Transactor[Task])
       )
 }
 
-object TaskPersistence {
+object TodoItemPersistenceService {
+
+    type TaskPersistence = Has[Persistence.Service[TodoItem]]
+
+    val live: ZLayer[Configuration with Blocking, Throwable, TaskPersistence] =
+        ZLayer.fromManaged(
+            for {
+                config <- Configuration.load.toManaged_
+                connectEC <- ZIO.descriptor.map(_.executor.asEC).toManaged_
+                blockingEc <- ZIO.access[Blocking](_.get.blockingExecutor.asEC).toManaged_
+                managed <- mkTransactor(config.dbConfig, connectEC, blockingEc)
+            } yield managed
+        )
+
   object SQL {
     def get(id: Int): Query0[TodoItem] =
       sql"""SELECT * FROM TASKS WHERE ID = $id""".query[TodoItem]
@@ -61,9 +78,10 @@ object TaskPersistence {
       conf: DbConfig,
       connectEC: ExecutionContext,
       transactEC: ExecutionContext
-  ) = {
+  ): Managed[Throwable, TodoItemPersistenceService] = {
     val managedTransactor = Managed.fromEffect(
-      // TODO: Is this a reasonable call?
+      // TODO: This does not have a release action but needs one
+        // Also look at other options for the Transactor including this: https://github.com/tpolecat/doobie/blob/0ce7a2eb345ac6c38addbe46ad3c320d15167937/modules/example/src/main/scala/example/HikariExample.scala
       Task.apply(
         Transactor.fromDriverManager[Task](
           driver = "org.postgresql.Driver",
@@ -73,7 +91,7 @@ object TaskPersistence {
         )
       )
     )
-    managedTransactor.map(new TaskPersistence(_))
+    managedTransactor.map(new TodoItemPersistenceService(_))
   }
 
 }
