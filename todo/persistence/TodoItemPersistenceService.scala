@@ -1,10 +1,12 @@
 package dev.nhyne.todo.persistence
 
+import cats.effect.Blocker
 import dev.nhyne.todo.configuration.Configuration.Configuration
 import dev.nhyne.todo.configuration.{Configuration, DbConfig}
 import doobie.{Query0, Transactor, Update0}
 import zio._
 import doobie.implicits._
+import doobie.hikari._
 import zio.interop.catz._
 import dev.nhyne.todo.domain.{TodoItem, TodoItemNotFound}
 import zio.blocking.Blocking
@@ -79,19 +81,21 @@ object TodoItemPersistenceService {
       connectEC: ExecutionContext,
       transactEC: ExecutionContext
   ): Managed[Throwable, TodoItemPersistenceService] = {
-    val managedTransactor = Managed.fromEffect(
-      // TODO: This does not have a release action but needs one
-        // Also look at other options for the Transactor including this: https://github.com/tpolecat/doobie/blob/0ce7a2eb345ac6c38addbe46ad3c320d15167937/modules/example/src/main/scala/example/HikariExample.scala
-      Task.apply(
-        Transactor.fromDriverManager[Task](
-          driver = "org.postgresql.Driver",
-          url = conf.url,
-          user = conf.user,
-          pass = conf.password
-        )
-      )
-    )
-    managedTransactor.map(new TodoItemPersistenceService(_))
+      val transactor =
+          for {
+              blocker <- Blocker[Task]
+              tnxr <- HikariTransactor.newHikariTransactor[Task](
+                      driverClassName = "org.postgresql.Driver",
+                      url = conf.url,
+                      user = conf.user,
+                      pass = conf.password,
+                      connectEC = connectEC,
+                      blocker = blocker
+                  )
+          } yield tnxr
+
+      transactor.toManagedZIO
+          .map(new TodoItemPersistenceService(_))
   }
 
 }

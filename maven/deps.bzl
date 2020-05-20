@@ -17,6 +17,7 @@ def install_maven_deps():
             "org.tpolecat:atto-refined_2.12:0.6.5",
             "org.tpolecat:doobie-core_2.12:0.8.8",
             "org.tpolecat:doobie-postgres_2.12:0.8.8",
+            "org.tpolecat:doobie-hikari_2.12:0.8.8",
             "org.http4s:http4s-blaze-server_2.12:0.21.1",
             "org.http4s:http4s-circe_2.12:0.21.1",
             "org.http4s:http4s-dsl_2.12:0.21.1",
@@ -29,6 +30,6 @@ def install_maven_deps():
         ],
         fetch_sources = True,
         version_conflict_policy = "pinned",
-        use_unsafe_shared_cache = True,
+        use_unsafe_shared_cache = False,
         maven_install_json = "//maven:scala_2_12_install.json",
     )
