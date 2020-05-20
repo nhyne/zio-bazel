@@ -17,8 +17,6 @@ final class TodoItemPersistenceService(tnx: Transactor[Task])
     extends Persistence.Service[TodoItem] {
   import TodoItemPersistenceService._
 
-
-
   override def get(id: Int): Task[TodoItem] =
     SQL
       .get(id)
@@ -53,17 +51,16 @@ final class TodoItemPersistenceService(tnx: Transactor[Task])
 
 object TodoItemPersistenceService {
 
-    type TaskPersistence = Has[Persistence.Service[TodoItem]]
+  type TaskPersistence = Has[Persistence.Service[TodoItem]]
 
-    val live: ZLayer[Configuration with Blocking, Throwable, TaskPersistence] =
-        ZLayer.fromManaged(
-            for {
-                config <- Configuration.load.toManaged_
-                connectEC <- ZIO.descriptor.map(_.executor.asEC).toManaged_
-                blockingEc <- ZIO.access[Blocking](_.get.blockingExecutor.asEC).toManaged_
-                managed <- mkTransactor(config.dbConfig, connectEC, blockingEc)
-            } yield managed
-        )
+  val live: ZLayer[Configuration with Blocking, Throwable, TaskPersistence] =
+    ZLayer.fromManaged(
+      for {
+        config <- Configuration.load.toManaged_
+        connectEC <- ZIO.descriptor.map(_.executor.asEC).toManaged_
+        managed <- mkTransactor(config.dbConfig, connectEC)
+      } yield managed
+    )
 
   object SQL {
     def get(id: Int): Query0[TodoItem] =
@@ -78,24 +75,23 @@ object TodoItemPersistenceService {
 
   def mkTransactor(
       conf: DbConfig,
-      connectEC: ExecutionContext,
-      transactEC: ExecutionContext
+      connectEC: ExecutionContext
   ): Managed[Throwable, TodoItemPersistenceService] = {
-      val transactor =
-          for {
-              blocker <- Blocker[Task]
-              tnxr <- HikariTransactor.newHikariTransactor[Task](
-                      driverClassName = "org.postgresql.Driver",
-                      url = conf.url,
-                      user = conf.user,
-                      pass = conf.password,
-                      connectEC = connectEC,
-                      blocker = blocker
-                  )
-          } yield tnxr
+    val transactor =
+      for {
+        blocker <- Blocker[Task]
+        tnxr <- HikariTransactor.newHikariTransactor[Task](
+          driverClassName = "org.postgresql.Driver",
+          url = conf.url,
+          user = conf.user,
+          pass = conf.password,
+          connectEC = connectEC,
+          blocker = blocker
+        )
+      } yield tnxr
 
-      transactor.toManagedZIO
-          .map(new TodoItemPersistenceService(_))
+    transactor.toManagedZIO
+      .map(new TodoItemPersistenceService(_))
   }
 
 }
