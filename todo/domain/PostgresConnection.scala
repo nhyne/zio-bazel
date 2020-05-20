@@ -4,6 +4,7 @@ import zio.{Chunk, Has, Task, ZIO, ZLayer}
 import zio.query.{CompletedRequestMap, DataSource, Request, ZQuery}
 import doobie._
 import doobie.implicits._
+import doobie.postgres.pgisimplicits._
 import doobie.util.ExecutionContexts
 import cats._
 import cats.effect._
