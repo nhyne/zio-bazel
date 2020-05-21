@@ -4,3 +4,6 @@ pin:
 
 explain:
 	bazel build --explain=explain.txt --verbose_explanations tictactoe
+
+shell:
+	nix-shell --pure
