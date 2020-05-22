@@ -9,9 +9,10 @@ scala_binary(
     name = "todo",
     srcs = [
         "Main.scala",
-        "Configuration.scala",
+        "ApiService.scala",
     ] + glob(include = [
         "domain/*.scala",
+        "configuration/*.scala",
         "parser/*.scala",
         "persistence/*.scala",
     ]),
@@ -28,6 +29,7 @@ scala_binary(
         "@scala_2_12//:dev_zio_zio_2_12",
         "@scala_2_12//:dev_zio_zio_interop_cats_2_12",
         "@scala_2_12//:dev_zio_zio_query_2_12",
+        "@scala_2_12//:io_circe_circe_core_2_12",
         "@scala_2_12//:org_tpolecat_doobie_core_2_12",
         "@scala_2_12//:org_tpolecat_doobie_free_2_12",
         "@scala_2_12//:org_tpolecat_doobie_hikari_2_12",
