@@ -2,7 +2,7 @@ package dev.nhyne.numberz
 
 import java.io.IOException
 
-import zio.random.{nextInt, Random}
+import zio.random.{nextIntBounded, Random}
 import zio.console.{Console, getStrLn, putStrLn}
 import zio.{App, ZEnv, ZIO, IO}
 import zio._
@@ -26,7 +26,7 @@ object Numberz extends App {
       numString.toInt
   }
 
-    val pickNumber = nextInt(100)
+    val pickNumber = nextIntBounded(100)
 
     val game = for {
         number <- pickNumber
