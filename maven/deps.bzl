@@ -3,6 +3,7 @@ load("@rules_jvm_external//:specs.bzl", "maven")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 
 zio_version = "1.0.0-RC18-2"
+circe_version = "0.13.0"
 
 def install_maven_deps():
     maven_install(
@@ -22,6 +23,9 @@ def install_maven_deps():
             "org.http4s:http4s-circe_2.12:0.21.1",
             "org.http4s:http4s-dsl_2.12:0.21.1",
             "com.github.pureconfig:pureconfig_2.12:0.12.3",
+            "io.circe:circe-core_2.12:{circe_version}".format(circe_version = circe_version),
+            "io.circe:circe-generic_2.12:{circe_version}".format(circe_version = circe_version),
+            "io.circe:circe-parser_2.12:{circe_version}".format(circe_version = circe_version),
             #            "io.tryp:splain_2.12.10:0.5.1",
         ],
         repositories = [
