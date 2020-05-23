@@ -2,17 +2,18 @@ package dev.nhyne.todo
 
 
 import dev.nhyne.todo.persistence.TodoItemPersistenceService
-import zio.RIO
-
+import dev.nhyne.todo.persistence.Persistence.getTodoItem
+import zio.{Has, RIO}
 import org.http4s.circe._
 import org.http4s.{EntityDecoder, EntityEncoder, HttpRoutes}
 import org.http4s.dsl.Http4sDsl
 import io.circe.{Decoder, Encoder}
 import io.circe.generic.auto._
 import persistence.TodoItemPersistenceService._
+import zio.interop.catz._
 
 
-final case class ApiService[R <: TodoItemPersistenceService](rootUri: String) {
+final case class ApiService[R <: TodoItemPersistenceService.TaskPersistence](rootUri: String) {
     type TodoTask[A] = RIO[R, A]
 
     implicit def circeJsonDecoder[A](implicit decoder: Decoder[A]): EntityDecoder[TodoTask, A] = jsonOf[TodoTask, A]
@@ -22,6 +23,8 @@ final case class ApiService[R <: TodoItemPersistenceService](rootUri: String) {
     import dsl._
 
     def route: HttpRoutes[TodoTask] = {
-        case GET -> Root / IntVar => get
+        HttpRoutes.of[TodoTask] {
+            case GET -> Root / IntVar(id) => getTodoItem(id).foldM(_ => NotFound(), Ok(_))
+        }
     }
 }

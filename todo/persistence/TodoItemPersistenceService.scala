@@ -62,6 +62,7 @@ object TodoItemPersistenceService {
       } yield managed
     )
 
+
   object SQL {
     def get(id: Int): Query0[TodoItem] =
       sql"""SELECT * FROM TASKS WHERE ID = $id""".query[TodoItem]
