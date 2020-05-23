@@ -11,11 +11,8 @@ def install_maven_deps():
         artifacts = [
             "dev.zio:zio-test_2.12:{zio_version}".format(zio_version = zio_version),
             "dev.zio:zio-test-sbt_2.12:{zio_version}".format(zio_version = zio_version),
-            "dev.zio:zio-query_2.12:0.2.0",
             "dev.zio:zio-interop-cats_2.12:2.0.0.0-RC14",
-            "com.beachape:enumeratum_2.12:1.5.13",
-            "org.tpolecat:atto-core_2.12:0.6.5",
-            "org.tpolecat:atto-refined_2.12:0.6.5",
+            "dev.zio:zio-logging_2.12:0.2.9",
             "org.tpolecat:doobie-core_2.12:0.8.8",
             "org.tpolecat:doobie-postgres_2.12:0.8.8",
             "org.tpolecat:doobie-hikari_2.12:0.8.8",
