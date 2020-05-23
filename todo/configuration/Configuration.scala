@@ -21,5 +21,5 @@ object Configuration {
 }
 
 trait Live extends Configuration.Service {
-  val load: Task[Config] = Task.effect(loadConfigOrThrow[Config])
+  val load: Task[Config] = Task.effect(ConfigSource.default.loadOrThrow[Config])
 }

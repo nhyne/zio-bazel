@@ -11,6 +11,9 @@ scala_options = [
     "-Ywarn-unused:patvars,-implicits",
     "-Ywarn-value-discard",
     "-opt-warnings",
+    "-deprecation",
+    "-feature",
+    "-Xfatal-warnings",
 ]
 
 scala_binary(
@@ -18,6 +21,7 @@ scala_binary(
     srcs = [
         "Main.scala",
         "ApiService.scala",
+        "Graphql.scala",
     ] + glob(include = [
         "domain/*.scala",
         "configuration/*.scala",
@@ -28,12 +32,18 @@ scala_binary(
         "application.conf",
     ],
     scalacopts = scala_options,
+    runtime_deps = [
+        "@scala_2_12//:org_tpolecat_doobie_postgres_2_12",
+    ],
     deps = [
         "@scala_2_12//:co_fs2_fs2_core_2_12",
         "@scala_2_12//:com_chuusai_shapeless_2_12",
+        "@scala_2_12//:com_github_ghostdogpr_caliban_2_12",
         "@scala_2_12//:com_github_pureconfig_pureconfig_core_2_12",
         "@scala_2_12//:com_github_pureconfig_pureconfig_generic_2_12",
         "@scala_2_12//:com_lihaoyi_sourcecode_2_12",
+        "@scala_2_12//:com_propensive_magnolia_2_12",
+        "@scala_2_12//:com_propensive_mercator_2_12",
         "@scala_2_12//:com_zaxxer_HikariCP",
         "@scala_2_12//:dev_zio_izumi_reflect_2_12",
         "@scala_2_12//:dev_zio_zio_2_12",
@@ -49,7 +59,6 @@ scala_binary(
         "@scala_2_12//:org_tpolecat_doobie_core_2_12",
         "@scala_2_12//:org_tpolecat_doobie_free_2_12",
         "@scala_2_12//:org_tpolecat_doobie_hikari_2_12",
-        "@scala_2_12//:org_tpolecat_doobie_postgres_2_12",
         "@scala_2_12//:org_typelevel_cats_core_2_12",
         "@scala_2_12//:org_typelevel_cats_effect_2_12",
         "@scala_2_12//:org_typelevel_cats_free_2_12",

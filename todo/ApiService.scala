@@ -1,6 +1,6 @@
 package dev.nhyne.todo
 
-import dev.nhyne.todo.domain.{TodoItem, UninsertedTodoItem}
+import dev.nhyne.todo.domain.UninsertedTodoItem
 import dev.nhyne.todo.persistence.TodoItemPersistenceService
 import dev.nhyne.todo.persistence.TodoItemPersistenceService.{
   createTodoItem,

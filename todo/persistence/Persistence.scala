@@ -1,6 +1,5 @@
 package dev.nhyne.todo.persistence
 
-import dev.nhyne.todo.domain.TodoItem
 import zio.Task
 
 object Persistence {

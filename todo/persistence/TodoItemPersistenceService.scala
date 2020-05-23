@@ -6,7 +6,6 @@ import dev.nhyne.todo.configuration.{Configuration, DbConfig}
 import doobie.{Query0, Transactor, Update0}
 import zio._
 import doobie.implicits._
-import doobie.postgres.pgisimplicits._
 import doobie.hikari._
 import zio.interop.catz._
 import dev.nhyne.todo.domain.{TodoItem, TodoItemNotFound, UninsertedTodoItem}
