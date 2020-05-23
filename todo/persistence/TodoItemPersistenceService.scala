@@ -65,6 +65,12 @@ object TodoItemPersistenceService {
   def getTodoItem(id: Int): RIO[TaskPersistence, TodoItem] =
     RIO.accessM[TaskPersistence](_.get.get(id))
 
+    def createTodoItem(task: TodoItem): RIO[TaskPersistence, TodoItem] =
+        RIO.accessM[TaskPersistence](_.get.create(task))
+
+    def deleteTodoItem(id: Int): RIO[TaskPersistence, Boolean] =
+        RIO.accessM[TaskPersistence](_.get.delete(id))
+
   object SQL {
     def get(id: Int): Query0[TodoItem] =
       sql"""SELECT * FROM TASKS WHERE ID = $id""".query[TodoItem]

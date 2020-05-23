@@ -1,7 +1,5 @@
 package dev.nhyne.todo.domain
 
-import java.io.IOException
-
 sealed trait State {
   def getList(): TodoList
 }

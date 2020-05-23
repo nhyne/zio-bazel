@@ -1,50 +1,47 @@
 package dev.nhyne.todo
 
-import dev.nhyne.todo.domain.{MenuCommand, State}
-import dev.nhyne.todo.mode.TodoItemCreator
-import dev.nhyne.todo.parser.MenuCommandParser
-import zio.console.{Console, getStrLn, putStrLn}
-import zio.{App, UIO, ZEnv, ZIO}
-import java.io.IOException
+import zio.console.putStrLn
+import zio.{App, RIO, ZEnv, ZIO}
 
-object Todo extends App {
+import cats.effect.ExitCode
+import dev.nhyne.todo.configuration.Configuration
+import dev.nhyne.todo.configuration.Configuration.Configuration
+import dev.nhyne.todo.persistence.TodoItemPersistenceService
+import dev.nhyne.todo.persistence.TodoItemPersistenceService.TaskPersistence
+import zio.clock.Clock
+import org.http4s.server.Router
+import org.http4s.server.middleware.CORS
+import org.http4s.implicits._
+import zio.interop.catz._
+import org.http4s.server.blaze.BlazeServerBuilder
+import zio.blocking.Blocking
 
-  val env = MenuCommandParser.live ++ TodoItemCreator.live ++ Console.live ++ PostgresConnection.live
-  type programEnv = MenuCommandParser.MenuCommandParser
-    with PostgresConnection.PostgresConnection
-    with TodoItemCreator.TaskCreator
-    with Console
+object Main extends App {
 
-  val program = for {
-    _ <- putStrLn("Beginning todo list")
-    state = State.default()
-    _ <- programLoop(state)
-  } yield ()
+val todoPersistence = (Configuration.live ++ Blocking.live) >>> TodoItemPersistenceService.live
+  type ProgramEnv = Configuration with Clock with TaskPersistence
 
-  def programLoop(
-      state: State
-  ): ZIO[programEnv, IOException, State] =
-    for {
-      _ <- putStrLn("What would you like to do? (new, exit, display)")
-      something <- PostgresConnection.getTodoListName(2)
-      _ <- putStrLn(something)
-      inputCommand <- getStrLn
-      command <- MenuCommandParser.parse(inputCommand)
-      newState <- command match {
-        case MenuCommand.NewTask => TodoItemCreator.createTask(state = state)
-        case MenuCommand.Display => UIO.succeed(state).tap(x => putStrLn(s"$x"))
-        case MenuCommand.Exit    => UIO.succeed(state)
-        case _                   => UIO.succeed(state).tap(_ => putStrLn("Invalid Command"))
-      }
-      _ <- if (command == MenuCommand.Exit) UIO.succeed(newState)
-      else programLoop(newState)
-    } yield newState
+    type AppTask[A] = RIO[ProgramEnv, A]
 
-  def run(args: List[String]): ZIO[ZEnv, Nothing, Int] =
-    (for {
-      out <- program
-        .foldM(_ => UIO.succeed(1), _ => UIO.succeed(0))
-    } yield out)
-      .provideCustomLayer(env)
+  def run(args: List[String]): ZIO[ZEnv, Nothing, Int] = {
+      val program : ZIO[ProgramEnv, Throwable, Unit] = for {
+          config <- Configuration.load
+          httpApp = Router[AppTask](
+              "/todos" -> ApiService(s"${config.api.endpoint}/todos").route
+          ).orNotFound
+          server <- ZIO.runtime[ProgramEnv].flatMap( implicit rts =>
+            BlazeServerBuilder[AppTask]
+              .bindHttp(config.api.port, config.api.endpoint)
+              .withHttpApp(CORS(httpApp))
+              .serve
+              .compile[AppTask, AppTask, ExitCode]
+              .drain
+          )
+      } yield server
+
+      program.provideSomeLayer[ZEnv](Configuration.live ++ todoPersistence)
+          .tapError(err => putStrLn(s"Execution failed with: $err"))
+          .fold(_ => 1, _ => 0)
+  }
 
 }

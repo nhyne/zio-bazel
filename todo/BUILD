@@ -5,6 +5,14 @@ load(
 )
 load("@rules_scala_annex//rules:scalafmt.bzl", "scala_format_test")
 
+scala_options = [
+    "-Xlint",
+    "-Ywarn-extra-implicit",
+    "-Ywarn-unused:patvars,-implicits",
+    "-Ywarn-value-discard",
+    "-opt-warnings",
+]
+
 scala_binary(
     name = "todo",
     srcs = [
@@ -16,10 +24,13 @@ scala_binary(
         "parser/*.scala",
         "persistence/*.scala",
     ]),
+    resource_strip_prefix = package_name(),
     resources = [
         "application.conf",
     ],
+    scalacopts = scala_options,
     deps = [
+        "@scala_2_12//:co_fs2_fs2_core_2_12",
         "@scala_2_12//:com_chuusai_shapeless_2_12",
         "@scala_2_12//:com_github_pureconfig_pureconfig_core_2_12",
         "@scala_2_12//:com_github_pureconfig_pureconfig_generic_2_12",
@@ -28,16 +39,16 @@ scala_binary(
         "@scala_2_12//:dev_zio_izumi_reflect_2_12",
         "@scala_2_12//:dev_zio_zio_2_12",
         "@scala_2_12//:dev_zio_zio_interop_cats_2_12",
-        "@scala_2_12//:dev_zio_zio_query_2_12",
         "@scala_2_12//:io_circe_circe_core_2_12",
         "@scala_2_12//:io_circe_circe_generic_2_12",
+        "@scala_2_12//:org_http4s_http4s_blaze_server_2_12",
         "@scala_2_12//:org_http4s_http4s_circe_2_12",
         "@scala_2_12//:org_http4s_http4s_core_2_12",
         "@scala_2_12//:org_http4s_http4s_dsl_2_12",
+        "@scala_2_12//:org_http4s_http4s_server_2_12",
         "@scala_2_12//:org_tpolecat_doobie_core_2_12",
         "@scala_2_12//:org_tpolecat_doobie_free_2_12",
         "@scala_2_12//:org_tpolecat_doobie_hikari_2_12",
-        "@scala_2_12//:org_tpolecat_doobie_postgres_2_12",
         "@scala_2_12//:org_typelevel_cats_core_2_12",
         "@scala_2_12//:org_typelevel_cats_effect_2_12",
         "@scala_2_12//:org_typelevel_cats_free_2_12",
