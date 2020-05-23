@@ -9,13 +9,13 @@ import doobie.implicits._
 import doobie.postgres.pgisimplicits._
 import doobie.hikari._
 import zio.interop.catz._
-import dev.nhyne.todo.domain.{TodoItem, TodoItemNotFound}
+import dev.nhyne.todo.domain.{TodoItem, TodoItemNotFound, UninsertedTodoItem}
 import zio.blocking.Blocking
 
 import scala.concurrent.ExecutionContext
 
 final class TodoItemPersistenceService(tnx: Transactor[Task])
-    extends Persistence.Service[TodoItem] {
+    extends Persistence.Service[TodoItem, UninsertedTodoItem] {
   import TodoItemPersistenceService._
 
   override def get(id: Int): Task[TodoItem] =
@@ -29,14 +29,23 @@ final class TodoItemPersistenceService(tnx: Transactor[Task])
           Task.require(TodoItemNotFound(id))(Task.succeed(maybeTodoItem))
       )
 
-  override def create(todo: TodoItem): Task[TodoItem] =
+  override def create(todo: UninsertedTodoItem): Task[TodoItem] =
     SQL
       .create(todo)
-      .run
+      .withUniqueGeneratedKeys[TodoItem](
+        "id",
+        "title",
+        "description",
+        "completed",
+        "list_id"
+      )
       .transact(tnx)
       .foldM(
-        err => Task.fail(err),
-        _ => Task.succeed(todo)
+        err => {
+          println(s"Error: $err")
+          Task.fail(err)
+        },
+        todo => Task.succeed(todo)
       )
 
   override def delete(id: Int): Task[Boolean] =
@@ -52,7 +61,7 @@ final class TodoItemPersistenceService(tnx: Transactor[Task])
 
 object TodoItemPersistenceService {
 
-  type TaskPersistence = Has[Persistence.Service[TodoItem]]
+  type TaskPersistence = Has[Persistence.Service[TodoItem, UninsertedTodoItem]]
 
   val live: ZLayer[
     Configuration with Blocking,
@@ -70,7 +79,7 @@ object TodoItemPersistenceService {
   def getTodoItem(id: Int): RIO[TaskPersistence, TodoItem] =
     RIO.accessM[TaskPersistence](_.get.get(id))
 
-  def createTodoItem(task: TodoItem): RIO[TaskPersistence, TodoItem] =
+  def createTodoItem(task: UninsertedTodoItem): RIO[TaskPersistence, TodoItem] =
     RIO.accessM[TaskPersistence](_.get.create(task))
 
   def deleteTodoItem(id: Int): RIO[TaskPersistence, Boolean] =
@@ -80,7 +89,7 @@ object TodoItemPersistenceService {
     def get(id: Int): Query0[TodoItem] =
       sql"""SELECT * FROM TASKS WHERE ID = $id""".query[TodoItem]
 
-    def create(task: TodoItem): Update0 =
+    def create(task: UninsertedTodoItem): Update0 =
       sql"""INSERT INTO TASKS (title, description, list_id) VALUES (${task.title}, ${task.description}, 2)""".update
 
     def delete(id: Int): Update0 =

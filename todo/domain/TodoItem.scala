@@ -1,5 +1,12 @@
 package dev.nhyne.todo.domain
 
+final case class UninsertedTodoItem(
+    title: String,
+    description: Option[String],
+    completed: Boolean = false,
+    listId: Int
+)
+
 final case class TodoItem(
     id: Int,
     title: String,

@@ -1,6 +1,6 @@
 package dev.nhyne.todo
 
-import dev.nhyne.todo.domain.TodoItem
+import dev.nhyne.todo.domain.{TodoItem, UninsertedTodoItem}
 import dev.nhyne.todo.persistence.TodoItemPersistenceService
 import dev.nhyne.todo.persistence.TodoItemPersistenceService.{
   createTodoItem,
@@ -38,10 +38,7 @@ final case class ApiService[R <: TodoItemPersistenceService.TaskPersistence](
       case DELETE -> Root / IntVar(id) =>
         deleteTodoItem(id).foldM(_ => NotFound(), Ok(_))
       case request @ POST -> Root =>
-        request.decode[TodoItem] { todo =>
-          println(
-            "----------------------------------------------------------------------------------------"
-          )
+        request.decode[UninsertedTodoItem] { todo =>
           Created(createTodoItem(todo))
         }
     }
