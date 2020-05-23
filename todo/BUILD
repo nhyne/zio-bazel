@@ -21,7 +21,7 @@ scala_binary(
     srcs = [
         "Main.scala",
         "ApiService.scala",
-        "Graphql.scala",
+        "GraphqlService.scala",
     ] + glob(include = [
         "domain/*.scala",
         "configuration/*.scala",
@@ -39,6 +39,7 @@ scala_binary(
         "@scala_2_12//:co_fs2_fs2_core_2_12",
         "@scala_2_12//:com_chuusai_shapeless_2_12",
         "@scala_2_12//:com_github_ghostdogpr_caliban_2_12",
+        "@scala_2_12//:com_github_ghostdogpr_caliban_http4s_2_12",
         "@scala_2_12//:com_github_pureconfig_pureconfig_core_2_12",
         "@scala_2_12//:com_github_pureconfig_pureconfig_generic_2_12",
         "@scala_2_12//:com_lihaoyi_sourcecode_2_12",
