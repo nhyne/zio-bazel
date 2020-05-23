@@ -2,7 +2,11 @@ package dev.nhyne.todo
 
 import dev.nhyne.todo.domain.TodoItem
 import dev.nhyne.todo.persistence.TodoItemPersistenceService
-import dev.nhyne.todo.persistence.TodoItemPersistenceService.{createTodoItem, deleteTodoItem, getTodoItem}
+import dev.nhyne.todo.persistence.TodoItemPersistenceService.{
+  createTodoItem,
+  deleteTodoItem,
+  getTodoItem
+}
 import zio.RIO
 import org.http4s.circe._
 import org.http4s.{EntityDecoder, EntityEncoder, HttpRoutes}
@@ -32,11 +36,11 @@ final case class ApiService[R <: TodoItemPersistenceService.TaskPersistence](
       case GET -> Root / IntVar(id) =>
         getTodoItem(id).foldM(_ => NotFound(), Ok(_))
       case DELETE -> Root / IntVar(id) =>
-            deleteTodoItem(id).foldM(_ => NotFound(), Ok(_))
+        deleteTodoItem(id).foldM(_ => NotFound(), Ok(_))
       case request @ POST -> Root =>
-            request.decode[TodoItem] { todo =>
-                Created(createTodoItem(todo))
-            }
+        request.decode[TodoItem] { todo =>
+          Created(createTodoItem(todo))
+        }
     }
   }
 }

@@ -6,6 +6,7 @@ import dev.nhyne.todo.configuration.{Configuration, DbConfig}
 import doobie.{Query0, Transactor, Update0}
 import zio._
 import doobie.implicits._
+import doobie.postgres.pgisimplicits._
 import doobie.hikari._
 import zio.interop.catz._
 import dev.nhyne.todo.domain.{TodoItem, TodoItemNotFound}
@@ -65,11 +66,11 @@ object TodoItemPersistenceService {
   def getTodoItem(id: Int): RIO[TaskPersistence, TodoItem] =
     RIO.accessM[TaskPersistence](_.get.get(id))
 
-    def createTodoItem(task: TodoItem): RIO[TaskPersistence, TodoItem] =
-        RIO.accessM[TaskPersistence](_.get.create(task))
+  def createTodoItem(task: TodoItem): RIO[TaskPersistence, TodoItem] =
+    RIO.accessM[TaskPersistence](_.get.create(task))
 
-    def deleteTodoItem(id: Int): RIO[TaskPersistence, Boolean] =
-        RIO.accessM[TaskPersistence](_.get.delete(id))
+  def deleteTodoItem(id: Int): RIO[TaskPersistence, Boolean] =
+    RIO.accessM[TaskPersistence](_.get.delete(id))
 
   object SQL {
     def get(id: Int): Query0[TodoItem] =

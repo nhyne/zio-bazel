@@ -18,30 +18,33 @@ import zio.blocking.Blocking
 
 object Main extends App {
 
-val todoPersistence = (Configuration.live ++ Blocking.live) >>> TodoItemPersistenceService.live
+  val todoPersistence = (Configuration.live ++ Blocking.live) >>> TodoItemPersistenceService.live
   type ProgramEnv = Configuration with Clock with TaskPersistence
 
-    type AppTask[A] = RIO[ProgramEnv, A]
+  type AppTask[A] = RIO[ProgramEnv, A]
 
   def run(args: List[String]): ZIO[ZEnv, Nothing, Int] = {
-      val program : ZIO[ProgramEnv, Throwable, Unit] = for {
-          config <- Configuration.load
-          httpApp = Router[AppTask](
-              "/todos" -> ApiService(s"${config.api.endpoint}/todos").route
-          ).orNotFound
-          server <- ZIO.runtime[ProgramEnv].flatMap( implicit rts =>
-            BlazeServerBuilder[AppTask]
-              .bindHttp(config.api.port, config.api.endpoint)
-              .withHttpApp(CORS(httpApp))
-              .serve
-              .compile[AppTask, AppTask, ExitCode]
-              .drain
-          )
-      } yield server
+    val program: ZIO[ProgramEnv, Throwable, Unit] = for {
+      config <- Configuration.load
+      httpApp = Router[AppTask](
+        "/todos" -> ApiService(s"${config.api.endpoint}/todos").route
+      ).orNotFound
+      server <- ZIO
+        .runtime[ProgramEnv]
+        .flatMap(implicit rts =>
+          BlazeServerBuilder[AppTask]
+            .bindHttp(config.api.port, config.api.endpoint)
+            .withHttpApp(CORS(httpApp))
+            .serve
+            .compile[AppTask, AppTask, ExitCode]
+            .drain
+        )
+    } yield server
 
-      program.provideSomeLayer[ZEnv](Configuration.live ++ todoPersistence)
-          .tapError(err => putStrLn(s"Execution failed with: $err"))
-          .fold(_ => 1, _ => 0)
+    program
+      .provideSomeLayer[ZEnv](Configuration.live ++ todoPersistence)
+      .tapError(err => putStrLn(s"Execution failed with: $err"))
+      .fold(_ => 1, _ => 0)
   }
 
 }

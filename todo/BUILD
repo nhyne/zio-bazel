@@ -49,6 +49,7 @@ scala_binary(
         "@scala_2_12//:org_tpolecat_doobie_core_2_12",
         "@scala_2_12//:org_tpolecat_doobie_free_2_12",
         "@scala_2_12//:org_tpolecat_doobie_hikari_2_12",
+        "@scala_2_12//:org_tpolecat_doobie_postgres_2_12",
         "@scala_2_12//:org_typelevel_cats_core_2_12",
         "@scala_2_12//:org_typelevel_cats_effect_2_12",
         "@scala_2_12//:org_typelevel_cats_free_2_12",
