@@ -62,6 +62,8 @@ object TodoItemPersistenceService {
       } yield managed
     )
 
+  def getTodoItem(id: Int): RIO[TaskPersistence, TodoItem] =
+    RIO.accessM[TaskPersistence](_.get.get(id))
 
   object SQL {
     def get(id: Int): Query0[TodoItem] =
