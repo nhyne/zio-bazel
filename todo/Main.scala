@@ -15,11 +15,16 @@ import org.http4s.implicits._
 import zio.interop.catz._
 import org.http4s.server.blaze.BlazeServerBuilder
 import zio.blocking.Blocking
+import zio.logging._
 
 object Main extends App {
 
-  val todoPersistence = (Configuration.live ++ Blocking.live) >>> TodoItemPersistenceService.live
-  type ProgramEnv = Configuration with Clock with TaskPersistence
+  val defaultLogger = Logging.console(
+    format = (_, logEntry) => logEntry,
+    rootLoggerName = Some("default-logger")
+  )
+  val todoPersistence = (Configuration.live ++ Blocking.live ++ defaultLogger) >>> TodoItemPersistenceService.live
+  type ProgramEnv = Configuration with Logging with Clock with TaskPersistence
 
   type AppTask[A] = RIO[ProgramEnv, A]
 
@@ -42,7 +47,9 @@ object Main extends App {
     } yield server
 
     program
-      .provideSomeLayer[ZEnv](Configuration.live ++ todoPersistence)
+      .provideSomeLayer[ZEnv](
+        defaultLogger ++ Configuration.live ++ todoPersistence
+      )
       .tapError(err => putStrLn(s"Execution failed with: $err"))
       .fold(_ => 1, _ => 0)
   }

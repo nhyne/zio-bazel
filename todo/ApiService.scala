@@ -39,6 +39,9 @@ final case class ApiService[R <: TodoItemPersistenceService.TaskPersistence](
         deleteTodoItem(id).foldM(_ => NotFound(), Ok(_))
       case request @ POST -> Root =>
         request.decode[TodoItem] { todo =>
+          println(
+            "----------------------------------------------------------------------------------------"
+          )
           Created(createTodoItem(todo))
         }
     }

@@ -54,7 +54,11 @@ object TodoItemPersistenceService {
 
   type TaskPersistence = Has[Persistence.Service[TodoItem]]
 
-  val live: ZLayer[Configuration with Blocking, Throwable, TaskPersistence] =
+  val live: ZLayer[
+    Configuration with Blocking,
+    Throwable,
+    TaskPersistence
+  ] =
     ZLayer.fromManaged(
       for {
         config <- Configuration.load.toManaged_
@@ -77,7 +81,7 @@ object TodoItemPersistenceService {
       sql"""SELECT * FROM TASKS WHERE ID = $id""".query[TodoItem]
 
     def create(task: TodoItem): Update0 =
-      sql"""INSERT INTO USERS (title, list_id) VALUES (${task.title}, 2)""".update
+      sql"""INSERT INTO TASKS (title, description, list_id) VALUES (${task.title}, ${task.description}, 2)""".update
 
     def delete(id: Int): Update0 =
       sql"""DELETE FROM TASKS WHERE id = $id""".update
