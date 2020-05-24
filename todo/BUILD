@@ -49,7 +49,7 @@ scala_binary(
         "@scala_2_12//:dev_zio_izumi_reflect_2_12",
         "@scala_2_12//:dev_zio_zio_2_12",
         "@scala_2_12//:dev_zio_zio_interop_cats_2_12",
-        "@scala_2_12//:dev_zio_zio_logging_2_12",
+        #        "@scala_2_12//:dev_zio_zio_logging_2_12",
         "@scala_2_12//:io_circe_circe_core_2_12",
         "@scala_2_12//:io_circe_circe_generic_2_12",
         "@scala_2_12//:org_http4s_http4s_blaze_server_2_12",
