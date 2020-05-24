@@ -2,6 +2,8 @@ package dev.nhyne.todo
 
 import cats.data.Kleisli
 import cats.effect.Blocker
+import dev.nhyne.todo.persistence.TodoListPersistenceService
+import dev.nhyne.todo.persistence.TodoListPersistenceService.TodoPersistence
 import org.http4s.StaticFile
 import zio.console.putStrLn
 import zio.{App, RIO, ZEnv, ZIO}
@@ -32,8 +34,10 @@ object Main extends App {
 //    rootLoggerName = Some("default-logger")
 //  )
   val todoPersistence = (Configuration.live ++ Blocking.live) >>> TodoItemPersistenceService.live
+  val todoListPersistence = (Configuration.live ++ Blocking.live) >>> TodoListPersistenceService.live
   type ProgramEnv = Configuration
     with TaskPersistence
+    with TodoPersistence
 //    with Logging
     with ZEnv
 
@@ -70,7 +74,7 @@ object Main extends App {
 
     program
       .provideSomeLayer[ZEnv](
-        Configuration.live ++ todoPersistence
+        Configuration.live ++ todoPersistence ++ todoListPersistence
       )
       .tapError(err => putStrLn(s"Execution failed with: $err"))
       .fold(_ => 1, _ => 0)

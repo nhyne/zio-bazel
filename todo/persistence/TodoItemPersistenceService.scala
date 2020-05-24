@@ -1,12 +1,10 @@
 package dev.nhyne.todo.persistence
 
-import cats.effect.Blocker
 import dev.nhyne.todo.configuration.Configuration.Configuration
 import dev.nhyne.todo.configuration.{Configuration, DbConfig}
 import doobie.{Query0, Transactor, Update0}
 import zio._
 import doobie.implicits._
-import doobie.hikari._
 import zio.interop.catz._
 import dev.nhyne.todo.domain.{TodoItem, TodoItemNotFound, UninsertedTodoItem}
 import zio.blocking.Blocking
@@ -99,20 +97,7 @@ object TodoItemPersistenceService {
       conf: DbConfig,
       connectEC: ExecutionContext
   ): Managed[Throwable, TodoItemPersistenceService] = {
-    val transactor =
-      for {
-        blocker <- Blocker[Task]
-        tnxr <- HikariTransactor.newHikariTransactor[Task](
-          driverClassName = "org.postgresql.Driver",
-          url = conf.url,
-          user = conf.user,
-          pass = conf.password,
-          connectEC = connectEC,
-          blocker = blocker
-        )
-      } yield tnxr
-
-    transactor.toManagedZIO
+    mkBaseTransactor(conf, connectEC).toManagedZIO
       .map(new TodoItemPersistenceService(_))
   }
 
