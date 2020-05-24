@@ -13,8 +13,6 @@ import caliban.GraphQL.graphQL
 import zio.clock.Clock
 import zio.console.Console
 
-import scala.language.higherKinds
-
 object GraphqlService extends GenericSchema[TaskPersistence] {
   case class GetTodoArgs(id: Int)
 

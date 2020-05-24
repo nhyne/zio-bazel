@@ -96,3 +96,7 @@ install_maven_deps()
 load("@scala_2_12//:defs.bzl", "pinned_maven_install")
 
 pinned_maven_install()
+
+load("@scala_2_13//:defs.bzl", "pinned_maven_install")
+
+pinned_maven_install()
