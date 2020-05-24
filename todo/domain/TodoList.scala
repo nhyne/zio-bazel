@@ -6,8 +6,8 @@ case class UninsertedTodoList(
 
 case class TodoList(
     id: Int,
-    name: String
-//    todoItems: Seq[TodoItem]
+    name: String,
+    todoItems: Seq[TodoItem]
 )
 
 case class TodoListNotFound(id: Int) extends Throwable

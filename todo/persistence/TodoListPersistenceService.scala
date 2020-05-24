@@ -2,9 +2,15 @@ package dev.nhyne.todo.persistence
 
 import dev.nhyne.todo.configuration.Configuration.Configuration
 import dev.nhyne.todo.configuration.{Configuration, DbConfig}
-import dev.nhyne.todo.domain.{TodoList, TodoListNotFound, UninsertedTodoList}
+import dev.nhyne.todo.domain.{
+  TodoItem,
+  TodoList,
+  TodoListNotFound,
+  UninsertedTodoList
+}
 import doobie.{Query0, Transactor, Update0}
 import doobie.implicits._
+import doobie.util.Read
 import zio.blocking.Blocking
 import zio.interop.catz._
 import zio.{Has, Managed, RIO, Task, ZIO, ZLayer}
@@ -50,6 +56,12 @@ final case class TodoListPersistenceService(tnx: Transactor[Task])
 
 object TodoListPersistenceService {
   type TodoPersistence = Has[Persistence.Service[TodoList, UninsertedTodoList]]
+
+  // TODO: Need to actually get relational data in here
+  implicit val todoItemRead: Read[TodoList] =
+    Read[(Int, String)].map {
+      case (id, name) => TodoList(id, name, Seq.empty[TodoItem])
+    }
 
   val live: ZLayer[
     Configuration with Blocking,
