@@ -1,6 +1,8 @@
 load(
     "@rules_scala_annex//rules:scala.bzl",
     "scala_binary",
+    "scala_library",
+    "scala_repl",
     "scala_test",
 )
 load("@rules_scala_annex//rules:scalafmt.bzl", "scala_format_test")
@@ -16,8 +18,8 @@ scala_options = [
     "-Xfatal-warnings",
 ]
 
-scala_binary(
-    name = "todo",
+scala_library(
+    name = "todo_lib",
     srcs = [
         "Main.scala",
         "GraphqlService.scala",
@@ -27,10 +29,6 @@ scala_binary(
         "persistence/*.scala",
     ]),
     resource_strip_prefix = package_name(),
-    resources = [
-        "application.conf",
-        "graphiql.html",
-    ],
     scala = "//scala:zinc_2_13_1",
     scalacopts = scala_options,
     runtime_deps = [
@@ -58,6 +56,30 @@ scala_binary(
         "@scala_2_13//:org_typelevel_cats_core_2_13",
         "@scala_2_13//:org_typelevel_cats_effect_2_13",
         "@scala_2_13//:org_typelevel_cats_free_2_13",
+    ],
+)
+
+scala_binary(
+    name = "todo",
+    main_class = "dev.nhyne.todo.Main",
+    resource_strip_prefix = package_name(),
+    resources = [
+        "application.conf",
+        "graphiql.html",
+    ],
+    scala = "//scala:zinc_2_13_1",
+    scalacopts = scala_options,
+    runtime_deps = [
+        "todo_lib",
+        "@scala_2_13//:org_tpolecat_doobie_postgres_2_13",
+    ],
+)
+
+scala_repl(
+    name = "repl",
+    scala = "//scala:zinc_2_13_1",
+    deps = [
+        "todo",
     ],
 )
 

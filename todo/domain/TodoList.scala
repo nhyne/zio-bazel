@@ -7,10 +7,7 @@ case class UninsertedTodoList(
 case class TodoList(
     id: Int,
     name: String
+//    todoItems: Seq[TodoItem]
 )
-
-object TodoList {
-  def default(): TodoList = TodoList(id = 1, name = "default")
-}
 
 case class TodoListNotFound(id: Int) extends Throwable
