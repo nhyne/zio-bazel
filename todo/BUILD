@@ -30,6 +30,7 @@ scala_binary(
     resource_strip_prefix = package_name(),
     resources = [
         "application.conf",
+        "graphiql.html",
     ],
     scala = "//scala:zinc_2_13_1",
     scalacopts = scala_options,
