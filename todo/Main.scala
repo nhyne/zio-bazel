@@ -1,6 +1,8 @@
 package dev.nhyne.todo
 
 import cats.data.Kleisli
+import cats.effect.Blocker
+import org.http4s.StaticFile
 import zio.console.putStrLn
 import zio.{App, RIO, ZEnv, ZIO}
 //import cats.effect.ExitCode
@@ -39,14 +41,20 @@ object Main extends App {
 
   def run(args: List[String]): ZIO[ZEnv, Nothing, Int] = {
     val program: ZIO[ProgramEnv, Throwable, Unit] = for {
-//        blocker <- ZIO.access[Blocking](_.get.blockingExecutor.asEC)
+      blocker <- ZIO
+        .access[Blocking](_.get.blockingExecutor.asEC)
+        .map(Blocker.liftExecutionContext)
       config <- Configuration.load
       api = GraphqlService.api
       interpreter <- api.interpreter
       httpApp: Kleisli[AppTask, Request[AppTask], Response[AppTask]] = Router[
         AppTask
       ](
-        "/graphql" -> Http4sAdapter.makeHttpService(interpreter)
+        "/api/graphql" -> Http4sAdapter.makeHttpService(interpreter),
+        "/ws/graphql" -> Http4sAdapter.makeWebSocketService(interpreter),
+        "/graphiql" -> Kleisli.liftF(
+          StaticFile.fromResource("graphiql.html", blocker, None)
+        )
       ).orNotFound
       server <- ZIO
         .runtime[ProgramEnv]
