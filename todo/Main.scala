@@ -35,16 +35,6 @@ object Main extends App {
 //    with Logging
     with ZEnv
 
-  val query =
-    """
-          |{
-          |  getTodo(id: 1) {
-          |    title
-          |    description
-          |  }
-          |}
-          |""".stripMargin
-
   type AppTask[A] = RIO[ProgramEnv, A]
 
   def run(args: List[String]): ZIO[ZEnv, Nothing, Int] = {
@@ -53,13 +43,10 @@ object Main extends App {
       config <- Configuration.load
       api = GraphqlService.api
       interpreter <- api.interpreter
-      result <- interpreter.execute(query)
-      _ <- putStrLn(result.data.toString)
       httpApp: Kleisli[AppTask, Request[AppTask], Response[AppTask]] = Router[
         AppTask
       ](
         "/graphql" -> Http4sAdapter.makeHttpService(interpreter)
-//        "/todos" -> ApiService(s"${config.api.endpoint}/todos").route
       ).orNotFound
       server <- ZIO
         .runtime[ProgramEnv]
