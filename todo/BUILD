@@ -20,7 +20,6 @@ scala_binary(
     name = "todo",
     srcs = [
         "Main.scala",
-        "ApiService.scala",
         "GraphqlService.scala",
     ] + glob(include = [
         "domain/*.scala",
@@ -50,13 +49,8 @@ scala_binary(
         "@scala_2_13//:dev_zio_izumi_reflect_2_13",
         "@scala_2_13//:dev_zio_zio_2_13",
         "@scala_2_13//:dev_zio_zio_interop_cats_2_13",
-        #        "@scala_2_13//:dev_zio_zio_logging_2_13",
-        "@scala_2_13//:io_circe_circe_core_2_13",
-        "@scala_2_13//:io_circe_circe_generic_2_13",
         "@scala_2_13//:org_http4s_http4s_blaze_server_2_13",
-        "@scala_2_13//:org_http4s_http4s_circe_2_13",
         "@scala_2_13//:org_http4s_http4s_core_2_13",
-        "@scala_2_13//:org_http4s_http4s_dsl_2_13",
         "@scala_2_13//:org_http4s_http4s_server_2_13",
         "@scala_2_13//:org_tpolecat_doobie_core_2_13",
         "@scala_2_13//:org_tpolecat_doobie_free_2_13",
