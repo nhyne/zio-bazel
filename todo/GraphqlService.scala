@@ -1,11 +1,11 @@
 package dev.nhyne.todo
 
-import dev.nhyne.todo.domain.TodoItem
+import dev.nhyne.todo.domain.{TodoItem, TodoList}
 import dev.nhyne.todo.persistence.TodoItemPersistenceService
 import dev.nhyne.todo.persistence.TodoItemPersistenceService.TaskPersistence
 import zio.RIO
 import caliban.GraphQL.graphQL
-import caliban.wrappers.Wrappers.{timeout, printSlowQueries}
+import caliban.wrappers.Wrappers.{printSlowQueries, timeout}
 import zio.duration._
 import caliban.{GraphQL, RootResolver}
 import caliban.schema.GenericSchema
@@ -14,10 +14,11 @@ import zio.clock.Clock
 import zio.console.Console
 
 object GraphqlService extends GenericSchema[TaskPersistence] {
-  case class GetTodoArgs(id: Int)
+  case class GetTodoItemArgs(id: Int)
+    case class GetTodoListArgs(id: Int)
 
   case class Queries(
-      getTodo: GetTodoArgs => RIO[TaskPersistence, TodoItem]
+      getTodo: GetTodoItemArgs => RIO[TaskPersistence, TodoItem]
   )
 
   val queries = Queries(

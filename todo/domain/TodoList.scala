@@ -1,17 +1,16 @@
 package dev.nhyne.todo.domain
 
+case class UninsertedTodoList(
+                             name: String
+                             )
+
 case class TodoList(
-    name: String,
-    tasks: Seq[TodoItem]
-) {
-
-  final def addTask(task: TodoItem): TodoList = {
-    TodoList(tasks = tasks.+:(task), name = name)
-  }
-
-}
+    id: Int,
+                       name: String
+)
 
 object TodoList {
-  def default(): TodoList =
-    TodoList(tasks = Seq.empty[TodoItem], name = "default")
+    def default(): TodoList = TodoList(id = 1, name = "default")
 }
+
+case class TodoListNotFound(id: Int) extends Throwable
