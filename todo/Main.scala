@@ -3,7 +3,7 @@ package dev.nhyne.todo
 import cats.data.Kleisli
 import zio.console.putStrLn
 import zio.{App, RIO, ZEnv, ZIO}
-import cats.effect.ExitCode
+//import cats.effect.ExitCode
 import dev.nhyne.todo.configuration.Configuration
 import dev.nhyne.todo.configuration.Configuration.Configuration
 import dev.nhyne.todo.persistence.TodoItemPersistenceService
@@ -67,9 +67,9 @@ object Main extends App {
           BlazeServerBuilder[AppTask]
             .bindHttp(config.api.port, config.api.endpoint)
             .withHttpApp(httpApp)
-            .serve
-            .compile[AppTask, AppTask, ExitCode]
-            .drain
+            .resource
+            .toManagedZIO
+            .useForever
         )
     } yield server
 
