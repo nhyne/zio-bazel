@@ -58,6 +58,15 @@ final class TodoItemPersistenceService(tnx: Transactor[Task])
       .to[List]
       .transact(tnx)
 
+  override def markComplete(
+      id: Int
+  ): Task[TodoItem] =
+    SQL
+      .markComplete(id)
+      .run
+      .transact(tnx)
+      .foldM(err => Task.fail(err), _ => get(id))
+
   def create(todo: UninsertedTodoItem): Task[TodoItem] =
     SQL
       .create(todo)
@@ -98,6 +107,7 @@ object TodoItemPersistenceService {
     def create(
         todo: UninsertedTodoItem
     ): ZIO[TaskPersistence, Throwable, TodoItem]
+    def markComplete(id: Int): ZIO[TaskPersistence, Throwable, TodoItem]
     def delete(id: Int): ZIO[TaskPersistence, Throwable, Boolean]
   }
 
@@ -125,6 +135,9 @@ object TodoItemPersistenceService {
   def createTodoItem(task: UninsertedTodoItem): RIO[TaskPersistence, TodoItem] =
     RIO.accessM[TaskPersistence](_.get.create(task))
 
+  def markTodoItemComplete(id: Int): RIO[TaskPersistence, TodoItem] =
+    RIO.accessM[TaskPersistence](_.get.markComplete(id))
+
   def deleteTodoItem(id: Int): RIO[TaskPersistence, Boolean] =
     RIO.accessM[TaskPersistence](_.get.delete(id))
 
@@ -134,6 +147,9 @@ object TodoItemPersistenceService {
 
     def getForListId(listId: Int): Query0[TodoItem] =
       sql"""SELECT * FROM TASKS WHERE LIST_ID = $listId""".query[TodoItem]
+
+    def markComplete(id: Int): Update0 =
+      sql"""UPDATE TASKS SET completed = true WHERE id = $id""".update
 
     def create(task: UninsertedTodoItem): Update0 =
       sql"""INSERT INTO TASKS (title, description, list_id) VALUES (${task.title}, ${task.description}, 2)""".update

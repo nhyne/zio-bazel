@@ -35,6 +35,7 @@ object GraphqlService
       description: Option[String],
       completed: Boolean
   )
+  case class MarkTodoItemComplete(id: Int)
 
   case class Queries(
       getTodo: GetTodoItemArgs => RIO[TaskPersistence, TodoItem],
@@ -47,7 +48,11 @@ object GraphqlService
 
   case class Mutations(
       createTodoList: CreateTodoList => RIO[TodoPersistence, TodoList],
-      createTodoItem: CreateTodoItem => RIO[TaskPersistence, TodoItem]
+      createTodoItem: CreateTodoItem => RIO[TaskPersistence, TodoItem],
+      markTodoItemComplete: MarkTodoItemComplete => RIO[
+        TaskPersistence,
+        TodoItem
+      ]
   )
 
   val queries = Queries(
@@ -70,7 +75,9 @@ object GraphqlService
           completed = args.completed,
           listId = args.listId
         )
-      )
+      ),
+    markTodoItemComplete =
+      args => TodoItemPersistenceService.markTodoItemComplete(args.id)
   )
 
   implicit val queriesSchema = gen[Queries]
