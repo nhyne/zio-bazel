@@ -18,6 +18,7 @@ import caliban.GraphQL.graphQL
 import dev.nhyne.todo.persistence.TodoListPersistenceService.TodoPersistence
 import zio.clock.Clock
 import zio.console.Console
+import zio.query.{DataSource, Request, ZQuery}
 
 object GraphqlService
     extends GenericSchema[TaskPersistence with TodoPersistence] {
@@ -31,19 +32,32 @@ object GraphqlService
       getTodosForList: GetTodosForListArgs => RIO[TaskPersistence, List[
         TodoItem
       ]],
-      getTodoList: GetTodoListArgs => RIO[TodoPersistence, CalibanTodoList],
+      getTodoList: GetTodoListArgs => ZQuery[
+        TodoPersistence,
+        Throwable,
+        TodoList
+      ],
       getTodoLists: GetTodoListsArgs => RIO[TodoPersistence, List[TodoList]]
   )
 
-  val queries = Queries(
-    getTodo = args => TodoItemPersistenceService.getTodoItem(args.todoId),
-    getTodosForList =
-      args => TodoItemPersistenceService.getTodosForList(args.listId),
-    getTodoList =
-      args => TodoListPersistenceService.getTodoList(args.todoListId),
-    getTodoLists = args => TodoListPersistenceService.getTodoLists(args.limit)
-  )
+  def resolver(todoListService: TodoListPersistenceService) = {
 
+    case class GetTodoList(id: Int) extends Request[Nothing, TodoList]
+    val TodoListDataSource: DataSource[Any, GetTodoList] =
+      DataSource.fromFunctionM("TodoListDataSource")(req =>
+        todoListService.get(req.id)
+      )
+    def getTodoList(id: Int): ZQuery[Any, Nothing, TodoList] =
+      ZQuery.fromRequest(GetTodoList(id))(TodoListDataSource)
+
+    Queries(
+      getTodo = args => TodoItemPersistenceService.getTodoItem(args.todoId),
+      getTodosForList =
+        args => TodoItemPersistenceService.getTodosForList(args.listId),
+      getTodoList = args => getTodoList(args.todoListId),
+      getTodoLists = args => TodoListPersistenceService.getTodoLists(args.limit)
+    )
+  }
   implicit val queriesSchema = gen[Queries]
 
   val api
