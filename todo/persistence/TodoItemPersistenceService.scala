@@ -52,6 +52,12 @@ final class TodoItemPersistenceService(tnx: Transactor[Task])
           Task.require(TodoItemNotFound(id))(Task.succeed(maybeTodoItem))
       )
 
+  override def getTodosForList(listId: Int) =
+    SQL
+      .getForListId(listId)
+      .to[List]
+      .transact(tnx)
+
   def create(todo: UninsertedTodoItem): Task[TodoItem] =
     SQL
       .create(todo)
@@ -86,6 +92,9 @@ object TodoItemPersistenceService {
 
   trait Service {
     def get(id: Int): ZIO[TaskPersistence, Throwable, TodoItem]
+    def getTodosForList(
+        listId: Int
+    ): ZIO[TaskPersistence, Throwable, List[TodoItem]]
     def create(
         todo: UninsertedTodoItem
     ): ZIO[TaskPersistence, Throwable, TodoItem]
@@ -110,6 +119,9 @@ object TodoItemPersistenceService {
   def getTodoItem(id: Int): RIO[TaskPersistence, TodoItem] =
     RIO.accessM[TaskPersistence](_.get.get(id))
 
+  def getTodosForList(listId: Int): RIO[TaskPersistence, List[TodoItem]] =
+    RIO.accessM[TaskPersistence](_.get.getTodosForList(listId))
+
   def createTodoItem(task: UninsertedTodoItem): RIO[TaskPersistence, TodoItem] =
     RIO.accessM[TaskPersistence](_.get.create(task))
 
@@ -119,6 +131,9 @@ object TodoItemPersistenceService {
   object SQL {
     def get(id: Int): Query0[TodoItem] =
       sql"""SELECT * FROM TASKS WHERE ID = $id""".query[TodoItem]
+
+    def getForListId(listId: Int): Query0[TodoItem] =
+      sql"""SELECT * FROM TASKS WHERE LIST_ID = $listId""".query[TodoItem]
 
     def create(task: UninsertedTodoItem): Update0 =
       sql"""INSERT INTO TASKS (title, description, list_id) VALUES (${task.title}, ${task.description}, 2)""".update

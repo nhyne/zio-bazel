@@ -23,15 +23,21 @@ object GraphqlService
   case class GetTodoItemArgs(todoId: Int)
   case class GetTodoListArgs(todoListId: Int)
   case class GetTodoListsArgs(limit: Int)
+  case class GetTodosForListArgs(listId: Int)
 
   case class Queries(
       getTodo: GetTodoItemArgs => RIO[TaskPersistence, TodoItem],
+      getTodosForList: GetTodosForListArgs => RIO[TaskPersistence, List[
+        TodoItem
+      ]],
       getTodoList: GetTodoListArgs => RIO[TodoPersistence, TodoList],
       getTodoLists: GetTodoListsArgs => RIO[TodoPersistence, List[TodoList]]
   )
 
   val queries = Queries(
     getTodo = args => TodoItemPersistenceService.getTodoItem(args.todoId),
+    getTodosForList =
+      args => TodoItemPersistenceService.getTodosForList(args.listId),
     getTodoList =
       args => TodoListPersistenceService.getTodoList(args.todoListId),
     getTodoLists = args => TodoListPersistenceService.getTodoLists(args.limit)

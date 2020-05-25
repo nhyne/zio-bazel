@@ -19,6 +19,12 @@ case class TodoList(
     name: String
 )
 
+case class CalibanTodoList(
+    id: Int,
+    name: String,
+    TodoItems: List[TodoItem]
+)
+
 case class TodoListNotFound(id: Int) extends Throwable
 
 final case class TodoListPersistenceService(tnx: Transactor[Task])
