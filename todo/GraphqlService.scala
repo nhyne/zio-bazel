@@ -1,8 +1,9 @@
 package dev.nhyne.todo
 
-import dev.nhyne.todo.domain.{TodoItem, TodoList}
 import dev.nhyne.todo.persistence.{
+  TodoItem,
   TodoItemPersistenceService,
+  TodoList,
   TodoListPersistenceService
 }
 import dev.nhyne.todo.persistence.TodoItemPersistenceService.TaskPersistence

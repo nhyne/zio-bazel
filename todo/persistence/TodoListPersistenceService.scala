@@ -2,12 +2,6 @@ package dev.nhyne.todo.persistence
 
 import dev.nhyne.todo.configuration.Configuration.Configuration
 import dev.nhyne.todo.configuration.{Configuration, DbConfig}
-import dev.nhyne.todo.domain.{
-  TodoItem,
-  TodoList,
-  TodoListNotFound,
-  UninsertedTodoList
-}
 import doobie.{Query0, Transactor, Update0}
 import doobie.implicits._
 import doobie.util.Read
@@ -16,6 +10,18 @@ import zio.interop.catz._
 import zio.{Has, Managed, RIO, Task, ZIO, ZLayer}
 
 import scala.concurrent.ExecutionContext
+
+case class UninsertedTodoList(
+    name: String
+)
+
+case class TodoList(
+    id: Int,
+    name: String,
+    todoItems: Seq[TodoItem]
+)
+
+case class TodoListNotFound(id: Int) extends Throwable
 
 final case class TodoListPersistenceService(tnx: Transactor[Task])
     extends Persistence.Service[TodoList, UninsertedTodoList] {

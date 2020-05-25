@@ -6,10 +6,36 @@ import doobie.{Query0, Transactor, Update0}
 import zio._
 import doobie.implicits._
 import zio.interop.catz._
-import dev.nhyne.todo.domain.{TodoItem, TodoItemNotFound, UninsertedTodoItem}
 import zio.blocking.Blocking
 
 import scala.concurrent.ExecutionContext
+
+final case class UninsertedTodoItem(
+    title: String,
+    description: Option[String],
+    completed: Boolean = false,
+    listId: Int
+)
+
+final case class TodoItem(
+    id: Int,
+    title: String,
+    description: Option[String],
+    completed: Boolean = false,
+    listId: Int
+) {
+
+  final def complete(): TodoItem =
+    TodoItem(
+      id = id,
+      title = title,
+      description = description,
+      completed = true,
+      listId = listId
+    )
+}
+
+final case class TodoItemNotFound(id: Int) extends Exception
 
 final class TodoItemPersistenceService(tnx: Transactor[Task])
     extends Persistence.Service[TodoItem, UninsertedTodoItem] {
