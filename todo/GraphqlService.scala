@@ -22,16 +22,19 @@ object GraphqlService
     extends GenericSchema[TaskPersistence with TodoPersistence] {
   case class GetTodoItemArgs(todoId: Int)
   case class GetTodoListArgs(todoListId: Int)
+  case class GetTodoListsArgs(limit: Int)
 
   case class Queries(
       getTodo: GetTodoItemArgs => RIO[TaskPersistence, TodoItem],
-      getTodoList: GetTodoListArgs => RIO[TodoPersistence, TodoList]
+      getTodoList: GetTodoListArgs => RIO[TodoPersistence, TodoList],
+      getTodoLists: GetTodoListsArgs => RIO[TodoPersistence, List[TodoList]]
   )
 
   val queries = Queries(
     getTodo = args => TodoItemPersistenceService.getTodoItem(args.todoId),
     getTodoList =
-      args => TodoListPersistenceService.getTodoList(args.todoListId)
+      args => TodoListPersistenceService.getTodoList(args.todoListId),
+    getTodoLists = args => TodoListPersistenceService.getTodoLists(args.limit)
   )
 
   implicit val queriesSchema = gen[Queries]

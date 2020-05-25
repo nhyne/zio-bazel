@@ -38,10 +38,10 @@ final case class TodoItem(
 final case class TodoItemNotFound(id: Int) extends Exception
 
 final class TodoItemPersistenceService(tnx: Transactor[Task])
-    extends Persistence.Service[TodoItem, UninsertedTodoItem] {
+    extends TodoItemPersistenceService.Service {
   import TodoItemPersistenceService._
 
-  override def get(id: Int): Task[TodoItem] =
+  def get(id: Int): Task[TodoItem] =
     SQL
       .get(id)
       .option
@@ -52,7 +52,7 @@ final class TodoItemPersistenceService(tnx: Transactor[Task])
           Task.require(TodoItemNotFound(id))(Task.succeed(maybeTodoItem))
       )
 
-  override def create(todo: UninsertedTodoItem): Task[TodoItem] =
+  def create(todo: UninsertedTodoItem): Task[TodoItem] =
     SQL
       .create(todo)
       .withUniqueGeneratedKeys[TodoItem](
@@ -71,7 +71,7 @@ final class TodoItemPersistenceService(tnx: Transactor[Task])
         todo => Task.succeed(todo)
       )
 
-  override def delete(id: Int): Task[Boolean] =
+  def delete(id: Int): Task[Boolean] =
     SQL
       .delete(id)
       .run
@@ -84,7 +84,15 @@ final class TodoItemPersistenceService(tnx: Transactor[Task])
 
 object TodoItemPersistenceService {
 
-  type TaskPersistence = Has[Persistence.Service[TodoItem, UninsertedTodoItem]]
+  trait Service {
+    def get(id: Int): ZIO[TaskPersistence, Throwable, TodoItem]
+    def create(
+        todo: UninsertedTodoItem
+    ): ZIO[TaskPersistence, Throwable, TodoItem]
+    def delete(id: Int): ZIO[TaskPersistence, Throwable, Boolean]
+  }
+
+  type TaskPersistence = Has[Service]
 
   val live: ZLayer[
     Configuration with Blocking,
