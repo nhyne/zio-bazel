@@ -5,6 +5,7 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 zio_version = "1.0.0-RC18-2"
 circe_version = "0.13.0"
 caliban_version = "0.8.0"
+zio_metrics_version = "0.2.5"
 
 scala_2_13 = "2.13.1"
 
@@ -32,6 +33,8 @@ def install_maven_deps():
             "dev.zio:zio-test-sbt_2.13:{zio_version}".format(zio_version = zio_version),
             "dev.zio:zio-interop-cats_2.13:2.0.0.0-RC14",
             "dev.zio:zio-logging_2.13:0.2.9",
+            #            "dev.zio:zio-metrics_2.13:{zio_metrics_version}".format(zio_metrics_version = zio_metrics_version),
+            "dev.zio:zio-metrics-prometheus_2.13:{zio_metrics_version}".format(zio_metrics_version = zio_metrics_version),
             "org.tpolecat:doobie-core_2.13:0.8.8",
             "org.tpolecat:doobie-postgres_2.13:0.8.8",
             "org.tpolecat:doobie-hikari_2.13:0.8.8",
