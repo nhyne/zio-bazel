@@ -5,7 +5,8 @@ import dev.nhyne.todo.persistence.{
   TodoItem,
   TodoItemPersistenceService,
   TodoList,
-  TodoListPersistenceService
+  TodoListPersistenceService,
+  UninsertedTodoList
 }
 import dev.nhyne.todo.persistence.TodoItemPersistenceService.TaskPersistence
 import zio.RIO
@@ -26,6 +27,8 @@ object GraphqlService
   case class GetTodoListsArgs(limit: Int)
   case class GetTodosForListArgs(listId: Int)
 
+  case class CreateTodoList(name: String)
+
   case class Queries(
       getTodo: GetTodoItemArgs => RIO[TaskPersistence, TodoItem],
       getTodosForList: GetTodosForListArgs => RIO[TaskPersistence, List[
@@ -33,6 +36,10 @@ object GraphqlService
       ]],
       getTodoList: GetTodoListArgs => RIO[TodoPersistence, CalibanTodoList],
       getTodoLists: GetTodoListsArgs => RIO[TodoPersistence, List[TodoList]]
+  )
+
+  case class Mutations(
+      createTodoList: CreateTodoList => RIO[TodoPersistence, TodoList]
   )
 
   val queries = Queries(
@@ -44,13 +51,19 @@ object GraphqlService
     getTodoLists = args => TodoListPersistenceService.getTodoLists(args.limit)
   )
 
+  val mutations = Mutations(
+    createTodoList = args =>
+      TodoListPersistenceService.createTodoList(UninsertedTodoList(args.name))
+  )
+
   implicit val queriesSchema = gen[Queries]
 
   val api
       : GraphQL[Console with Clock with TaskPersistence with TodoPersistence] =
     graphQL(
       RootResolver(
-        queries
+        queries,
+        mutations
       )
     ).withWrapper(timeout(3.seconds))
       .withWrapper(printSlowQueries(500.milliseconds))

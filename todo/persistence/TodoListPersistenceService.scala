@@ -59,10 +59,12 @@ final case class TodoListPersistenceService(tnx: Transactor[Task])
   def create(list: UninsertedTodoList): Task[TodoList] =
     SQL
       .create(list)
-      .withUniqueGeneratedKeys[TodoList]("name")
+      .withUniqueGeneratedKeys[TodoList]("id", "name")
       .transact(tnx)
       .foldM(
-        err => Task.fail(err),
+        err => {
+          Task.fail(err)
+        },
         insertedList => Task.succeed(insertedList)
       )
 
@@ -136,8 +138,9 @@ object TodoListPersistenceService {
     def get(id: Int): Query0[TodoList] =
       sql"""SELECT * FROM TODO_LISTS WHERE ID = $id""".query[TodoList]
 
-    def create(todoList: UninsertedTodoList): Update0 =
+    def create(todoList: UninsertedTodoList): Update0 = {
       sql"""INSERT INTO TODO_LISTS (name) VALUES (${todoList.name})""".update
+    }
 
     def delete(id: Int): Update0 =
       sql"""DELETE FROM TODO_LISTS WHERE id = $id""".update
