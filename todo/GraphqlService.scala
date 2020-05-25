@@ -1,6 +1,7 @@
 package dev.nhyne.todo
 
 import dev.nhyne.todo.persistence.{
+  CalibanTodoList,
   TodoItem,
   TodoItemPersistenceService,
   TodoList,
@@ -30,7 +31,7 @@ object GraphqlService
       getTodosForList: GetTodosForListArgs => RIO[TaskPersistence, List[
         TodoItem
       ]],
-      getTodoList: GetTodoListArgs => RIO[TodoPersistence, TodoList],
+      getTodoList: GetTodoListArgs => RIO[TodoPersistence, CalibanTodoList],
       getTodoLists: GetTodoListsArgs => RIO[TodoPersistence, List[TodoList]]
   )
 

@@ -47,6 +47,7 @@ scala_library(
         "@scala_2_13//:dev_zio_izumi_reflect_2_13",
         "@scala_2_13//:dev_zio_zio_2_13",
         "@scala_2_13//:dev_zio_zio_interop_cats_2_13",
+        "@scala_2_13//:io_scalaland_chimney_2_13",
         "@scala_2_13//:org_http4s_http4s_blaze_server_2_13",
         "@scala_2_13//:org_http4s_http4s_core_2_13",
         "@scala_2_13//:org_http4s_http4s_server_2_13",

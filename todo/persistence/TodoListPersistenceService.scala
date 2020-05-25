@@ -2,11 +2,14 @@ package dev.nhyne.todo.persistence
 
 import dev.nhyne.todo.configuration.Configuration.Configuration
 import dev.nhyne.todo.configuration.{Configuration, DbConfig}
+import dev.nhyne.todo.persistence.TodoItemPersistenceService.TaskPersistence
+import dev.nhyne.todo.persistence.TodoListPersistenceService.TodoPersistence
 import doobie.{Query0, Transactor, Update0}
 import doobie.implicits._
 import zio.blocking.Blocking
 import zio.interop.catz._
 import zio.{Has, Managed, RIO, Task, ZIO, ZLayer}
+import io.scalaland.chimney.dsl._
 
 import scala.concurrent.ExecutionContext
 
@@ -22,7 +25,7 @@ case class TodoList(
 case class CalibanTodoList(
     id: Int,
     name: String,
-    TodoItems: List[TodoItem]
+    todoItems: ZIO[TaskPersistence, Throwable, List[TodoItem]]
 )
 
 case class TodoListNotFound(id: Int) extends Throwable
@@ -31,7 +34,7 @@ final case class TodoListPersistenceService(tnx: Transactor[Task])
     extends TodoListPersistenceService.Service {
   import TodoListPersistenceService._
 
-  def get(id: Int): Task[TodoList] =
+  def get(id: Int): Task[CalibanTodoList] =
     SQL
       .get(id)
       .option
@@ -39,7 +42,18 @@ final case class TodoListPersistenceService(tnx: Transactor[Task])
       .foldM(
         err => Task.fail(err),
         maybeTodoList =>
-          Task.require(TodoListNotFound(id))(Task.succeed(maybeTodoList))
+          Task.require(TodoListNotFound(id))(
+            ZIO.some(
+              maybeTodoList.get
+                .into[CalibanTodoList]
+                .withFieldComputed(
+                  _.todoItems,
+                  // This would be where we would query for all TodoItems with the listId
+                  x => ZIO.accessM[TaskPersistence](_.get.getTodosForList(x.id))
+                )
+                .transform
+            )
+          )
       )
 
   def create(list: UninsertedTodoList): Task[TodoList] =
@@ -74,7 +88,7 @@ final case class TodoListPersistenceService(tnx: Transactor[Task])
 
 object TodoListPersistenceService {
   trait Service {
-    def get(id: Int): ZIO[TodoPersistence, Throwable, TodoList]
+    def get(id: Int): ZIO[TodoPersistence, Throwable, CalibanTodoList]
     def create(
         list: UninsertedTodoList
     ): ZIO[TodoPersistence, Throwable, TodoList]
@@ -104,7 +118,7 @@ object TodoListPersistenceService {
     } yield managed
   )
 
-  def getTodoList(id: Int): RIO[TodoPersistence, TodoList] =
+  def getTodoList(id: Int): RIO[TodoPersistence, CalibanTodoList] =
     RIO.accessM[TodoPersistence](_.get.get(id))
 
   def deleteTodoList(id: Int): RIO[TodoPersistence, Boolean] =
@@ -116,7 +130,7 @@ object TodoListPersistenceService {
     RIO.accessM[TodoPersistence](_.get.create(todoList))
 
   def getTodoLists(limit: Int): RIO[TodoPersistence, List[TodoList]] =
-    RIO.accessM[TodoPersistence](_.get.getTodoLists(limit = limit))
+    RIO.accessM[TodoPersistence](_.get.getTodoLists(limit))
 
   object SQL {
     def get(id: Int): Query0[TodoList] =
