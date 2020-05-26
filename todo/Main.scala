@@ -3,7 +3,6 @@ package dev.nhyne.todo
 import cats.data.Kleisli
 import cats.effect.Blocker
 import dev.nhyne.todo.persistence.TodoListPersistenceService
-import dev.nhyne.todo.persistence.TodoListPersistenceService.TodoPersistence
 import org.http4s.StaticFile
 import zio.console.putStrLn
 import zio.{App, RIO, ZEnv, ZIO}
@@ -11,7 +10,6 @@ import zio.{App, RIO, ZEnv, ZIO}
 import dev.nhyne.todo.configuration.Configuration
 import dev.nhyne.todo.configuration.Configuration.Configuration
 import dev.nhyne.todo.persistence.TodoItemPersistenceService
-import dev.nhyne.todo.persistence.TodoItemPersistenceService.TaskPersistence
 import org.http4s.{Response, Request}
 import org.http4s.server.Router
 import org.http4s.implicits._
@@ -36,8 +34,7 @@ object Main extends App {
   val todoPersistence = (Configuration.live ++ Blocking.live) >>> TodoItemPersistenceService.live
   val todoListPersistence = (Configuration.live ++ Blocking.live) >>> TodoListPersistenceService.live
   type ProgramEnv = Configuration
-    with TaskPersistence
-    with TodoPersistence
+    with Env
 //    with Logging
     with ZEnv
 

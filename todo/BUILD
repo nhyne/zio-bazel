@@ -23,6 +23,7 @@ scala_library(
     srcs = [
         "Main.scala",
         "GraphqlService.scala",
+        "package.scala",
     ] + glob(include = [
         "domain/*.scala",
         "configuration/*.scala",
