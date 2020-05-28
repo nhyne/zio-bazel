@@ -5,6 +5,8 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 zio_version = "1.0.0-RC18-2"
 circe_version = "0.13.0"
 caliban_version = "0.8.0"
+http4s_version = "0.21.1"
+doobie_version = "0.8.8"
 
 scala_2_13 = "2.13.1"
 
@@ -32,12 +34,12 @@ def install_maven_deps():
             "dev.zio:zio-test-sbt_2.13:{zio_version}".format(zio_version = zio_version),
             "dev.zio:zio-interop-cats_2.13:2.0.0.0-RC14",
             "dev.zio:zio-logging_2.13:0.2.9",
-            "org.tpolecat:doobie-core_2.13:0.8.8",
-            "org.tpolecat:doobie-postgres_2.13:0.8.8",
-            "org.tpolecat:doobie-hikari_2.13:0.8.8",
-            "org.http4s:http4s-blaze-server_2.13:0.21.1",
-            "org.http4s:http4s-circe_2.13:0.21.1",
-            "org.http4s:http4s-dsl_2.13:0.21.1",
+            "org.tpolecat:doobie-core_2.13:{doobie_version}".format(doobie_version = doobie_version),
+            "org.tpolecat:doobie-postgres_2.13:{doobie_version}".format(doobie_version = doobie_version),
+            "org.tpolecat:doobie-hikari_2.13:{doobie_version}".format(doobie_version = doobie_version),
+            "org.http4s:http4s-blaze-server_2.13:{http4s_version}".format(http4s_version = http4s_version),
+            "org.http4s:http4s-circe_2.13:{http4s_version}".format(http4s_version = http4s_version),
+            "org.http4s:http4s-dsl_2.13:{http4s_version}".format(http4s_version = http4s_version),
             "com.github.pureconfig:pureconfig_2.13:0.12.3",
             "io.scalaland:chimney_2.13:0.5.2",
             "com.github.ghostdogpr:caliban_2.13:{caliban_version}".format(caliban_version = caliban_version),

@@ -3,7 +3,8 @@ package dev.nhyne.todo
 import cats.data.Kleisli
 import cats.effect.Blocker
 import dev.nhyne.todo.persistence.TodoListPersistenceService
-import org.http4s.StaticFile
+import org.http4s.dsl.Http4sDsl
+import org.http4s.{HttpRoutes, StaticFile}
 import zio.console.putStrLn
 import zio.{App, RIO, ZEnv, ZIO}
 //import cats.effect.ExitCode
@@ -39,8 +40,10 @@ object Main extends App {
     with ZEnv
 
   type AppTask[A] = RIO[ProgramEnv, A]
+  object http4sDsl extends Http4sDsl[AppTask]
 
   def run(args: List[String]): ZIO[ZEnv, Nothing, Int] = {
+    import http4sDsl._
     val program: ZIO[ProgramEnv, Throwable, Unit] = for {
       blocker <- ZIO
         .access[Blocking](_.get.blockingExecutor.asEC)
@@ -55,7 +58,11 @@ object Main extends App {
         "/ws/graphql" -> Http4sAdapter.makeWebSocketService(interpreter),
         "/graphiql" -> Kleisli.liftF(
           StaticFile.fromResource("graphiql.html", blocker, None)
-        )
+        ),
+        "/schema" -> HttpRoutes.of {
+          case request if request.method == org.http4s.Method.GET =>
+            Ok(api.render)
+        }
       ).orNotFound
       server <- ZIO
         .runtime[ProgramEnv]
