@@ -3,7 +3,6 @@ package dev.nhyne.todo.persistence
 import dev.nhyne.todo.configuration.Configuration.Configuration
 import dev.nhyne.todo.configuration.{Configuration, DbConfig}
 import dev.nhyne.todo.persistence.TodoItemPersistenceService.TaskPersistence
-import dev.nhyne.todo.persistence.TodoListPersistenceService.TodoPersistence
 import doobie.{Query0, Transactor, Update0}
 import doobie.implicits._
 import zio.blocking.Blocking

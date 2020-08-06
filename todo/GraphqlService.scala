@@ -11,7 +11,6 @@ import dev.nhyne.todo.persistence.{
 }
 import dev.nhyne.todo.persistence.TodoItemPersistenceService.TaskPersistence
 import zio.RIO
-import caliban.GraphQL.graphQL
 import caliban.wrappers.Wrappers.{printSlowQueries, timeout}
 import zio.duration._
 import caliban.{GraphQL, RootResolver}
