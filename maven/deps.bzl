@@ -8,7 +8,7 @@ caliban_version = "0.8.0"
 http4s_version = "0.21.1"
 doobie_version = "0.8.8"
 
-scala_2_13 = "2.13.3"
+scala_2_13 = "2.13.1"
 
 def install_maven_deps():
     maven_install(

@@ -6,8 +6,7 @@ import dev.nhyne.todo.persistence.TodoListPersistenceService
 import org.http4s.dsl.Http4sDsl
 import org.http4s.{HttpRoutes, StaticFile}
 import zio.console.putStrLn
-import zio.{App, RIO, ZEnv, ZIO}
-//import cats.effect.ExitCode
+import zio.{App, ExitCode, RIO, URIO, ZEnv, ZIO}
 import dev.nhyne.todo.configuration.Configuration
 import dev.nhyne.todo.configuration.Configuration.Configuration
 import dev.nhyne.todo.persistence.TodoItemPersistenceService
@@ -42,7 +41,7 @@ object Main extends App {
   type AppTask[A] = RIO[ProgramEnv, A]
   object http4sDsl extends Http4sDsl[AppTask]
 
-  def run(args: List[String]): ZIO[ZEnv, Nothing, Int] = {
+  def run(args: List[String]): URIO[ZEnv, ExitCode] = {
     import http4sDsl._
     val program: ZIO[ProgramEnv, Throwable, Unit] = for {
       blocker <- ZIO
@@ -81,7 +80,7 @@ object Main extends App {
         Configuration.live ++ todoPersistence ++ todoListPersistence
       )
       .tapError(err => putStrLn(s"Execution failed with: $err"))
-      .fold(_ => 1, _ => 0)
+      .fold(_ => ExitCode(1), _ => ExitCode(0))
   }
 
 }

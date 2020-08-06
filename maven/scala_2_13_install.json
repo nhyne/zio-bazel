@@ -6,7 +6,7 @@
                 "coord": "co.fs2:fs2-core_2.13:2.2.2",
                 "file": "v1/https/repo1.maven.org/maven2/co/fs2/fs2-core_2.13/2.2.2/fs2-core_2.13-2.2.2.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.scodec:scodec-bits_2.13:1.1.12",
                     "org.typelevel:cats-core_2.13:2.1.1",
                     "org.typelevel:cats-effect_2.13:2.1.3"
@@ -14,9 +14,9 @@
                 "dependencies": [
                     "org.scodec:scodec-bits_2.13:1.1.12",
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-effect_2.13:2.1.3"
                 ],
                 "url": "https://repo1.maven.org/maven2/co/fs2/fs2-core_2.13/2.2.2/fs2-core_2.13-2.2.2.jar",
@@ -30,18 +30,18 @@
                 "coord": "co.fs2:fs2-core_2.13:jar:sources:2.2.2",
                 "file": "v1/https/repo1.maven.org/maven2/co/fs2/fs2-core_2.13/2.2.2/fs2-core_2.13-2.2.2-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.scodec:scodec-bits_2.13:jar:sources:1.1.12",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3"
                 ],
                 "dependencies": [
                     "org.scodec:scodec-bits_2.13:jar:sources:1.1.12",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
-                    "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.typelevel:cats-core_2.13:jar:sources:2.1.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/co/fs2/fs2-core_2.13/2.2.2/fs2-core_2.13-2.2.2-sources.jar",
                 "mirror_urls": [
@@ -55,16 +55,16 @@
                 "file": "v1/https/repo1.maven.org/maven2/co/fs2/fs2-io_2.13/2.2.2/fs2-io_2.13-2.2.2.jar",
                 "directDependencies": [
                     "co.fs2:fs2-core_2.13:2.2.2",
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-core_2.13:2.1.1",
                     "org.typelevel:cats-effect_2.13:2.1.3"
                 ],
                 "dependencies": [
                     "org.scodec:scodec-bits_2.13:1.1.12",
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-effect_2.13:2.1.3",
                     "co.fs2:fs2-core_2.13:2.2.2"
                 ],
@@ -80,18 +80,18 @@
                 "file": "v1/https/repo1.maven.org/maven2/co/fs2/fs2-io_2.13/2.2.2/fs2-io_2.13-2.2.2-sources.jar",
                 "directDependencies": [
                     "co.fs2:fs2-core_2.13:jar:sources:2.2.2",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3"
                 ],
                 "dependencies": [
                     "org.scodec:scodec-bits_2.13:jar:sources:1.1.12",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
                     "co.fs2:fs2-core_2.13:jar:sources:2.2.2",
-                    "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.typelevel:cats-core_2.13:jar:sources:2.1.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/co/fs2/fs2-io_2.13/2.2.2/fs2-io_2.13-2.2.2-sources.jar",
                 "mirror_urls": [
@@ -104,10 +104,10 @@
                 "coord": "com.chuusai:shapeless_2.13:2.3.3",
                 "file": "v1/https/repo1.maven.org/maven2/com/chuusai/shapeless_2.13/2.3.3/shapeless_2.13-2.3.3.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/com/chuusai/shapeless_2.13/2.3.3/shapeless_2.13-2.3.3.jar",
                 "mirror_urls": [
@@ -120,10 +120,10 @@
                 "coord": "com.chuusai:shapeless_2.13:jar:sources:2.3.3",
                 "file": "v1/https/repo1.maven.org/maven2/com/chuusai/shapeless_2.13/2.3.3/shapeless_2.13-2.3.3-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/com/chuusai/shapeless_2.13/2.3.3/shapeless_2.13-2.3.3-sources.jar",
                 "mirror_urls": [
@@ -137,10 +137,10 @@
                 "file": "v1/https/repo1.maven.org/maven2/com/github/ghostdogpr/caliban-http4s_2.13/0.8.0/caliban-http4s_2.13-0.8.0.jar",
                 "directDependencies": [
                     "org.http4s:http4s-dsl_2.13:0.21.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "org.http4s:http4s-blaze-server_2.13:0.21.1",
                     "dev.zio:zio-interop-cats_2.13:2.0.0.0-RC14",
                     "io.circe:circe-parser_2.13:0.13.0",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-effect_2.13:2.1.3",
                     "org.http4s:http4s-circe_2.13:0.21.1",
                     "com.github.ghostdogpr:caliban_2.13:0.8.0"
@@ -152,19 +152,15 @@
                     "io.circe:circe-jawn_2.13:0.13.0",
                     "org.scodec:scodec-bits_2.13:1.1.12",
                     "org.http4s:http4s-dsl_2.13:0.21.1",
-                    "org.scala-lang:scala-reflect:2.13.3",
                     "dev.zio:zio_2.13:1.0.0",
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "co.fs2:fs2-io_2.13:2.2.2",
-                    "org.scala-lang:scala-compiler:2.13.3",
                     "com.lihaoyi:geny_2.13:0.6.0",
                     "org.http4s:http4s-blaze-server_2.13:0.21.1",
                     "dev.zio:zio-streams_2.13:1.0.0",
                     "com.propensive:magnolia_2.13:0.16.0",
                     "com.lihaoyi:sourcecode_2.13:0.2.1",
                     "io.chrisdavenport:unique_2.13:2.0.0",
-                    "org.jline:jline:3.15.0",
                     "com.propensive:mercator_2.13:0.2.1",
                     "org.http4s:http4s-core_2.13:0.21.1",
                     "org.http4s:parboiled_2.13:2.0.1",
@@ -173,7 +169,6 @@
                     "dev.zio:zio-interop-cats_2.13:2.0.0.0-RC14",
                     "org.slf4j:slf4j-api:1.7.25",
                     "org.eclipse.jetty.alpn:alpn-api:1.1.3.v20160715",
-                    "net.java.dev.jna:jna:5.3.1",
                     "io.circe:circe-numbers_2.13:0.13.0",
                     "org.http4s:http4s-jawn_2.13:0.21.1",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
@@ -181,12 +176,17 @@
                     "com.lihaoyi:fastparse_2.13:2.3.0",
                     "io.circe:circe-parser_2.13:0.13.0",
                     "org.http4s:http4s-blaze-core_2.13:0.21.1",
+                    "org.scala-lang:scala-library:2.13.1",
+                    "org.scala-lang:scala-reflect:2.13.1",
                     "org.http4s:http4s-server_2.13:0.21.1",
                     "io.circe:circe-core_2.13:0.13.0",
+                    "org.scala-lang:scala-compiler:2.13.1",
+                    "jline:jline:2.14.6",
                     "dev.zio:izumi-reflect_2.13:1.0.0-M5",
                     "io.chrisdavenport:vault_2.13:2.0.0",
                     "org.typelevel:cats-effect_2.13:2.1.3",
                     "co.fs2:fs2-core_2.13:2.2.2",
+                    "org.fusesource.jansi:jansi:1.12",
                     "org.http4s:http4s-circe_2.13:0.21.1",
                     "dev.zio:zio-stacktracer_2.13:1.0.0",
                     "dev.zio:zio-query_2.13:0.2.0",
@@ -205,12 +205,12 @@
                 "coord": "com.github.ghostdogpr:caliban-http4s_2.13:jar:sources:0.8.0",
                 "file": "v1/https/repo1.maven.org/maven2/com/github/ghostdogpr/caliban-http4s_2.13/0.8.0/caliban-http4s_2.13-0.8.0-sources.jar",
                 "directDependencies": [
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.http4s:http4s-dsl_2.13:jar:sources:0.21.1",
                     "dev.zio:zio-interop-cats_2.13:jar:sources:2.0.0.0-RC14",
                     "org.http4s:http4s-circe_2.13:jar:sources:0.21.1",
                     "org.http4s:http4s-blaze-server_2.13:jar:sources:0.21.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "io.circe:circe-parser_2.13:jar:sources:0.13.0",
                     "com.github.ghostdogpr:caliban_2.13:jar:sources:0.8.0"
                 ],
@@ -222,19 +222,21 @@
                     "com.lihaoyi:fastparse_2.13:jar:sources:2.3.0",
                     "org.scodec:scodec-bits_2.13:jar:sources:1.1.12",
                     "org.slf4j:slf4j-api:jar:sources:1.7.25",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
+                    "jline:jline:jar:sources:2.14.6",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
                     "dev.zio:zio-query_2.13:jar:sources:0.2.0",
+                    "org.scala-lang:scala-compiler:jar:sources:2.13.1",
                     "org.http4s:http4s-dsl_2.13:jar:sources:0.21.1",
+                    "org.scala-lang:scala-reflect:jar:sources:2.13.1",
                     "dev.zio:zio-interop-cats_2.13:jar:sources:2.0.0.0-RC14",
                     "com.lihaoyi:geny_2.13:jar:sources:0.6.0",
                     "org.http4s:parboiled_2.13:jar:sources:2.0.1",
-                    "net.java.dev.jna:jna:jar:sources:5.3.1",
                     "org.log4s:log4s_2.13:jar:sources:1.8.2",
                     "org.typelevel:jawn-parser_2.13:jar:sources:1.0.0",
                     "org.http4s:http4s-blaze-core_2.13:jar:sources:0.21.1",
-                    "org.scala-lang:scala-compiler:jar:sources:2.13.3",
                     "org.http4s:http4s-circe_2.13:jar:sources:0.21.1",
                     "org.http4s:http4s-jawn_2.13:jar:sources:0.21.1",
                     "co.fs2:fs2-core_2.13:jar:sources:2.2.2",
@@ -245,12 +247,11 @@
                     "org.http4s:http4s-blaze-server_2.13:jar:sources:0.21.1",
                     "org.eclipse.jetty.alpn:alpn-api:jar:sources:1.1.3.v20160715",
                     "io.circe:circe-numbers_2.13:jar:sources:0.13.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.fusesource.jansi:jansi:jar:sources:1.12",
                     "dev.zio:zio_2.13:jar:sources:1.0.0",
                     "com.lihaoyi:sourcecode_2.13:jar:sources:0.2.1",
                     "com.propensive:mercator_2.13:jar:sources:0.2.1",
                     "co.fs2:fs2-io_2.13:jar:sources:2.2.2",
-                    "org.scala-lang:scala-reflect:jar:sources:2.13.3",
                     "io.circe:circe-jawn_2.13:jar:sources:0.13.0",
                     "org.http4s:blaze-http_2.13:jar:sources:0.14.11",
                     "org.http4s:http4s-core_2.13:jar:sources:0.21.1",
@@ -260,8 +261,7 @@
                     "org.http4s:blaze-core_2.13:jar:sources:0.14.11",
                     "com.github.ghostdogpr:caliban_2.13:jar:sources:0.8.0",
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:jar:sources:1.0.0-M5",
-                    "com.propensive:magnolia_2.13:jar:sources:0.16.0",
-                    "org.jline:jline:jar:sources:3.15.0"
+                    "com.propensive:magnolia_2.13:jar:sources:0.16.0"
                 ],
                 "url": "https://repo1.maven.org/maven2/com/github/ghostdogpr/caliban-http4s_2.13/0.8.0/caliban-http4s_2.13-0.8.0-sources.jar",
                 "mirror_urls": [
@@ -275,27 +275,27 @@
                 "file": "v1/https/repo1.maven.org/maven2/com/github/ghostdogpr/caliban_2.13/0.8.0/caliban_2.13-0.8.0.jar",
                 "directDependencies": [
                     "dev.zio:zio_2.13:1.0.0",
-                    "org.scala-lang:scala-library:2.13.3",
                     "dev.zio:zio-streams_2.13:1.0.0",
                     "com.propensive:magnolia_2.13:0.16.0",
                     "com.propensive:mercator_2.13:0.2.1",
                     "com.lihaoyi:fastparse_2.13:2.3.0",
+                    "org.scala-lang:scala-library:2.13.1",
                     "dev.zio:zio-query_2.13:0.2.0"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-reflect:2.13.3",
                     "dev.zio:zio_2.13:1.0.0",
-                    "org.scala-lang:scala-library:2.13.3",
-                    "org.scala-lang:scala-compiler:2.13.3",
                     "com.lihaoyi:geny_2.13:0.6.0",
                     "dev.zio:zio-streams_2.13:1.0.0",
                     "com.propensive:magnolia_2.13:0.16.0",
                     "com.lihaoyi:sourcecode_2.13:0.2.1",
-                    "org.jline:jline:3.15.0",
                     "com.propensive:mercator_2.13:0.2.1",
-                    "net.java.dev.jna:jna:5.3.1",
                     "com.lihaoyi:fastparse_2.13:2.3.0",
+                    "org.scala-lang:scala-library:2.13.1",
+                    "org.scala-lang:scala-reflect:2.13.1",
+                    "org.scala-lang:scala-compiler:2.13.1",
+                    "jline:jline:2.14.6",
                     "dev.zio:izumi-reflect_2.13:1.0.0-M5",
+                    "org.fusesource.jansi:jansi:1.12",
                     "dev.zio:zio-stacktracer_2.13:1.0.0",
                     "dev.zio:zio-query_2.13:0.2.0",
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:1.0.0-M5"
@@ -313,8 +313,8 @@
                 "directDependencies": [
                     "dev.zio:zio-streams_2.13:jar:sources:1.0.0",
                     "com.lihaoyi:fastparse_2.13:jar:sources:2.3.0",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "dev.zio:zio-query_2.13:jar:sources:0.2.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "dev.zio:zio_2.13:jar:sources:1.0.0",
                     "com.propensive:mercator_2.13:jar:sources:0.2.1",
                     "com.propensive:magnolia_2.13:jar:sources:0.16.0"
@@ -323,19 +323,19 @@
                     "dev.zio:zio-stacktracer_2.13:jar:sources:1.0.0",
                     "dev.zio:zio-streams_2.13:jar:sources:1.0.0",
                     "com.lihaoyi:fastparse_2.13:jar:sources:2.3.0",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
+                    "jline:jline:jar:sources:2.14.6",
                     "dev.zio:zio-query_2.13:jar:sources:0.2.0",
+                    "org.scala-lang:scala-compiler:jar:sources:2.13.1",
+                    "org.scala-lang:scala-reflect:jar:sources:2.13.1",
                     "com.lihaoyi:geny_2.13:jar:sources:0.6.0",
-                    "net.java.dev.jna:jna:jar:sources:5.3.1",
-                    "org.scala-lang:scala-compiler:jar:sources:2.13.3",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.fusesource.jansi:jansi:jar:sources:1.12",
                     "dev.zio:zio_2.13:jar:sources:1.0.0",
                     "com.lihaoyi:sourcecode_2.13:jar:sources:0.2.1",
                     "com.propensive:mercator_2.13:jar:sources:0.2.1",
-                    "org.scala-lang:scala-reflect:jar:sources:2.13.3",
                     "dev.zio:izumi-reflect_2.13:jar:sources:1.0.0-M5",
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:jar:sources:1.0.0-M5",
-                    "com.propensive:magnolia_2.13:jar:sources:0.16.0",
-                    "org.jline:jline:jar:sources:3.15.0"
+                    "com.propensive:magnolia_2.13:jar:sources:0.16.0"
                 ],
                 "url": "https://repo1.maven.org/maven2/com/github/ghostdogpr/caliban_2.13/0.8.0/caliban_2.13-0.8.0-sources.jar",
                 "mirror_urls": [
@@ -350,11 +350,11 @@
                 "directDependencies": [
                     "com.github.pureconfig:pureconfig-macros_2.13:0.12.3",
                     "com.typesafe:config:1.4.0",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
                     "com.typesafe:config:1.4.0",
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "com.github.pureconfig:pureconfig-macros_2.13:0.12.3"
                 ],
                 "url": "https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-core_2.13/0.12.3/pureconfig-core_2.13-0.12.3.jar",
@@ -370,11 +370,11 @@
                 "directDependencies": [
                     "com.github.pureconfig:pureconfig-macros_2.13:jar:sources:0.12.3",
                     "com.typesafe:config:jar:sources:1.4.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
                     "com.typesafe:config:jar:sources:1.4.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "com.github.pureconfig:pureconfig-macros_2.13:jar:sources:0.12.3"
                 ],
                 "url": "https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-core_2.13/0.12.3/pureconfig-core_2.13-0.12.3-sources.jar",
@@ -389,11 +389,11 @@
                 "file": "v1/https/repo1.maven.org/maven2/com/github/pureconfig/pureconfig-generic-base_2.13/0.12.3/pureconfig-generic-base_2.13-0.12.3.jar",
                 "directDependencies": [
                     "com.github.pureconfig:pureconfig-core_2.13:0.12.3",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
                     "com.typesafe:config:1.4.0",
+                    "org.scala-lang:scala-library:2.13.1",
                     "com.github.pureconfig:pureconfig-core_2.13:0.12.3",
                     "com.github.pureconfig:pureconfig-macros_2.13:0.12.3"
                 ],
@@ -409,12 +409,12 @@
                 "file": "v1/https/repo1.maven.org/maven2/com/github/pureconfig/pureconfig-generic-base_2.13/0.12.3/pureconfig-generic-base_2.13-0.12.3-sources.jar",
                 "directDependencies": [
                     "com.github.pureconfig:pureconfig-core_2.13:jar:sources:0.12.3",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
                     "com.typesafe:config:jar:sources:1.4.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "com.github.pureconfig:pureconfig-core_2.13:jar:sources:0.12.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "com.github.pureconfig:pureconfig-macros_2.13:jar:sources:0.12.3"
                 ],
                 "url": "https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-generic-base_2.13/0.12.3/pureconfig-generic-base_2.13-0.12.3-sources.jar",
@@ -431,13 +431,13 @@
                     "com.chuusai:shapeless_2.13:2.3.3",
                     "com.github.pureconfig:pureconfig-core_2.13:0.12.3",
                     "com.github.pureconfig:pureconfig-generic-base_2.13:0.12.3",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
                     "com.github.pureconfig:pureconfig-macros_2.13:0.12.3",
-                    "org.scala-lang:scala-library:2.13.3",
                     "com.typesafe:config:1.4.0",
                     "com.github.pureconfig:pureconfig-core_2.13:0.12.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "com.github.pureconfig:pureconfig-generic-base_2.13:0.12.3",
                     "com.chuusai:shapeless_2.13:2.3.3"
                 ],
@@ -455,14 +455,14 @@
                     "com.chuusai:shapeless_2.13:jar:sources:2.3.3",
                     "com.github.pureconfig:pureconfig-core_2.13:jar:sources:0.12.3",
                     "com.github.pureconfig:pureconfig-generic-base_2.13:jar:sources:0.12.3",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "com.github.pureconfig:pureconfig-core_2.13:jar:sources:0.12.3",
                     "com.chuusai:shapeless_2.13:jar:sources:2.3.3",
                     "com.github.pureconfig:pureconfig-generic-base_2.13:jar:sources:0.12.3",
                     "com.typesafe:config:jar:sources:1.4.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "com.github.pureconfig:pureconfig-macros_2.13:jar:sources:0.12.3"
                 ],
                 "url": "https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-generic_2.13/0.12.3/pureconfig-generic_2.13-0.12.3-sources.jar",
@@ -476,10 +476,10 @@
                 "coord": "com.github.pureconfig:pureconfig-macros_2.13:0.12.3",
                 "file": "v1/https/repo1.maven.org/maven2/com/github/pureconfig/pureconfig-macros_2.13/0.12.3/pureconfig-macros_2.13-0.12.3.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-macros_2.13/0.12.3/pureconfig-macros_2.13-0.12.3.jar",
                 "mirror_urls": [
@@ -492,10 +492,10 @@
                 "coord": "com.github.pureconfig:pureconfig-macros_2.13:jar:sources:0.12.3",
                 "file": "v1/https/repo1.maven.org/maven2/com/github/pureconfig/pureconfig-macros_2.13/0.12.3/pureconfig-macros_2.13-0.12.3-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig-macros_2.13/0.12.3/pureconfig-macros_2.13-0.12.3-sources.jar",
                 "mirror_urls": [
@@ -510,13 +510,13 @@
                 "directDependencies": [
                     "com.github.pureconfig:pureconfig-core_2.13:0.12.3",
                     "com.github.pureconfig:pureconfig-generic_2.13:0.12.3",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
                     "com.github.pureconfig:pureconfig-macros_2.13:0.12.3",
-                    "org.scala-lang:scala-library:2.13.3",
                     "com.typesafe:config:1.4.0",
                     "com.github.pureconfig:pureconfig-core_2.13:0.12.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "com.github.pureconfig:pureconfig-generic-base_2.13:0.12.3",
                     "com.chuusai:shapeless_2.13:2.3.3",
                     "com.github.pureconfig:pureconfig-generic_2.13:0.12.3"
@@ -534,15 +534,15 @@
                 "directDependencies": [
                     "com.github.pureconfig:pureconfig-core_2.13:jar:sources:0.12.3",
                     "com.github.pureconfig:pureconfig-generic_2.13:jar:sources:0.12.3",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "com.github.pureconfig:pureconfig-core_2.13:jar:sources:0.12.3",
                     "com.github.pureconfig:pureconfig-generic_2.13:jar:sources:0.12.3",
                     "com.chuusai:shapeless_2.13:jar:sources:2.3.3",
                     "com.github.pureconfig:pureconfig-generic-base_2.13:jar:sources:0.12.3",
                     "com.typesafe:config:jar:sources:1.4.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "com.github.pureconfig:pureconfig-macros_2.13:jar:sources:0.12.3"
                 ],
                 "url": "https://repo1.maven.org/maven2/com/github/pureconfig/pureconfig_2.13/0.12.3/pureconfig_2.13-0.12.3-sources.jar",
@@ -665,10 +665,10 @@
                 "file": "v1/https/repo1.maven.org/maven2/com/propensive/magnolia_2.13/0.16.0/magnolia_2.13-0.16.0.jar",
                 "directDependencies": [
                     "com.propensive:mercator_2.13:0.2.1",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "com.propensive:mercator_2.13:0.2.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/com/propensive/magnolia_2.13/0.16.0/magnolia_2.13-0.16.0.jar",
@@ -683,11 +683,11 @@
                 "file": "v1/https/repo1.maven.org/maven2/com/propensive/magnolia_2.13/0.16.0/magnolia_2.13-0.16.0-sources.jar",
                 "directDependencies": [
                     "com.propensive:mercator_2.13:jar:sources:0.2.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
                     "com.propensive:mercator_2.13:jar:sources:0.2.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/com/propensive/magnolia_2.13/0.16.0/magnolia_2.13-0.16.0-sources.jar",
                 "mirror_urls": [
@@ -700,16 +700,16 @@
                 "coord": "com.propensive:mercator_2.13:0.2.1",
                 "file": "v1/https/repo1.maven.org/maven2/com/propensive/mercator_2.13/0.2.1/mercator_2.13-0.2.1.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-compiler:2.13.3",
-                    "org.scala-lang:scala-library:2.13.3",
-                    "org.scala-lang:scala-reflect:2.13.3"
+                    "org.scala-lang:scala-compiler:2.13.1",
+                    "org.scala-lang:scala-library:2.13.1",
+                    "org.scala-lang:scala-reflect:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-reflect:2.13.3",
-                    "org.scala-lang:scala-library:2.13.3",
-                    "org.scala-lang:scala-compiler:2.13.3",
-                    "org.jline:jline:3.15.0",
-                    "net.java.dev.jna:jna:5.3.1"
+                    "org.scala-lang:scala-library:2.13.1",
+                    "org.scala-lang:scala-reflect:2.13.1",
+                    "org.scala-lang:scala-compiler:2.13.1",
+                    "jline:jline:2.14.6",
+                    "org.fusesource.jansi:jansi:1.12"
                 ],
                 "url": "https://repo1.maven.org/maven2/com/propensive/mercator_2.13/0.2.1/mercator_2.13-0.2.1.jar",
                 "mirror_urls": [
@@ -722,16 +722,16 @@
                 "coord": "com.propensive:mercator_2.13:jar:sources:0.2.1",
                 "file": "v1/https/repo1.maven.org/maven2/com/propensive/mercator_2.13/0.2.1/mercator_2.13-0.2.1-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-compiler:jar:sources:2.13.3",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
-                    "org.scala-lang:scala-reflect:jar:sources:2.13.3"
+                    "org.scala-lang:scala-compiler:jar:sources:2.13.1",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
+                    "org.scala-lang:scala-reflect:jar:sources:2.13.1"
                 ],
                 "dependencies": [
-                    "net.java.dev.jna:jna:jar:sources:5.3.1",
-                    "org.scala-lang:scala-compiler:jar:sources:2.13.3",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
-                    "org.scala-lang:scala-reflect:jar:sources:2.13.3",
-                    "org.jline:jline:jar:sources:3.15.0"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
+                    "jline:jline:jar:sources:2.14.6",
+                    "org.scala-lang:scala-compiler:jar:sources:2.13.1",
+                    "org.scala-lang:scala-reflect:jar:sources:2.13.1",
+                    "org.fusesource.jansi:jansi:jar:sources:1.12"
                 ],
                 "url": "https://repo1.maven.org/maven2/com/propensive/mercator_2.13/0.2.1/mercator_2.13-0.2.1-sources.jar",
                 "mirror_urls": [
@@ -824,10 +824,10 @@
                 "coord": "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:1.0.0-M5",
                 "file": "v1/https/repo1.maven.org/maven2/dev/zio/izumi-reflect-thirdparty-boopickle-shaded_2.13/1.0.0-M5/izumi-reflect-thirdparty-boopickle-shaded_2.13-1.0.0-M5.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/dev/zio/izumi-reflect-thirdparty-boopickle-shaded_2.13/1.0.0-M5/izumi-reflect-thirdparty-boopickle-shaded_2.13-1.0.0-M5.jar",
                 "mirror_urls": [
@@ -840,10 +840,10 @@
                 "coord": "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:jar:sources:1.0.0-M5",
                 "file": "v1/https/repo1.maven.org/maven2/dev/zio/izumi-reflect-thirdparty-boopickle-shaded_2.13/1.0.0-M5/izumi-reflect-thirdparty-boopickle-shaded_2.13-1.0.0-M5-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/dev/zio/izumi-reflect-thirdparty-boopickle-shaded_2.13/1.0.0-M5/izumi-reflect-thirdparty-boopickle-shaded_2.13-1.0.0-M5-sources.jar",
                 "mirror_urls": [
@@ -857,10 +857,10 @@
                 "file": "v1/https/repo1.maven.org/maven2/dev/zio/izumi-reflect_2.13/1.0.0-M5/izumi-reflect_2.13-1.0.0-M5.jar",
                 "directDependencies": [
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:1.0.0-M5",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:1.0.0-M5"
                 ],
                 "url": "https://repo1.maven.org/maven2/dev/zio/izumi-reflect_2.13/1.0.0-M5/izumi-reflect_2.13-1.0.0-M5.jar",
@@ -875,10 +875,10 @@
                 "file": "v1/https/repo1.maven.org/maven2/dev/zio/izumi-reflect_2.13/1.0.0-M5/izumi-reflect_2.13-1.0.0-M5-sources.jar",
                 "directDependencies": [
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:jar:sources:1.0.0-M5",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:jar:sources:1.0.0-M5"
                 ],
                 "url": "https://repo1.maven.org/maven2/dev/zio/izumi-reflect_2.13/1.0.0-M5/izumi-reflect_2.13-1.0.0-M5-sources.jar",
@@ -893,11 +893,11 @@
                 "file": "v1/https/repo1.maven.org/maven2/dev/zio/zio-interop-cats_2.13/2.0.0.0-RC14/zio-interop-cats_2.13-2.0.0.0-RC14.jar",
                 "directDependencies": [
                     "dev.zio:zio_2.13:1.0.0",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
                     "dev.zio:zio_2.13:1.0.0",
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "dev.zio:izumi-reflect_2.13:1.0.0-M5",
                     "dev.zio:zio-stacktracer_2.13:1.0.0",
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:1.0.0-M5"
@@ -914,11 +914,11 @@
                 "file": "v1/https/repo1.maven.org/maven2/dev/zio/zio-interop-cats_2.13/2.0.0.0-RC14/zio-interop-cats_2.13-2.0.0.0-RC14-sources.jar",
                 "directDependencies": [
                     "dev.zio:zio_2.13:jar:sources:1.0.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
                     "dev.zio:zio-stacktracer_2.13:jar:sources:1.0.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "dev.zio:zio_2.13:jar:sources:1.0.0",
                     "dev.zio:izumi-reflect_2.13:jar:sources:1.0.0-M5",
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:jar:sources:1.0.0-M5"
@@ -935,13 +935,13 @@
                 "file": "v1/https/repo1.maven.org/maven2/dev/zio/zio-logging_2.13/0.4.0/zio-logging_2.13-0.4.0.jar",
                 "directDependencies": [
                     "dev.zio:zio_2.13:1.0.0",
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.scala-lang.modules:scala-collection-compat_2.13:2.1.6"
                 ],
                 "dependencies": [
                     "dev.zio:zio_2.13:1.0.0",
-                    "org.scala-lang:scala-library:2.13.3",
                     "org.scala-lang.modules:scala-collection-compat_2.13:2.1.6",
+                    "org.scala-lang:scala-library:2.13.1",
                     "dev.zio:izumi-reflect_2.13:1.0.0-M5",
                     "dev.zio:zio-stacktracer_2.13:1.0.0",
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:1.0.0-M5"
@@ -958,13 +958,13 @@
                 "file": "v1/https/repo1.maven.org/maven2/dev/zio/zio-logging_2.13/0.4.0/zio-logging_2.13-0.4.0-sources.jar",
                 "directDependencies": [
                     "dev.zio:zio_2.13:jar:sources:1.0.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.scala-lang.modules:scala-collection-compat_2.13:jar:sources:2.1.6"
                 ],
                 "dependencies": [
                     "dev.zio:zio-stacktracer_2.13:jar:sources:1.0.0",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.scala-lang.modules:scala-collection-compat_2.13:jar:sources:2.1.6",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "dev.zio:zio_2.13:jar:sources:1.0.0",
                     "dev.zio:izumi-reflect_2.13:jar:sources:1.0.0-M5",
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:jar:sources:1.0.0-M5"
@@ -981,11 +981,11 @@
                 "file": "v1/https/repo1.maven.org/maven2/dev/zio/zio-query_2.13/0.2.0/zio-query_2.13-0.2.0.jar",
                 "directDependencies": [
                     "dev.zio:zio_2.13:1.0.0",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
                     "dev.zio:zio_2.13:1.0.0",
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "dev.zio:izumi-reflect_2.13:1.0.0-M5",
                     "dev.zio:zio-stacktracer_2.13:1.0.0",
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:1.0.0-M5"
@@ -1002,11 +1002,11 @@
                 "file": "v1/https/repo1.maven.org/maven2/dev/zio/zio-query_2.13/0.2.0/zio-query_2.13-0.2.0-sources.jar",
                 "directDependencies": [
                     "dev.zio:zio_2.13:jar:sources:1.0.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
                     "dev.zio:zio-stacktracer_2.13:jar:sources:1.0.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "dev.zio:zio_2.13:jar:sources:1.0.0",
                     "dev.zio:izumi-reflect_2.13:jar:sources:1.0.0-M5",
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:jar:sources:1.0.0-M5"
@@ -1022,10 +1022,10 @@
                 "coord": "dev.zio:zio-stacktracer_2.13:1.0.0",
                 "file": "v1/https/repo1.maven.org/maven2/dev/zio/zio-stacktracer_2.13/1.0.0/zio-stacktracer_2.13-1.0.0.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/dev/zio/zio-stacktracer_2.13/1.0.0/zio-stacktracer_2.13-1.0.0.jar",
                 "mirror_urls": [
@@ -1038,10 +1038,10 @@
                 "coord": "dev.zio:zio-stacktracer_2.13:jar:sources:1.0.0",
                 "file": "v1/https/repo1.maven.org/maven2/dev/zio/zio-stacktracer_2.13/1.0.0/zio-stacktracer_2.13-1.0.0-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/dev/zio/zio-stacktracer_2.13/1.0.0/zio-stacktracer_2.13-1.0.0-sources.jar",
                 "mirror_urls": [
@@ -1055,11 +1055,11 @@
                 "file": "v1/https/repo1.maven.org/maven2/dev/zio/zio-streams_2.13/1.0.0/zio-streams_2.13-1.0.0.jar",
                 "directDependencies": [
                     "dev.zio:zio_2.13:1.0.0",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
                     "dev.zio:zio_2.13:1.0.0",
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "dev.zio:izumi-reflect_2.13:1.0.0-M5",
                     "dev.zio:zio-stacktracer_2.13:1.0.0",
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:1.0.0-M5"
@@ -1076,11 +1076,11 @@
                 "file": "v1/https/repo1.maven.org/maven2/dev/zio/zio-streams_2.13/1.0.0/zio-streams_2.13-1.0.0-sources.jar",
                 "directDependencies": [
                     "dev.zio:zio_2.13:jar:sources:1.0.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
                     "dev.zio:zio-stacktracer_2.13:jar:sources:1.0.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "dev.zio:zio_2.13:jar:sources:1.0.0",
                     "dev.zio:izumi-reflect_2.13:jar:sources:1.0.0-M5",
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:jar:sources:1.0.0-M5"
@@ -1098,16 +1098,16 @@
                 "directDependencies": [
                     "dev.zio:zio-test_2.13:1.0.0",
                     "dev.zio:zio_2.13:1.0.0",
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.scala-sbt:test-interface:1.0"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-reflect:2.13.3",
                     "dev.zio:zio_2.13:1.0.0",
-                    "org.scala-lang:scala-library:2.13.3",
                     "dev.zio:zio-streams_2.13:1.0.0",
                     "dev.zio:zio-test_2.13:1.0.0",
                     "org.scala-sbt:test-interface:1.0",
+                    "org.scala-lang:scala-library:2.13.1",
+                    "org.scala-lang:scala-reflect:2.13.1",
                     "dev.zio:izumi-reflect_2.13:1.0.0-M5",
                     "org.portable-scala:portable-scala-reflect_2.13:1.0.0",
                     "dev.zio:zio-stacktracer_2.13:1.0.0",
@@ -1126,16 +1126,16 @@
                 "directDependencies": [
                     "dev.zio:zio-test_2.13:jar:sources:1.0.0",
                     "dev.zio:zio_2.13:jar:sources:1.0.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.scala-sbt:test-interface:jar:sources:1.0"
                 ],
                 "dependencies": [
                     "dev.zio:zio-stacktracer_2.13:jar:sources:1.0.0",
                     "dev.zio:zio-streams_2.13:jar:sources:1.0.0",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
+                    "org.scala-lang:scala-reflect:jar:sources:2.13.1",
                     "org.scala-sbt:test-interface:jar:sources:1.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "dev.zio:zio_2.13:jar:sources:1.0.0",
-                    "org.scala-lang:scala-reflect:jar:sources:2.13.3",
                     "dev.zio:izumi-reflect_2.13:jar:sources:1.0.0-M5",
                     "dev.zio:zio-test_2.13:jar:sources:1.0.0",
                     "org.portable-scala:portable-scala-reflect_2.13:jar:sources:1.0.0",
@@ -1155,13 +1155,13 @@
                     "dev.zio:zio-streams_2.13:1.0.0",
                     "dev.zio:zio_2.13:1.0.0",
                     "org.portable-scala:portable-scala-reflect_2.13:1.0.0",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-reflect:2.13.3",
                     "dev.zio:zio_2.13:1.0.0",
-                    "org.scala-lang:scala-library:2.13.3",
                     "dev.zio:zio-streams_2.13:1.0.0",
+                    "org.scala-lang:scala-library:2.13.1",
+                    "org.scala-lang:scala-reflect:2.13.1",
                     "dev.zio:izumi-reflect_2.13:1.0.0-M5",
                     "org.portable-scala:portable-scala-reflect_2.13:1.0.0",
                     "dev.zio:zio-stacktracer_2.13:1.0.0",
@@ -1181,14 +1181,14 @@
                     "dev.zio:zio-streams_2.13:jar:sources:1.0.0",
                     "dev.zio:zio_2.13:jar:sources:1.0.0",
                     "org.portable-scala:portable-scala-reflect_2.13:jar:sources:1.0.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
                     "dev.zio:zio-stacktracer_2.13:jar:sources:1.0.0",
                     "dev.zio:zio-streams_2.13:jar:sources:1.0.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
+                    "org.scala-lang:scala-reflect:jar:sources:2.13.1",
                     "dev.zio:zio_2.13:jar:sources:1.0.0",
-                    "org.scala-lang:scala-reflect:jar:sources:2.13.3",
                     "dev.zio:izumi-reflect_2.13:jar:sources:1.0.0-M5",
                     "org.portable-scala:portable-scala-reflect_2.13:jar:sources:1.0.0",
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:jar:sources:1.0.0-M5"
@@ -1206,10 +1206,10 @@
                 "directDependencies": [
                     "dev.zio:izumi-reflect_2.13:1.0.0-M5",
                     "dev.zio:zio-stacktracer_2.13:1.0.0",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "dev.zio:zio-stacktracer_2.13:1.0.0",
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:1.0.0-M5",
                     "dev.zio:izumi-reflect_2.13:1.0.0-M5"
@@ -1227,12 +1227,12 @@
                 "directDependencies": [
                     "dev.zio:izumi-reflect_2.13:jar:sources:1.0.0-M5",
                     "dev.zio:zio-stacktracer_2.13:jar:sources:1.0.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
                     "dev.zio:zio-stacktracer_2.13:jar:sources:1.0.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "dev.zio:izumi-reflect_2.13:jar:sources:1.0.0-M5",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "dev.zio:izumi-reflect-thirdparty-boopickle-shaded_2.13:jar:sources:1.0.0-M5"
                 ],
                 "url": "https://repo1.maven.org/maven2/dev/zio/zio_2.13/1.0.0/zio_2.13-1.0.0-sources.jar",
@@ -1246,15 +1246,15 @@
                 "coord": "io.chrisdavenport:unique_2.13:2.0.0",
                 "file": "v1/https/repo1.maven.org/maven2/io/chrisdavenport/unique_2.13/2.0.0/unique_2.13-2.0.0.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-core_2.13:2.1.1",
                     "org.typelevel:cats-effect_2.13:2.1.3"
                 ],
                 "dependencies": [
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-effect_2.13:2.1.3"
                 ],
                 "url": "https://repo1.maven.org/maven2/io/chrisdavenport/unique_2.13/2.0.0/unique_2.13-2.0.0.jar",
@@ -1268,16 +1268,16 @@
                 "coord": "io.chrisdavenport:unique_2.13:jar:sources:2.0.0",
                 "file": "v1/https/repo1.maven.org/maven2/io/chrisdavenport/unique_2.13/2.0.0/unique_2.13-2.0.0-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3"
                 ],
                 "dependencies": [
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
-                    "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.typelevel:cats-core_2.13:jar:sources:2.1.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/io/chrisdavenport/unique_2.13/2.0.0/unique_2.13-2.0.0-sources.jar",
                 "mirror_urls": [
@@ -1291,16 +1291,16 @@
                 "file": "v1/https/repo1.maven.org/maven2/io/chrisdavenport/vault_2.13/2.0.0/vault_2.13-2.0.0.jar",
                 "directDependencies": [
                     "io.chrisdavenport:unique_2.13:2.0.0",
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-core_2.13:2.1.1",
                     "org.typelevel:cats-effect_2.13:2.1.3"
                 ],
                 "dependencies": [
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "io.chrisdavenport:unique_2.13:2.0.0",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-effect_2.13:2.1.3"
                 ],
                 "url": "https://repo1.maven.org/maven2/io/chrisdavenport/vault_2.13/2.0.0/vault_2.13-2.0.0.jar",
@@ -1315,17 +1315,17 @@
                 "file": "v1/https/repo1.maven.org/maven2/io/chrisdavenport/vault_2.13/2.0.0/vault_2.13-2.0.0-sources.jar",
                 "directDependencies": [
                     "io.chrisdavenport:unique_2.13:jar:sources:2.0.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3"
                 ],
                 "dependencies": [
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
                     "io.chrisdavenport:unique_2.13:jar:sources:2.0.0",
-                    "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.typelevel:cats-core_2.13:jar:sources:2.1.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/io/chrisdavenport/vault_2.13/2.0.0/vault_2.13-2.0.0-sources.jar",
                 "mirror_urls": [
@@ -1339,15 +1339,15 @@
                 "file": "v1/https/repo1.maven.org/maven2/io/circe/circe-core_2.13/0.13.0/circe-core_2.13-0.13.0.jar",
                 "directDependencies": [
                     "io.circe:circe-numbers_2.13:0.13.0",
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-core_2.13:2.1.1"
                 ],
                 "dependencies": [
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "io.circe:circe-numbers_2.13:0.13.0",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
-                    "org.typelevel:cats-macros_2.13:2.1.1"
+                    "org.typelevel:cats-macros_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/io/circe/circe-core_2.13/0.13.0/circe-core_2.13-0.13.0.jar",
                 "mirror_urls": [
@@ -1361,15 +1361,15 @@
                 "file": "v1/https/repo1.maven.org/maven2/io/circe/circe-core_2.13/0.13.0/circe-core_2.13-0.13.0-sources.jar",
                 "directDependencies": [
                     "io.circe:circe-numbers_2.13:jar:sources:0.13.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1"
                 ],
                 "dependencies": [
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "io.circe:circe-numbers_2.13:jar:sources:0.13.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "io.circe:circe-numbers_2.13:jar:sources:0.13.0"
                 ],
                 "url": "https://repo1.maven.org/maven2/io/circe/circe-core_2.13/0.13.0/circe-core_2.13-0.13.0-sources.jar",
                 "mirror_urls": [
@@ -1384,14 +1384,14 @@
                 "directDependencies": [
                     "com.chuusai:shapeless_2.13:2.3.3",
                     "io.circe:circe-core_2.13:0.13.0",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "io.circe:circe-numbers_2.13:0.13.0",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "io.circe:circe-core_2.13:0.13.0",
                     "com.chuusai:shapeless_2.13:2.3.3"
                 ],
@@ -1408,16 +1408,16 @@
                 "directDependencies": [
                     "com.chuusai:shapeless_2.13:jar:sources:2.3.3",
                     "io.circe:circe-core_2.13:jar:sources:0.13.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
                     "io.circe:circe-core_2.13:jar:sources:0.13.0",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
                     "com.chuusai:shapeless_2.13:jar:sources:2.3.3",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "io.circe:circe-numbers_2.13:jar:sources:0.13.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "io.circe:circe-numbers_2.13:jar:sources:0.13.0"
                 ],
                 "url": "https://repo1.maven.org/maven2/io/circe/circe-generic_2.13/0.13.0/circe-generic_2.13-0.13.0-sources.jar",
                 "mirror_urls": [
@@ -1431,16 +1431,16 @@
                 "file": "v1/https/repo1.maven.org/maven2/io/circe/circe-jawn_2.13/0.13.0/circe-jawn_2.13-0.13.0.jar",
                 "directDependencies": [
                     "io.circe:circe-core_2.13:0.13.0",
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:jawn-parser_2.13:1.0.0"
                 ],
                 "dependencies": [
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "org.typelevel:jawn-parser_2.13:1.0.0",
                     "io.circe:circe-numbers_2.13:0.13.0",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "io.circe:circe-core_2.13:0.13.0"
                 ],
                 "url": "https://repo1.maven.org/maven2/io/circe/circe-jawn_2.13/0.13.0/circe-jawn_2.13-0.13.0.jar",
@@ -1455,17 +1455,17 @@
                 "file": "v1/https/repo1.maven.org/maven2/io/circe/circe-jawn_2.13/0.13.0/circe-jawn_2.13-0.13.0-sources.jar",
                 "directDependencies": [
                     "io.circe:circe-core_2.13:jar:sources:0.13.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:jawn-parser_2.13:jar:sources:1.0.0"
                 ],
                 "dependencies": [
                     "io.circe:circe-core_2.13:jar:sources:0.13.0",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
                     "org.typelevel:jawn-parser_2.13:jar:sources:1.0.0",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "io.circe:circe-numbers_2.13:jar:sources:0.13.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "io.circe:circe-numbers_2.13:jar:sources:0.13.0"
                 ],
                 "url": "https://repo1.maven.org/maven2/io/circe/circe-jawn_2.13/0.13.0/circe-jawn_2.13-0.13.0-sources.jar",
                 "mirror_urls": [
@@ -1478,10 +1478,10 @@
                 "coord": "io.circe:circe-numbers_2.13:0.13.0",
                 "file": "v1/https/repo1.maven.org/maven2/io/circe/circe-numbers_2.13/0.13.0/circe-numbers_2.13-0.13.0.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/io/circe/circe-numbers_2.13/0.13.0/circe-numbers_2.13-0.13.0.jar",
                 "mirror_urls": [
@@ -1494,10 +1494,10 @@
                 "coord": "io.circe:circe-numbers_2.13:jar:sources:0.13.0",
                 "file": "v1/https/repo1.maven.org/maven2/io/circe/circe-numbers_2.13/0.13.0/circe-numbers_2.13-0.13.0-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/io/circe/circe-numbers_2.13/0.13.0/circe-numbers_2.13-0.13.0-sources.jar",
                 "mirror_urls": [
@@ -1512,16 +1512,16 @@
                 "directDependencies": [
                     "io.circe:circe-core_2.13:0.13.0",
                     "io.circe:circe-jawn_2.13:0.13.0",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
                     "io.circe:circe-jawn_2.13:0.13.0",
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "org.typelevel:jawn-parser_2.13:1.0.0",
                     "io.circe:circe-numbers_2.13:0.13.0",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "io.circe:circe-core_2.13:0.13.0"
                 ],
                 "url": "https://repo1.maven.org/maven2/io/circe/circe-parser_2.13/0.13.0/circe-parser_2.13-0.13.0.jar",
@@ -1537,16 +1537,16 @@
                 "directDependencies": [
                     "io.circe:circe-core_2.13:jar:sources:0.13.0",
                     "io.circe:circe-jawn_2.13:jar:sources:0.13.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
                     "io.circe:circe-core_2.13:jar:sources:0.13.0",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
                     "org.typelevel:jawn-parser_2.13:jar:sources:1.0.0",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
                     "io.circe:circe-numbers_2.13:jar:sources:0.13.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "io.circe:circe-jawn_2.13:jar:sources:0.13.0"
                 ],
                 "url": "https://repo1.maven.org/maven2/io/circe/circe-parser_2.13/0.13.0/circe-parser_2.13-0.13.0-sources.jar",
@@ -1560,11 +1560,11 @@
                 "coord": "io.scalaland:chimney_2.13:0.5.2",
                 "file": "v1/https/repo1.maven.org/maven2/io/scalaland/chimney_2.13/0.5.2/chimney_2.13-0.5.2.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.scala-lang.modules:scala-collection-compat_2.13:2.1.6"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.scala-lang.modules:scala-collection-compat_2.13:2.1.6"
                 ],
                 "url": "https://repo1.maven.org/maven2/io/scalaland/chimney_2.13/0.5.2/chimney_2.13-0.5.2.jar",
@@ -1578,11 +1578,11 @@
                 "coord": "io.scalaland:chimney_2.13:jar:sources:0.5.2",
                 "file": "v1/https/repo1.maven.org/maven2/io/scalaland/chimney_2.13/0.5.2/chimney_2.13-0.5.2-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.scala-lang.modules:scala-collection-compat_2.13:jar:sources:2.1.6"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.scala-lang.modules:scala-collection-compat_2.13:jar:sources:2.1.6"
                 ],
                 "url": "https://repo1.maven.org/maven2/io/scalaland/chimney_2.13/0.5.2/chimney_2.13-0.5.2-sources.jar",
@@ -1593,28 +1593,28 @@
                 "sha256": "cab068939c18b278bf7346734d043fb325b5157b41474b66baa3f9c755a9e8d7"
             },
             {
-                "coord": "net.java.dev.jna:jna:5.3.1",
-                "file": "v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/5.3.1/jna-5.3.1.jar",
+                "coord": "jline:jline:2.14.6",
+                "file": "v1/https/repo1.maven.org/maven2/jline/jline/2.14.6/jline-2.14.6.jar",
                 "directDependencies": [],
                 "dependencies": [],
-                "url": "https://repo1.maven.org/maven2/net/java/dev/jna/jna/5.3.1/jna-5.3.1.jar",
+                "url": "https://repo1.maven.org/maven2/jline/jline/2.14.6/jline-2.14.6.jar",
                 "mirror_urls": [
-                    "https://maven.google.com/net/java/dev/jna/jna/5.3.1/jna-5.3.1.jar",
-                    "https://repo1.maven.org/maven2/net/java/dev/jna/jna/5.3.1/jna-5.3.1.jar"
+                    "https://maven.google.com/jline/jline/2.14.6/jline-2.14.6.jar",
+                    "https://repo1.maven.org/maven2/jline/jline/2.14.6/jline-2.14.6.jar"
                 ],
-                "sha256": "01cb505c0698d0f7acf3524c7e73acb7dc424a5bae5e9c86ce44075ab32bc4ee"
+                "sha256": "97d1acaac82409be42e622d7a54d3ae9d08517e8aefdea3d2ba9791150c2f02d"
             },
             {
-                "coord": "net.java.dev.jna:jna:jar:sources:5.3.1",
-                "file": "v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/5.3.1/jna-5.3.1-sources.jar",
+                "coord": "jline:jline:jar:sources:2.14.6",
+                "file": "v1/https/repo1.maven.org/maven2/jline/jline/2.14.6/jline-2.14.6-sources.jar",
                 "directDependencies": [],
                 "dependencies": [],
-                "url": "https://repo1.maven.org/maven2/net/java/dev/jna/jna/5.3.1/jna-5.3.1-sources.jar",
+                "url": "https://repo1.maven.org/maven2/jline/jline/2.14.6/jline-2.14.6-sources.jar",
                 "mirror_urls": [
-                    "https://maven.google.com/net/java/dev/jna/jna/5.3.1/jna-5.3.1-sources.jar",
-                    "https://repo1.maven.org/maven2/net/java/dev/jna/jna/5.3.1/jna-5.3.1-sources.jar"
+                    "https://maven.google.com/jline/jline/2.14.6/jline-2.14.6-sources.jar",
+                    "https://repo1.maven.org/maven2/jline/jline/2.14.6/jline-2.14.6-sources.jar"
                 ],
-                "sha256": "b2c47bfe2b471c3e03e0e7ffca9c2d23c3e6f63fca8a443a00129c957235ac5c"
+                "sha256": "319a840705e1e46abe579dd3d079b508558791e0236bc78da01911748e06af93"
             },
             {
                 "coord": "org.eclipse.jetty.alpn:alpn-api:1.1.3.v20160715",
@@ -1641,15 +1641,39 @@
                 "sha256": "157e9670b98916f209b87b18a606aff48a7de81df2bb01e3bfd2894bdefa0d40"
             },
             {
+                "coord": "org.fusesource.jansi:jansi:1.12",
+                "file": "v1/https/repo1.maven.org/maven2/org/fusesource/jansi/jansi/1.12/jansi-1.12.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://repo1.maven.org/maven2/org/fusesource/jansi/jansi/1.12/jansi-1.12.jar",
+                "mirror_urls": [
+                    "https://maven.google.com/org/fusesource/jansi/jansi/1.12/jansi-1.12.jar",
+                    "https://repo1.maven.org/maven2/org/fusesource/jansi/jansi/1.12/jansi-1.12.jar"
+                ],
+                "sha256": "8430808a03cc7a1f49f90132f7517a43cd7493390077ae4390445432826d4811"
+            },
+            {
+                "coord": "org.fusesource.jansi:jansi:jar:sources:1.12",
+                "file": "v1/https/repo1.maven.org/maven2/org/fusesource/jansi/jansi/1.12/jansi-1.12-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://repo1.maven.org/maven2/org/fusesource/jansi/jansi/1.12/jansi-1.12-sources.jar",
+                "mirror_urls": [
+                    "https://maven.google.com/org/fusesource/jansi/jansi/1.12/jansi-1.12-sources.jar",
+                    "https://repo1.maven.org/maven2/org/fusesource/jansi/jansi/1.12/jansi-1.12-sources.jar"
+                ],
+                "sha256": "708c50198274289010bccc651938bc64de2aa8d9ce3f128438f92d7d338f2007"
+            },
+            {
                 "coord": "org.http4s:blaze-core_2.13:0.14.11",
                 "file": "v1/https/repo1.maven.org/maven2/org/http4s/blaze-core_2.13/0.14.11/blaze-core_2.13-0.14.11.jar",
                 "directDependencies": [
                     "org.log4s:log4s_2.13:1.8.2",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
                     "org.slf4j:slf4j-api:1.7.25",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.log4s:log4s_2.13:1.8.2"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/http4s/blaze-core_2.13/0.14.11/blaze-core_2.13-0.14.11.jar",
@@ -1664,10 +1688,10 @@
                 "file": "v1/https/repo1.maven.org/maven2/org/http4s/blaze-core_2.13/0.14.11/blaze-core_2.13-0.14.11-sources.jar",
                 "directDependencies": [
                     "org.log4s:log4s_2.13:jar:sources:1.8.2",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.slf4j:slf4j-api:jar:sources:1.7.25",
                     "org.log4s:log4s_2.13:jar:sources:1.8.2"
                 ],
@@ -1685,15 +1709,15 @@
                     "com.twitter:hpack:1.0.2",
                     "org.eclipse.jetty.alpn:alpn-api:1.1.3.v20160715",
                     "org.http4s:blaze-core_2.13:0.14.11",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
                     "org.http4s:blaze-core_2.13:0.14.11",
                     "org.log4s:log4s_2.13:1.8.2",
-                    "org.scala-lang:scala-library:2.13.3",
                     "com.twitter:hpack:1.0.2",
                     "org.slf4j:slf4j-api:1.7.25",
-                    "org.eclipse.jetty.alpn:alpn-api:1.1.3.v20160715"
+                    "org.eclipse.jetty.alpn:alpn-api:1.1.3.v20160715",
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/http4s/blaze-http_2.13/0.14.11/blaze-http_2.13-0.14.11.jar",
                 "mirror_urls": [
@@ -1709,13 +1733,13 @@
                     "com.twitter:hpack:jar:sources:1.0.2",
                     "org.eclipse.jetty.alpn:alpn-api:jar:sources:1.1.3.v20160715",
                     "org.http4s:blaze-core_2.13:jar:sources:0.14.11",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
                     "org.slf4j:slf4j-api:jar:sources:1.7.25",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.log4s:log4s_2.13:jar:sources:1.8.2",
                     "org.eclipse.jetty.alpn:alpn-api:jar:sources:1.1.3.v20160715",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "com.twitter:hpack:jar:sources:1.0.2",
                     "org.http4s:blaze-core_2.13:jar:sources:0.14.11"
                 ],
@@ -1732,7 +1756,7 @@
                 "directDependencies": [
                     "org.http4s:blaze-http_2.13:0.14.11",
                     "org.http4s:http4s-core_2.13:0.21.1",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
                     "org.http4s:blaze-core_2.13:0.14.11",
@@ -1740,7 +1764,6 @@
                     "org.log4s:log4s_2.13:1.8.2",
                     "org.scodec:scodec-bits_2.13:1.1.12",
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "co.fs2:fs2-io_2.13:2.2.2",
                     "io.chrisdavenport:unique_2.13:2.0.0",
                     "org.http4s:http4s-core_2.13:0.21.1",
@@ -1750,6 +1773,7 @@
                     "org.eclipse.jetty.alpn:alpn-api:1.1.3.v20160715",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "io.chrisdavenport:vault_2.13:2.0.0",
                     "org.typelevel:cats-effect_2.13:2.1.3",
                     "co.fs2:fs2-core_2.13:2.2.2"
@@ -1767,11 +1791,12 @@
                 "directDependencies": [
                     "org.http4s:blaze-http_2.13:jar:sources:0.14.11",
                     "org.http4s:http4s-core_2.13:jar:sources:0.21.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
                     "org.scodec:scodec-bits_2.13:jar:sources:1.1.12",
                     "org.slf4j:slf4j-api:jar:sources:1.7.25",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
@@ -1782,7 +1807,6 @@
                     "io.chrisdavenport:unique_2.13:jar:sources:2.0.0",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
                     "org.eclipse.jetty.alpn:alpn-api:jar:sources:1.1.3.v20160715",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "co.fs2:fs2-io_2.13:jar:sources:2.2.2",
                     "org.http4s:blaze-http_2.13:jar:sources:0.14.11",
                     "org.http4s:http4s-core_2.13:jar:sources:0.21.1",
@@ -1802,7 +1826,7 @@
                 "directDependencies": [
                     "org.http4s:http4s-blaze-core_2.13:0.21.1",
                     "org.http4s:http4s-server_2.13:0.21.1",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
                     "org.http4s:blaze-core_2.13:0.14.11",
@@ -1810,7 +1834,6 @@
                     "org.log4s:log4s_2.13:1.8.2",
                     "org.scodec:scodec-bits_2.13:1.1.12",
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "co.fs2:fs2-io_2.13:2.2.2",
                     "io.chrisdavenport:unique_2.13:2.0.0",
                     "org.http4s:http4s-core_2.13:0.21.1",
@@ -1821,6 +1844,7 @@
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
                     "org.http4s:http4s-blaze-core_2.13:0.21.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.http4s:http4s-server_2.13:0.21.1",
                     "io.chrisdavenport:vault_2.13:2.0.0",
                     "org.typelevel:cats-effect_2.13:2.1.3",
@@ -1839,12 +1863,13 @@
                 "directDependencies": [
                     "org.http4s:http4s-blaze-core_2.13:jar:sources:0.21.1",
                     "org.http4s:http4s-server_2.13:jar:sources:0.21.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
                     "org.http4s:http4s-server_2.13:jar:sources:0.21.1",
                     "org.scodec:scodec-bits_2.13:jar:sources:1.1.12",
                     "org.slf4j:slf4j-api:jar:sources:1.7.25",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
@@ -1856,7 +1881,6 @@
                     "io.chrisdavenport:unique_2.13:jar:sources:2.0.0",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
                     "org.eclipse.jetty.alpn:alpn-api:jar:sources:1.1.3.v20160715",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "co.fs2:fs2-io_2.13:jar:sources:2.2.2",
                     "org.http4s:blaze-http_2.13:jar:sources:0.14.11",
                     "org.http4s:http4s-core_2.13:jar:sources:0.21.1",
@@ -1877,14 +1901,13 @@
                     "io.circe:circe-jawn_2.13:0.13.0",
                     "org.http4s:http4s-core_2.13:0.21.1",
                     "org.http4s:http4s-jawn_2.13:0.21.1",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
                     "org.log4s:log4s_2.13:1.8.2",
                     "io.circe:circe-jawn_2.13:0.13.0",
                     "org.scodec:scodec-bits_2.13:1.1.12",
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "co.fs2:fs2-io_2.13:2.2.2",
                     "io.chrisdavenport:unique_2.13:2.0.0",
                     "org.http4s:http4s-core_2.13:0.21.1",
@@ -1895,6 +1918,7 @@
                     "org.http4s:http4s-jawn_2.13:0.21.1",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "io.circe:circe-core_2.13:0.13.0",
                     "io.chrisdavenport:vault_2.13:2.0.0",
                     "org.typelevel:cats-effect_2.13:2.1.3",
@@ -1915,12 +1939,13 @@
                     "io.circe:circe-jawn_2.13:jar:sources:0.13.0",
                     "org.http4s:http4s-core_2.13:jar:sources:0.21.1",
                     "org.http4s:http4s-jawn_2.13:jar:sources:0.21.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
                     "io.circe:circe-core_2.13:jar:sources:0.13.0",
                     "org.scodec:scodec-bits_2.13:jar:sources:1.1.12",
                     "org.slf4j:slf4j-api:jar:sources:1.7.25",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
@@ -1934,7 +1959,6 @@
                     "org.http4s:jawn-fs2_2.13:jar:sources:1.0.0",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
                     "io.circe:circe-numbers_2.13:jar:sources:0.13.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "co.fs2:fs2-io_2.13:jar:sources:2.2.2",
                     "io.circe:circe-jawn_2.13:jar:sources:0.13.0",
                     "org.http4s:http4s-core_2.13:jar:sources:0.21.1"
@@ -1952,9 +1976,9 @@
                 "directDependencies": [
                     "org.log4s:log4s_2.13:1.8.2",
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "co.fs2:fs2-io_2.13:2.2.2",
                     "org.http4s:parboiled_2.13:2.0.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "io.chrisdavenport:vault_2.13:2.0.0",
                     "org.typelevel:cats-effect_2.13:2.1.3"
                 ],
@@ -1962,13 +1986,13 @@
                     "org.log4s:log4s_2.13:1.8.2",
                     "org.scodec:scodec-bits_2.13:1.1.12",
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "co.fs2:fs2-io_2.13:2.2.2",
                     "io.chrisdavenport:unique_2.13:2.0.0",
                     "org.http4s:parboiled_2.13:2.0.1",
                     "org.slf4j:slf4j-api:1.7.25",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "io.chrisdavenport:vault_2.13:2.0.0",
                     "org.typelevel:cats-effect_2.13:2.1.3",
                     "co.fs2:fs2-core_2.13:2.2.2"
@@ -1984,17 +2008,18 @@
                 "coord": "org.http4s:http4s-core_2.13:jar:sources:0.21.1",
                 "file": "v1/https/repo1.maven.org/maven2/org/http4s/http4s-core_2.13/0.21.1/http4s-core_2.13-0.21.1-sources.jar",
                 "directDependencies": [
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.http4s:parboiled_2.13:jar:sources:2.0.1",
                     "org.log4s:log4s_2.13:jar:sources:1.8.2",
                     "io.chrisdavenport:vault_2.13:jar:sources:2.0.0",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "co.fs2:fs2-io_2.13:jar:sources:2.2.2"
                 ],
                 "dependencies": [
                     "org.scodec:scodec-bits_2.13:jar:sources:1.1.12",
                     "org.slf4j:slf4j-api:jar:sources:1.7.25",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
@@ -2004,7 +2029,6 @@
                     "io.chrisdavenport:vault_2.13:jar:sources:2.0.0",
                     "io.chrisdavenport:unique_2.13:jar:sources:2.0.0",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "co.fs2:fs2-io_2.13:jar:sources:2.2.2"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/http4s/http4s-core_2.13/0.21.1/http4s-core_2.13-0.21.1-sources.jar",
@@ -2019,13 +2043,12 @@
                 "file": "v1/https/repo1.maven.org/maven2/org/http4s/http4s-dsl_2.13/0.21.1/http4s-dsl_2.13-0.21.1.jar",
                 "directDependencies": [
                     "org.http4s:http4s-core_2.13:0.21.1",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
                     "org.log4s:log4s_2.13:1.8.2",
                     "org.scodec:scodec-bits_2.13:1.1.12",
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "co.fs2:fs2-io_2.13:2.2.2",
                     "io.chrisdavenport:unique_2.13:2.0.0",
                     "org.http4s:http4s-core_2.13:0.21.1",
@@ -2033,6 +2056,7 @@
                     "org.slf4j:slf4j-api:1.7.25",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "io.chrisdavenport:vault_2.13:2.0.0",
                     "org.typelevel:cats-effect_2.13:2.1.3",
                     "co.fs2:fs2-core_2.13:2.2.2"
@@ -2049,11 +2073,12 @@
                 "file": "v1/https/repo1.maven.org/maven2/org/http4s/http4s-dsl_2.13/0.21.1/http4s-dsl_2.13-0.21.1-sources.jar",
                 "directDependencies": [
                     "org.http4s:http4s-core_2.13:jar:sources:0.21.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
                     "org.scodec:scodec-bits_2.13:jar:sources:1.1.12",
                     "org.slf4j:slf4j-api:jar:sources:1.7.25",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
@@ -2063,7 +2088,6 @@
                     "io.chrisdavenport:vault_2.13:jar:sources:2.0.0",
                     "io.chrisdavenport:unique_2.13:jar:sources:2.0.0",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "co.fs2:fs2-io_2.13:jar:sources:2.2.2",
                     "org.http4s:http4s-core_2.13:jar:sources:0.21.1"
                 ],
@@ -2080,13 +2104,12 @@
                 "directDependencies": [
                     "org.http4s:http4s-core_2.13:0.21.1",
                     "org.http4s:jawn-fs2_2.13:1.0.0",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
                     "org.log4s:log4s_2.13:1.8.2",
                     "org.scodec:scodec-bits_2.13:1.1.12",
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "co.fs2:fs2-io_2.13:2.2.2",
                     "io.chrisdavenport:unique_2.13:2.0.0",
                     "org.http4s:http4s-core_2.13:0.21.1",
@@ -2095,6 +2118,7 @@
                     "org.slf4j:slf4j-api:1.7.25",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "io.chrisdavenport:vault_2.13:2.0.0",
                     "org.typelevel:cats-effect_2.13:2.1.3",
                     "co.fs2:fs2-core_2.13:2.2.2",
@@ -2113,11 +2137,12 @@
                 "directDependencies": [
                     "org.http4s:http4s-core_2.13:jar:sources:0.21.1",
                     "org.http4s:jawn-fs2_2.13:jar:sources:1.0.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
                     "org.scodec:scodec-bits_2.13:jar:sources:1.1.12",
                     "org.slf4j:slf4j-api:jar:sources:1.7.25",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
@@ -2129,7 +2154,6 @@
                     "io.chrisdavenport:unique_2.13:jar:sources:2.0.0",
                     "org.http4s:jawn-fs2_2.13:jar:sources:1.0.0",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "co.fs2:fs2-io_2.13:jar:sources:2.2.2",
                     "org.http4s:http4s-core_2.13:jar:sources:0.21.1"
                 ],
@@ -2145,13 +2169,12 @@
                 "file": "v1/https/repo1.maven.org/maven2/org/http4s/http4s-server_2.13/0.21.1/http4s-server_2.13-0.21.1.jar",
                 "directDependencies": [
                     "org.http4s:http4s-core_2.13:0.21.1",
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
                     "org.log4s:log4s_2.13:1.8.2",
                     "org.scodec:scodec-bits_2.13:1.1.12",
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "co.fs2:fs2-io_2.13:2.2.2",
                     "io.chrisdavenport:unique_2.13:2.0.0",
                     "org.http4s:http4s-core_2.13:0.21.1",
@@ -2159,6 +2182,7 @@
                     "org.slf4j:slf4j-api:1.7.25",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "io.chrisdavenport:vault_2.13:2.0.0",
                     "org.typelevel:cats-effect_2.13:2.1.3",
                     "co.fs2:fs2-core_2.13:2.2.2"
@@ -2175,11 +2199,12 @@
                 "file": "v1/https/repo1.maven.org/maven2/org/http4s/http4s-server_2.13/0.21.1/http4s-server_2.13-0.21.1-sources.jar",
                 "directDependencies": [
                     "org.http4s:http4s-core_2.13:jar:sources:0.21.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
                     "org.scodec:scodec-bits_2.13:jar:sources:1.1.12",
                     "org.slf4j:slf4j-api:jar:sources:1.7.25",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
@@ -2189,7 +2214,6 @@
                     "io.chrisdavenport:vault_2.13:jar:sources:2.0.0",
                     "io.chrisdavenport:unique_2.13:jar:sources:2.0.0",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "co.fs2:fs2-io_2.13:jar:sources:2.2.2",
                     "org.http4s:http4s-core_2.13:jar:sources:0.21.1"
                 ],
@@ -2205,16 +2229,16 @@
                 "file": "v1/https/repo1.maven.org/maven2/org/http4s/jawn-fs2_2.13/1.0.0/jawn-fs2_2.13-1.0.0.jar",
                 "directDependencies": [
                     "co.fs2:fs2-core_2.13:2.2.2",
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:jawn-parser_2.13:1.0.0"
                 ],
                 "dependencies": [
                     "org.scodec:scodec-bits_2.13:1.1.12",
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "org.typelevel:jawn-parser_2.13:1.0.0",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-effect_2.13:2.1.3",
                     "co.fs2:fs2-core_2.13:2.2.2"
                 ],
@@ -2230,18 +2254,18 @@
                 "file": "v1/https/repo1.maven.org/maven2/org/http4s/jawn-fs2_2.13/1.0.0/jawn-fs2_2.13-1.0.0-sources.jar",
                 "directDependencies": [
                     "co.fs2:fs2-core_2.13:jar:sources:2.2.2",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:jawn-parser_2.13:jar:sources:1.0.0"
                 ],
                 "dependencies": [
                     "org.scodec:scodec-bits_2.13:jar:sources:1.1.12",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
                     "org.typelevel:jawn-parser_2.13:jar:sources:1.0.0",
                     "co.fs2:fs2-core_2.13:jar:sources:2.2.2",
-                    "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.typelevel:cats-core_2.13:jar:sources:2.1.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/http4s/jawn-fs2_2.13/1.0.0/jawn-fs2_2.13-1.0.0-sources.jar",
                 "mirror_urls": [
@@ -2254,10 +2278,10 @@
                 "coord": "org.http4s:parboiled_2.13:2.0.1",
                 "file": "v1/https/repo1.maven.org/maven2/org/http4s/parboiled_2.13/2.0.1/parboiled_2.13-2.0.1.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/http4s/parboiled_2.13/2.0.1/parboiled_2.13-2.0.1.jar",
                 "mirror_urls": [
@@ -2270,10 +2294,10 @@
                 "coord": "org.http4s:parboiled_2.13:jar:sources:2.0.1",
                 "file": "v1/https/repo1.maven.org/maven2/org/http4s/parboiled_2.13/2.0.1/parboiled_2.13-2.0.1-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/http4s/parboiled_2.13/2.0.1/parboiled_2.13-2.0.1-sources.jar",
                 "mirror_urls": [
@@ -2283,39 +2307,15 @@
                 "sha256": "87feeef489108c21acb7fcfb2b64a25399f8f02fda299399390e1a439cde4e0e"
             },
             {
-                "coord": "org.jline:jline:3.15.0",
-                "file": "v1/https/repo1.maven.org/maven2/org/jline/jline/3.15.0/jline-3.15.0.jar",
-                "directDependencies": [],
-                "dependencies": [],
-                "url": "https://repo1.maven.org/maven2/org/jline/jline/3.15.0/jline-3.15.0.jar",
-                "mirror_urls": [
-                    "https://maven.google.com/org/jline/jline/3.15.0/jline-3.15.0.jar",
-                    "https://repo1.maven.org/maven2/org/jline/jline/3.15.0/jline-3.15.0.jar"
-                ],
-                "sha256": "125f6e683f91cf91df9d494913ed52c28cf2e8a8006cda4186e542e37119ed85"
-            },
-            {
-                "coord": "org.jline:jline:jar:sources:3.15.0",
-                "file": "v1/https/repo1.maven.org/maven2/org/jline/jline/3.15.0/jline-3.15.0-sources.jar",
-                "directDependencies": [],
-                "dependencies": [],
-                "url": "https://repo1.maven.org/maven2/org/jline/jline/3.15.0/jline-3.15.0-sources.jar",
-                "mirror_urls": [
-                    "https://maven.google.com/org/jline/jline/3.15.0/jline-3.15.0-sources.jar",
-                    "https://repo1.maven.org/maven2/org/jline/jline/3.15.0/jline-3.15.0-sources.jar"
-                ],
-                "sha256": "d40735be4f3ae300f5331efb3218a4fb6acacd0f4d2a6a377f193b5a35be1546"
-            },
-            {
                 "coord": "org.log4s:log4s_2.13:1.8.2",
                 "file": "v1/https/repo1.maven.org/maven2/org/log4s/log4s_2.13/1.8.2/log4s_2.13-1.8.2.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.slf4j:slf4j-api:1.7.25"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
-                    "org.slf4j:slf4j-api:1.7.25"
+                    "org.slf4j:slf4j-api:1.7.25",
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/log4s/log4s_2.13/1.8.2/log4s_2.13-1.8.2.jar",
                 "mirror_urls": [
@@ -2328,11 +2328,11 @@
                 "coord": "org.log4s:log4s_2.13:jar:sources:1.8.2",
                 "file": "v1/https/repo1.maven.org/maven2/org/log4s/log4s_2.13/1.8.2/log4s_2.13-1.8.2-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.slf4j:slf4j-api:jar:sources:1.7.25"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.slf4j:slf4j-api:jar:sources:1.7.25"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/log4s/log4s_2.13/1.8.2/log4s_2.13-1.8.2-sources.jar",
@@ -2346,12 +2346,12 @@
                 "coord": "org.portable-scala:portable-scala-reflect_2.13:1.0.0",
                 "file": "v1/https/repo1.maven.org/maven2/org/portable-scala/portable-scala-reflect_2.13/1.0.0/portable-scala-reflect_2.13-1.0.0.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
-                    "org.scala-lang:scala-reflect:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1",
+                    "org.scala-lang:scala-reflect:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
-                    "org.scala-lang:scala-reflect:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1",
+                    "org.scala-lang:scala-reflect:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/portable-scala/portable-scala-reflect_2.13/1.0.0/portable-scala-reflect_2.13-1.0.0.jar",
                 "mirror_urls": [
@@ -2364,12 +2364,12 @@
                 "coord": "org.portable-scala:portable-scala-reflect_2.13:jar:sources:1.0.0",
                 "file": "v1/https/repo1.maven.org/maven2/org/portable-scala/portable-scala-reflect_2.13/1.0.0/portable-scala-reflect_2.13-1.0.0-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
-                    "org.scala-lang:scala-reflect:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
+                    "org.scala-lang:scala-reflect:jar:sources:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
-                    "org.scala-lang:scala-reflect:jar:sources:2.13.3"
+                    "org.scala-lang:scala-reflect:jar:sources:2.13.1",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/portable-scala/portable-scala-reflect_2.13/1.0.0/portable-scala-reflect_2.13-1.0.0-sources.jar",
                 "mirror_urls": [
@@ -2406,10 +2406,10 @@
                 "coord": "org.scala-lang.modules:scala-collection-compat_2.13:2.1.6",
                 "file": "v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_2.13/2.1.6/scala-collection-compat_2.13-2.1.6.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_2.13/2.1.6/scala-collection-compat_2.13-2.1.6.jar",
                 "mirror_urls": [
@@ -2422,10 +2422,10 @@
                 "coord": "org.scala-lang.modules:scala-collection-compat_2.13:jar:sources:2.1.6",
                 "file": "v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_2.13/2.1.6/scala-collection-compat_2.13-2.1.6-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_2.13/2.1.6/scala-collection-compat_2.13-2.1.6-sources.jar",
                 "mirror_urls": [
@@ -2435,104 +2435,104 @@
                 "sha256": "45293572ff4515d37c155f191ebdd5bb4d0a6b8b6a2a074ec9857301c718f154"
             },
             {
-                "coord": "org.scala-lang:scala-compiler:2.13.3",
-                "file": "v1/https/repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.3/scala-compiler-2.13.3.jar",
+                "coord": "org.scala-lang:scala-compiler:2.13.1",
+                "file": "v1/https/repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.1/scala-compiler-2.13.1.jar",
                 "directDependencies": [
-                    "net.java.dev.jna:jna:5.3.1",
-                    "org.jline:jline:3.15.0",
-                    "org.scala-lang:scala-library:2.13.3",
-                    "org.scala-lang:scala-reflect:2.13.3"
+                    "jline:jline:2.14.6",
+                    "org.fusesource.jansi:jansi:1.12",
+                    "org.scala-lang:scala-library:2.13.1",
+                    "org.scala-lang:scala-reflect:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
-                    "org.jline:jline:3.15.0",
-                    "org.scala-lang:scala-reflect:2.13.3",
-                    "net.java.dev.jna:jna:5.3.1"
+                    "jline:jline:2.14.6",
+                    "org.scala-lang:scala-library:2.13.1",
+                    "org.fusesource.jansi:jansi:1.12",
+                    "org.scala-lang:scala-reflect:2.13.1"
                 ],
-                "url": "https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.3/scala-compiler-2.13.3.jar",
+                "url": "https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.1/scala-compiler-2.13.1.jar",
                 "mirror_urls": [
-                    "https://maven.google.com/org/scala-lang/scala-compiler/2.13.3/scala-compiler-2.13.3.jar",
-                    "https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.3/scala-compiler-2.13.3.jar"
+                    "https://maven.google.com/org/scala-lang/scala-compiler/2.13.1/scala-compiler-2.13.1.jar",
+                    "https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.1/scala-compiler-2.13.1.jar"
                 ],
-                "sha256": "e86e4f70d30cb3fd78e82aa6e6d82b2b3d1b46bd209a31f833a03b370ae0f32a"
+                "sha256": "fe8aaf3a7b0a4176fe7d26817b6f36f192190ee2bbe53f22aee691a3d029fced"
             },
             {
-                "coord": "org.scala-lang:scala-compiler:jar:sources:2.13.3",
-                "file": "v1/https/repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.3/scala-compiler-2.13.3-sources.jar",
+                "coord": "org.scala-lang:scala-compiler:jar:sources:2.13.1",
+                "file": "v1/https/repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.1/scala-compiler-2.13.1-sources.jar",
                 "directDependencies": [
-                    "net.java.dev.jna:jna:jar:sources:5.3.1",
-                    "org.jline:jline:jar:sources:3.15.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
-                    "org.scala-lang:scala-reflect:jar:sources:2.13.3"
+                    "jline:jline:jar:sources:2.14.6",
+                    "org.fusesource.jansi:jansi:jar:sources:1.12",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
+                    "org.scala-lang:scala-reflect:jar:sources:2.13.1"
                 ],
                 "dependencies": [
-                    "org.jline:jline:jar:sources:3.15.0",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
-                    "org.scala-lang:scala-reflect:jar:sources:2.13.3",
-                    "net.java.dev.jna:jna:jar:sources:5.3.1"
+                    "org.scala-lang:scala-reflect:jar:sources:2.13.1",
+                    "jline:jline:jar:sources:2.14.6",
+                    "org.fusesource.jansi:jansi:jar:sources:1.12",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
-                "url": "https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.3/scala-compiler-2.13.3-sources.jar",
+                "url": "https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.1/scala-compiler-2.13.1-sources.jar",
                 "mirror_urls": [
-                    "https://maven.google.com/org/scala-lang/scala-compiler/2.13.3/scala-compiler-2.13.3-sources.jar",
-                    "https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.3/scala-compiler-2.13.3-sources.jar"
+                    "https://maven.google.com/org/scala-lang/scala-compiler/2.13.1/scala-compiler-2.13.1-sources.jar",
+                    "https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.1/scala-compiler-2.13.1-sources.jar"
                 ],
-                "sha256": "dba9627217690547da7a70f34d92233d1b5a4642ec63832c0a99920f83711c5e"
+                "sha256": "4713d1906c682ca483a10e2b37bd02d980a465794878196726a8356aa85a0ced"
             },
             {
-                "coord": "org.scala-lang:scala-library:2.13.3",
-                "file": "v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3.jar",
+                "coord": "org.scala-lang:scala-library:2.13.1",
+                "file": "v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.1/scala-library-2.13.1.jar",
                 "directDependencies": [],
                 "dependencies": [],
-                "url": "https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3.jar",
+                "url": "https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.1/scala-library-2.13.1.jar",
                 "mirror_urls": [
-                    "https://maven.google.com/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3.jar",
-                    "https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3.jar"
+                    "https://maven.google.com/org/scala-lang/scala-library/2.13.1/scala-library-2.13.1.jar",
+                    "https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.1/scala-library-2.13.1.jar"
                 ],
-                "sha256": "cb0eb1a33a6056b2e652f26923bfa361348ae72a2119da7b78dc1f673d1a93b1"
+                "sha256": "711dcb0ba3d8d8392a52162c1f251d89787148981d2823e30697bc08282521ae"
             },
             {
-                "coord": "org.scala-lang:scala-library:jar:sources:2.13.3",
-                "file": "v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3-sources.jar",
+                "coord": "org.scala-lang:scala-library:jar:sources:2.13.1",
+                "file": "v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.1/scala-library-2.13.1-sources.jar",
                 "directDependencies": [],
                 "dependencies": [],
-                "url": "https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3-sources.jar",
+                "url": "https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.1/scala-library-2.13.1-sources.jar",
                 "mirror_urls": [
-                    "https://maven.google.com/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3-sources.jar",
-                    "https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3-sources.jar"
+                    "https://maven.google.com/org/scala-lang/scala-library/2.13.1/scala-library-2.13.1-sources.jar",
+                    "https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.1/scala-library-2.13.1-sources.jar"
                 ],
-                "sha256": "eab3b9ba0c8ac0b05c46321eab310dd524c753a91b1066a4ede0476a997d2d88"
+                "sha256": "6d511d43f53a451a82631c6f5117f4695ad20189b24ebc8b2c9fa07fd43380ab"
             },
             {
-                "coord": "org.scala-lang:scala-reflect:2.13.3",
-                "file": "v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.3/scala-reflect-2.13.3.jar",
+                "coord": "org.scala-lang:scala-reflect:2.13.1",
+                "file": "v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.1/scala-reflect-2.13.1.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
-                "url": "https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.3/scala-reflect-2.13.3.jar",
+                "url": "https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.1/scala-reflect-2.13.1.jar",
                 "mirror_urls": [
-                    "https://maven.google.com/org/scala-lang/scala-reflect/2.13.3/scala-reflect-2.13.3.jar",
-                    "https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.3/scala-reflect-2.13.3.jar"
+                    "https://maven.google.com/org/scala-lang/scala-reflect/2.13.1/scala-reflect-2.13.1.jar",
+                    "https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.1/scala-reflect-2.13.1.jar"
                 ],
-                "sha256": "959dc9ab8aad84e2fc7adacfb84f2ed908caee22c4c2d291dd818f0c40c6ed5b"
+                "sha256": "c8acaef84ae06ad83416a7e121ba8cb3da83c8581106be0695b8066c5d7c38ae"
             },
             {
-                "coord": "org.scala-lang:scala-reflect:jar:sources:2.13.3",
-                "file": "v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.3/scala-reflect-2.13.3-sources.jar",
+                "coord": "org.scala-lang:scala-reflect:jar:sources:2.13.1",
+                "file": "v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.1/scala-reflect-2.13.1-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
-                "url": "https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.3/scala-reflect-2.13.3-sources.jar",
+                "url": "https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.1/scala-reflect-2.13.1-sources.jar",
                 "mirror_urls": [
-                    "https://maven.google.com/org/scala-lang/scala-reflect/2.13.3/scala-reflect-2.13.3-sources.jar",
-                    "https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.3/scala-reflect-2.13.3-sources.jar"
+                    "https://maven.google.com/org/scala-lang/scala-reflect/2.13.1/scala-reflect-2.13.1-sources.jar",
+                    "https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.1/scala-reflect-2.13.1-sources.jar"
                 ],
-                "sha256": "2d56780f53099205710b5c55855b436fd4d70866baf4674e9b26b80ecde84e3b"
+                "sha256": "4265be7f26cbbfa732413aa44ba6cf36670d445d17e4d99131549869d4791f38"
             },
             {
                 "coord": "org.scala-sbt:compiler-bridge_2.13:1.3.4",
@@ -2660,10 +2660,10 @@
                 "coord": "org.scodec:scodec-bits_2.13:1.1.12",
                 "file": "v1/https/repo1.maven.org/maven2/org/scodec/scodec-bits_2.13/1.1.12/scodec-bits_2.13-1.1.12.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/scodec/scodec-bits_2.13/1.1.12/scodec-bits_2.13-1.1.12.jar",
                 "mirror_urls": [
@@ -2676,10 +2676,10 @@
                 "coord": "org.scodec:scodec-bits_2.13:jar:sources:1.1.12",
                 "file": "v1/https/repo1.maven.org/maven2/org/scodec/scodec-bits_2.13/1.1.12/scodec-bits_2.13-1.1.12-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/scodec/scodec-bits_2.13/1.1.12/scodec-bits_2.13-1.1.12-sources.jar",
                 "mirror_urls": [
@@ -2716,23 +2716,23 @@
                 "coord": "org.tpolecat:doobie-core_2.13:0.8.8",
                 "file": "v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-core_2.13/0.8.8/doobie-core_2.13-0.8.8.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-reflect:2.13.3",
-                    "org.scala-lang:scala-library:2.13.3",
                     "com.lihaoyi:sourcecode_2.13:0.2.1",
                     "org.scala-lang.modules:scala-collection-compat_2.13:2.1.6",
                     "org.tpolecat:doobie-free_2.13:0.8.8",
+                    "org.scala-lang:scala-library:2.13.1",
+                    "org.scala-lang:scala-reflect:2.13.1",
                     "com.chuusai:shapeless_2.13:2.3.3"
                 ],
                 "dependencies": [
                     "org.scodec:scodec-bits_2.13:1.1.12",
-                    "org.scala-lang:scala-reflect:2.13.3",
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "com.lihaoyi:sourcecode_2.13:0.2.1",
                     "org.scala-lang.modules:scala-collection-compat_2.13:2.1.6",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
                     "org.tpolecat:doobie-free_2.13:0.8.8",
+                    "org.scala-lang:scala-library:2.13.1",
+                    "org.scala-lang:scala-reflect:2.13.1",
                     "org.typelevel:cats-free_2.13:2.0.0",
                     "org.typelevel:cats-effect_2.13:2.1.3",
                     "co.fs2:fs2-core_2.13:2.2.2",
@@ -2749,26 +2749,26 @@
                 "coord": "org.tpolecat:doobie-core_2.13:jar:sources:0.8.8",
                 "file": "v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-core_2.13/0.8.8/doobie-core_2.13-0.8.8-sources.jar",
                 "directDependencies": [
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "com.chuusai:shapeless_2.13:jar:sources:2.3.3",
+                    "org.scala-lang:scala-reflect:jar:sources:2.13.1",
                     "org.scala-lang.modules:scala-collection-compat_2.13:jar:sources:2.1.6",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "com.lihaoyi:sourcecode_2.13:jar:sources:0.2.1",
-                    "org.scala-lang:scala-reflect:jar:sources:2.13.3",
                     "org.tpolecat:doobie-free_2.13:jar:sources:0.8.8"
                 ],
                 "dependencies": [
                     "org.scodec:scodec-bits_2.13:jar:sources:1.1.12",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
                     "com.chuusai:shapeless_2.13:jar:sources:2.3.3",
+                    "org.scala-lang:scala-reflect:jar:sources:2.13.1",
                     "org.scala-lang.modules:scala-collection-compat_2.13:jar:sources:2.1.6",
                     "co.fs2:fs2-core_2.13:jar:sources:2.2.2",
                     "org.typelevel:cats-free_2.13:jar:sources:2.0.0",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "com.lihaoyi:sourcecode_2.13:jar:sources:0.2.1",
-                    "org.scala-lang:scala-reflect:jar:sources:2.13.3",
                     "org.tpolecat:doobie-free_2.13:jar:sources:0.8.8"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/tpolecat/doobie-core_2.13/0.8.8/doobie-core_2.13-0.8.8-sources.jar",
@@ -2783,8 +2783,8 @@
                 "file": "v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-free_2.13/0.8.8/doobie-free_2.13-0.8.8.jar",
                 "directDependencies": [
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "org.scala-lang.modules:scala-collection-compat_2.13:2.1.6",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-free_2.13:2.0.0",
                     "org.typelevel:cats-effect_2.13:2.1.3",
                     "co.fs2:fs2-core_2.13:2.2.2"
@@ -2792,10 +2792,10 @@
                 "dependencies": [
                     "org.scodec:scodec-bits_2.13:1.1.12",
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "org.scala-lang.modules:scala-collection-compat_2.13:2.1.6",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-free_2.13:2.0.0",
                     "org.typelevel:cats-effect_2.13:2.1.3",
                     "co.fs2:fs2-core_2.13:2.2.2"
@@ -2811,23 +2811,23 @@
                 "coord": "org.tpolecat:doobie-free_2.13:jar:sources:0.8.8",
                 "file": "v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-free_2.13/0.8.8/doobie-free_2.13-0.8.8-sources.jar",
                 "directDependencies": [
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.scala-lang.modules:scala-collection-compat_2.13:jar:sources:2.1.6",
                     "co.fs2:fs2-core_2.13:jar:sources:2.2.2",
                     "org.typelevel:cats-free_2.13:jar:sources:2.0.0",
-                    "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.typelevel:cats-core_2.13:jar:sources:2.1.1"
                 ],
                 "dependencies": [
                     "org.scodec:scodec-bits_2.13:jar:sources:1.1.12",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
                     "org.scala-lang.modules:scala-collection-compat_2.13:jar:sources:2.1.6",
                     "co.fs2:fs2-core_2.13:jar:sources:2.2.2",
                     "org.typelevel:cats-free_2.13:jar:sources:2.0.0",
-                    "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.typelevel:cats-core_2.13:jar:sources:2.1.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/tpolecat/doobie-free_2.13/0.8.8/doobie-free_2.13-0.8.8-sources.jar",
                 "mirror_urls": [
@@ -2841,16 +2841,14 @@
                 "file": "v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-hikari_2.13/0.8.8/doobie-hikari_2.13-0.8.8.jar",
                 "directDependencies": [
                     "com.zaxxer:HikariCP:3.4.1",
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.scala-lang.modules:scala-collection-compat_2.13:2.1.6",
                     "org.tpolecat:doobie-core_2.13:0.8.8"
                 ],
                 "dependencies": [
                     "org.tpolecat:doobie-core_2.13:0.8.8",
                     "org.scodec:scodec-bits_2.13:1.1.12",
-                    "org.scala-lang:scala-reflect:2.13.3",
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "com.lihaoyi:sourcecode_2.13:0.2.1",
                     "com.zaxxer:HikariCP:3.4.1",
                     "org.scala-lang.modules:scala-collection-compat_2.13:2.1.6",
@@ -2858,6 +2856,8 @@
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
                     "org.tpolecat:doobie-free_2.13:0.8.8",
+                    "org.scala-lang:scala-library:2.13.1",
+                    "org.scala-lang:scala-reflect:2.13.1",
                     "org.typelevel:cats-free_2.13:2.0.0",
                     "org.typelevel:cats-effect_2.13:2.1.3",
                     "co.fs2:fs2-core_2.13:2.2.2",
@@ -2875,26 +2875,26 @@
                 "file": "v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-hikari_2.13/0.8.8/doobie-hikari_2.13-0.8.8-sources.jar",
                 "directDependencies": [
                     "com.zaxxer:HikariCP:jar:sources:3.4.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.scala-lang.modules:scala-collection-compat_2.13:jar:sources:2.1.6",
                     "org.tpolecat:doobie-core_2.13:jar:sources:0.8.8"
                 ],
                 "dependencies": [
                     "org.scodec:scodec-bits_2.13:jar:sources:1.1.12",
                     "org.slf4j:slf4j-api:jar:sources:1.7.25",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
                     "com.chuusai:shapeless_2.13:jar:sources:2.3.3",
+                    "org.scala-lang:scala-reflect:jar:sources:2.13.1",
                     "org.scala-lang.modules:scala-collection-compat_2.13:jar:sources:2.1.6",
                     "com.zaxxer:HikariCP:jar:sources:3.4.1",
                     "co.fs2:fs2-core_2.13:jar:sources:2.2.2",
                     "org.typelevel:cats-free_2.13:jar:sources:2.0.0",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "com.lihaoyi:sourcecode_2.13:jar:sources:0.2.1",
                     "org.tpolecat:doobie-core_2.13:jar:sources:0.8.8",
-                    "org.scala-lang:scala-reflect:jar:sources:2.13.3",
                     "org.tpolecat:doobie-free_2.13:jar:sources:0.8.8"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/tpolecat/doobie-hikari_2.13/0.8.8/doobie-hikari_2.13-0.8.8-sources.jar",
@@ -2909,17 +2909,15 @@
                 "file": "v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-postgres_2.13/0.8.8/doobie-postgres_2.13-0.8.8.jar",
                 "directDependencies": [
                     "org.tpolecat:doobie-core_2.13:0.8.8",
-                    "org.scala-lang:scala-library:2.13.3",
                     "co.fs2:fs2-io_2.13:2.2.2",
                     "org.postgresql:postgresql:42.2.9",
-                    "org.scala-lang.modules:scala-collection-compat_2.13:2.1.6"
+                    "org.scala-lang.modules:scala-collection-compat_2.13:2.1.6",
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
                     "org.tpolecat:doobie-core_2.13:0.8.8",
                     "org.scodec:scodec-bits_2.13:1.1.12",
-                    "org.scala-lang:scala-reflect:2.13.3",
                     "org.typelevel:cats-core_2.13:2.1.1",
-                    "org.scala-lang:scala-library:2.13.3",
                     "co.fs2:fs2-io_2.13:2.2.2",
                     "com.lihaoyi:sourcecode_2.13:0.2.1",
                     "org.postgresql:postgresql:42.2.9",
@@ -2927,6 +2925,8 @@
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1",
                     "org.tpolecat:doobie-free_2.13:0.8.8",
+                    "org.scala-lang:scala-library:2.13.1",
+                    "org.scala-lang:scala-reflect:2.13.1",
                     "org.typelevel:cats-free_2.13:2.0.0",
                     "org.typelevel:cats-effect_2.13:2.1.3",
                     "co.fs2:fs2-core_2.13:2.2.2",
@@ -2943,28 +2943,28 @@
                 "coord": "org.tpolecat:doobie-postgres_2.13:jar:sources:0.8.8",
                 "file": "v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-postgres_2.13/0.8.8/doobie-postgres_2.13-0.8.8-sources.jar",
                 "directDependencies": [
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.postgresql:postgresql:jar:sources:42.2.9",
                     "org.scala-lang.modules:scala-collection-compat_2.13:jar:sources:2.1.6",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "co.fs2:fs2-io_2.13:jar:sources:2.2.2",
                     "org.tpolecat:doobie-core_2.13:jar:sources:0.8.8"
                 ],
                 "dependencies": [
                     "org.scodec:scodec-bits_2.13:jar:sources:1.1.12",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
                     "org.postgresql:postgresql:jar:sources:42.2.9",
                     "com.chuusai:shapeless_2.13:jar:sources:2.3.3",
+                    "org.scala-lang:scala-reflect:jar:sources:2.13.1",
                     "org.scala-lang.modules:scala-collection-compat_2.13:jar:sources:2.1.6",
                     "co.fs2:fs2-core_2.13:jar:sources:2.2.2",
                     "org.typelevel:cats-free_2.13:jar:sources:2.0.0",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "com.lihaoyi:sourcecode_2.13:jar:sources:0.2.1",
                     "co.fs2:fs2-io_2.13:jar:sources:2.2.2",
                     "org.tpolecat:doobie-core_2.13:jar:sources:0.8.8",
-                    "org.scala-lang:scala-reflect:jar:sources:2.13.3",
                     "org.tpolecat:doobie-free_2.13:jar:sources:0.8.8"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/tpolecat/doobie-postgres_2.13/0.8.8/doobie-postgres_2.13-0.8.8-sources.jar",
@@ -2978,12 +2978,12 @@
                 "coord": "org.typelevel:cats-core_2.13:2.1.1",
                 "file": "v1/https/repo1.maven.org/maven2/org/typelevel/cats-core_2.13/2.1.1/cats-core_2.13-2.1.1.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1"
                 ],
@@ -2998,14 +2998,14 @@
                 "coord": "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
                 "file": "v1/https/repo1.maven.org/maven2/org/typelevel/cats-core_2.13/2.1.1/cats-core_2.13-2.1.1-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1"
                 ],
                 "dependencies": [
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
-                    "org.typelevel:cats-macros_2.13:jar:sources:2.1.1"
+                    "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/typelevel/cats-core_2.13/2.1.1/cats-core_2.13-2.1.1-sources.jar",
                 "mirror_urls": [
@@ -3018,12 +3018,12 @@
                 "coord": "org.typelevel:cats-effect_2.13:2.1.3",
                 "file": "v1/https/repo1.maven.org/maven2/org/typelevel/cats-effect_2.13/2.1.3/cats-effect_2.13-2.1.3.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-core_2.13:2.1.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
                     "org.typelevel:cats-core_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1"
                 ],
@@ -3038,14 +3038,14 @@
                 "coord": "org.typelevel:cats-effect_2.13:jar:sources:2.1.3",
                 "file": "v1/https/repo1.maven.org/maven2/org/typelevel/cats-effect_2.13/2.1.3/cats-effect_2.13-2.1.3-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1"
                 ],
                 "dependencies": [
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "org.typelevel:cats-macros_2.13:jar:sources:2.1.1"
+                    "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/typelevel/cats-effect_2.13/2.1.3/cats-effect_2.13-2.1.3-sources.jar",
                 "mirror_urls": [
@@ -3058,13 +3058,13 @@
                 "coord": "org.typelevel:cats-free_2.13:2.0.0",
                 "file": "v1/https/repo1.maven.org/maven2/org/typelevel/cats-free_2.13/2.0.0/cats-free_2.13-2.0.0.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-core_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3",
                     "org.typelevel:cats-core_2.13:2.1.1",
+                    "org.scala-lang:scala-library:2.13.1",
                     "org.typelevel:cats-kernel_2.13:2.1.1",
                     "org.typelevel:cats-macros_2.13:2.1.1"
                 ],
@@ -3079,15 +3079,15 @@
                 "coord": "org.typelevel:cats-free_2.13:jar:sources:2.0.0",
                 "file": "v1/https/repo1.maven.org/maven2/org/typelevel/cats-free_2.13/2.0.0/cats-free_2.13-2.0.0-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
                     "org.typelevel:cats-macros_2.13:jar:sources:2.1.1"
                 ],
                 "dependencies": [
                     "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
-                    "org.scala-lang:scala-library:jar:sources:2.13.3",
                     "org.typelevel:cats-core_2.13:jar:sources:2.1.1",
-                    "org.typelevel:cats-macros_2.13:jar:sources:2.1.1"
+                    "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/typelevel/cats-free_2.13/2.0.0/cats-free_2.13-2.0.0-sources.jar",
                 "mirror_urls": [
@@ -3100,10 +3100,10 @@
                 "coord": "org.typelevel:cats-kernel_2.13:2.1.1",
                 "file": "v1/https/repo1.maven.org/maven2/org/typelevel/cats-kernel_2.13/2.1.1/cats-kernel_2.13-2.1.1.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/typelevel/cats-kernel_2.13/2.1.1/cats-kernel_2.13-2.1.1.jar",
                 "mirror_urls": [
@@ -3116,10 +3116,10 @@
                 "coord": "org.typelevel:cats-kernel_2.13:jar:sources:2.1.1",
                 "file": "v1/https/repo1.maven.org/maven2/org/typelevel/cats-kernel_2.13/2.1.1/cats-kernel_2.13-2.1.1-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/typelevel/cats-kernel_2.13/2.1.1/cats-kernel_2.13-2.1.1-sources.jar",
                 "mirror_urls": [
@@ -3132,10 +3132,10 @@
                 "coord": "org.typelevel:cats-macros_2.13:2.1.1",
                 "file": "v1/https/repo1.maven.org/maven2/org/typelevel/cats-macros_2.13/2.1.1/cats-macros_2.13-2.1.1.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/typelevel/cats-macros_2.13/2.1.1/cats-macros_2.13-2.1.1.jar",
                 "mirror_urls": [
@@ -3148,10 +3148,10 @@
                 "coord": "org.typelevel:cats-macros_2.13:jar:sources:2.1.1",
                 "file": "v1/https/repo1.maven.org/maven2/org/typelevel/cats-macros_2.13/2.1.1/cats-macros_2.13-2.1.1-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/typelevel/cats-macros_2.13/2.1.1/cats-macros_2.13-2.1.1-sources.jar",
                 "mirror_urls": [
@@ -3164,10 +3164,10 @@
                 "coord": "org.typelevel:jawn-parser_2.13:1.0.0",
                 "file": "v1/https/repo1.maven.org/maven2/org/typelevel/jawn-parser_2.13/1.0.0/jawn-parser_2.13-1.0.0.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:2.13.3"
+                    "org.scala-lang:scala-library:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/typelevel/jawn-parser_2.13/1.0.0/jawn-parser_2.13-1.0.0.jar",
                 "mirror_urls": [
@@ -3180,10 +3180,10 @@
                 "coord": "org.typelevel:jawn-parser_2.13:jar:sources:1.0.0",
                 "file": "v1/https/repo1.maven.org/maven2/org/typelevel/jawn-parser_2.13/1.0.0/jawn-parser_2.13-1.0.0-sources.jar",
                 "directDependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "dependencies": [
-                    "org.scala-lang:scala-library:jar:sources:2.13.3"
+                    "org.scala-lang:scala-library:jar:sources:2.13.1"
                 ],
                 "url": "https://repo1.maven.org/maven2/org/typelevel/jawn-parser_2.13/1.0.0/jawn-parser_2.13-1.0.0-sources.jar",
                 "mirror_urls": [
@@ -3194,6 +3194,6 @@
             }
         ],
         "version": "0.1.0",
-        "__AUTOGENERATED_FILE_DO_NOT_MODIFY_THIS_FILE_MANUALLY": 1196966085
+        "__AUTOGENERATED_FILE_DO_NOT_MODIFY_THIS_FILE_MANUALLY": -1965465489
     }
 }
