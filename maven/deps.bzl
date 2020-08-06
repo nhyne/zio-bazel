@@ -2,13 +2,13 @@ load("@rules_jvm_external//:defs.bzl", "maven_install")
 load("@rules_jvm_external//:specs.bzl", "maven")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 
-zio_version = "1.0.0-RC18-2"
+zio_version = "1.0.0"
 circe_version = "0.13.0"
 caliban_version = "0.8.0"
 http4s_version = "0.21.1"
 doobie_version = "0.8.8"
 
-scala_2_13 = "2.13.1"
+scala_2_13 = "2.13.3"
 
 def install_maven_deps():
     maven_install(
@@ -33,7 +33,7 @@ def install_maven_deps():
             "dev.zio:zio-test_2.13:{zio_version}".format(zio_version = zio_version),
             "dev.zio:zio-test-sbt_2.13:{zio_version}".format(zio_version = zio_version),
             "dev.zio:zio-interop-cats_2.13:2.0.0.0-RC14",
-            "dev.zio:zio-logging_2.13:0.2.9",
+            "dev.zio:zio-logging_2.13:0.4.0",
             "org.tpolecat:doobie-core_2.13:{doobie_version}".format(doobie_version = doobie_version),
             "org.tpolecat:doobie-postgres_2.13:{doobie_version}".format(doobie_version = doobie_version),
             "org.tpolecat:doobie-hikari_2.13:{doobie_version}".format(doobie_version = doobie_version),
