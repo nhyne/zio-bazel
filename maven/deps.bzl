@@ -4,7 +4,7 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 
 zio_version = "1.0.0"
 circe_version = "0.13.0"
-caliban_version = "0.8.0"
+caliban_version = "0.9.1"
 http4s_version = "0.21.1"
 doobie_version = "0.8.8"
 
