@@ -32,7 +32,7 @@ def install_maven_deps():
         artifacts = [
             "dev.zio:zio-test_2.13:{zio_version}".format(zio_version = zio_version),
             "dev.zio:zio-test-sbt_2.13:{zio_version}".format(zio_version = zio_version),
-            "dev.zio:zio-interop-cats_2.13:2.0.0.0-RC14",
+            "dev.zio:zio-interop-cats_2.13:2.1.4.0",
             "dev.zio:zio-logging_2.13:0.4.0",
             "org.tpolecat:doobie-core_2.13:{doobie_version}".format(doobie_version = doobie_version),
             "org.tpolecat:doobie-postgres_2.13:{doobie_version}".format(doobie_version = doobie_version),
