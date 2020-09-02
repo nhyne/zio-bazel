@@ -19,11 +19,13 @@ scala_options = [
 ]
 
 scala_binary(
-    name = "tree",
+    name = "structs",
     srcs = [
+        "LinkedList.scala",
         "Main.scala",
+        "Tree.scala",
     ],
-    main_class = "dev.nhyne.tree.Main",
+    main_class = "dev.nhyne.structs.Main",
     scala = "//scala:zinc_2_13_1",
     scalacopts = scala_options,
 )
