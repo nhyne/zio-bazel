@@ -10,7 +10,7 @@ import zio.{App, ExitCode, RIO, URIO, ZEnv, ZIO}
 import dev.nhyne.todo.configuration.Configuration
 import dev.nhyne.todo.configuration.Configuration.Configuration
 import dev.nhyne.todo.persistence.TodoItemPersistenceService
-import org.http4s.{Response, Request}
+import org.http4s.{Request, Response}
 import org.http4s.server.Router
 import org.http4s.implicits._
 
@@ -31,8 +31,10 @@ object Main extends App {
 //    format = (_, logEntry) => logEntry,
 //    rootLoggerName = Some("default-logger")
 //  )
-  val todoPersistence = (Configuration.live ++ Blocking.live) >>> TodoItemPersistenceService.live
-  val todoListPersistence = (Configuration.live ++ Blocking.live) >>> TodoListPersistenceService.live
+  val todoPersistence =
+    (Configuration.live ++ Blocking.live) >>> TodoItemPersistenceService.live
+  val todoListPersistence =
+    (Configuration.live ++ Blocking.live) >>> TodoListPersistenceService.live
   type ProgramEnv = Configuration
     with Env
 //    with Logging
@@ -44,35 +46,38 @@ object Main extends App {
   def run(args: List[String]): URIO[ZEnv, ExitCode] = {
     import http4sDsl._
     val program: ZIO[ProgramEnv, Throwable, Unit] = for {
-      blocker <- ZIO
-        .access[Blocking](_.get.blockingExecutor.asEC)
-        .map(Blocker.liftExecutionContext)
+      blocker <-
+        ZIO
+          .access[Blocking](_.get.blockingExecutor.asEC)
+          .map(Blocker.liftExecutionContext)
       config <- Configuration.load
       api = GraphqlService.api
       interpreter <- api.interpreter
-      httpApp: Kleisli[AppTask, Request[AppTask], Response[AppTask]] = Router[
-        AppTask
-      ](
-        "/api/graphql" -> Http4sAdapter.makeHttpService(interpreter),
-        "/ws/graphql" -> Http4sAdapter.makeWebSocketService(interpreter),
-        "/graphiql" -> Kleisli.liftF(
-          StaticFile.fromResource("graphiql.html", blocker, None)
-        ),
-        "/schema" -> HttpRoutes.of {
-          case request if request.method == org.http4s.Method.GET =>
-            Ok(api.render)
-        }
-      ).orNotFound
-      server <- ZIO
-        .runtime[ProgramEnv]
-        .flatMap(implicit rts =>
-          BlazeServerBuilder[AppTask]
-            .bindHttp(config.api.port, config.api.endpoint)
-            .withHttpApp(httpApp)
-            .resource
-            .toManagedZIO
-            .useForever
-        )
+      httpApp: Kleisli[AppTask, Request[AppTask], Response[AppTask]] =
+        Router[
+          AppTask
+        ](
+          "/api/graphql" -> Http4sAdapter.makeHttpService(interpreter),
+          "/ws/graphql" -> Http4sAdapter.makeWebSocketService(interpreter),
+          "/graphiql" -> Kleisli.liftF(
+            StaticFile.fromResource("graphiql.html", blocker, None)
+          ),
+          "/schema" -> HttpRoutes.of {
+            case request if request.method == org.http4s.Method.GET =>
+              Ok(api.render)
+          }
+        ).orNotFound
+      server <-
+        ZIO
+          .runtime[ProgramEnv]
+          .flatMap(implicit rts =>
+            BlazeServerBuilder[AppTask]
+              .bindHttp(config.api.port, config.api.endpoint)
+              .withHttpApp(httpApp)
+              .resource
+              .toManagedZIO
+              .useForever
+          )
     } yield server
 
     program

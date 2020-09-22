@@ -11,18 +11,18 @@ import zio.blocking.Blocking
 import scala.concurrent.ExecutionContext
 
 final case class UninsertedTodoItem(
-    title: String,
-    description: Option[String],
-    completed: Boolean = false,
-    listId: Int
+  title: String,
+  description: Option[String],
+  completed: Boolean = false,
+  listId: Int
 )
 
 final case class TodoItem(
-    id: Int,
-    title: String,
-    description: Option[String],
-    completed: Boolean = false,
-    listId: Int
+  id: Int,
+  title: String,
+  description: Option[String],
+  completed: Boolean = false,
+  listId: Int
 ) {
 
   final def complete(): TodoItem =
@@ -59,7 +59,7 @@ final class TodoItemPersistenceService(tnx: Transactor[Task])
       .transact(tnx)
 
   override def markComplete(
-      id: Int
+    id: Int
   ): Task[TodoItem] =
     SQL
       .markComplete(id)
@@ -102,10 +102,10 @@ object TodoItemPersistenceService {
   trait Service {
     def get(id: Int): ZIO[TaskPersistence, Throwable, TodoItem]
     def getTodosForList(
-        listId: Int
+      listId: Int
     ): ZIO[TaskPersistence, Throwable, List[TodoItem]]
     def create(
-        todo: UninsertedTodoItem
+      todo: UninsertedTodoItem
     ): ZIO[TaskPersistence, Throwable, TodoItem]
     def markComplete(id: Int): ZIO[TaskPersistence, Throwable, TodoItem]
     def delete(id: Int): ZIO[TaskPersistence, Throwable, Boolean]
@@ -159,11 +159,10 @@ object TodoItemPersistenceService {
   }
 
   def mkTransactor(
-      conf: DbConfig,
-      connectEC: ExecutionContext
-  ): Managed[Throwable, TodoItemPersistenceService] = {
+    conf: DbConfig,
+    connectEC: ExecutionContext
+  ): Managed[Throwable, TodoItemPersistenceService] =
     mkBaseTransactor(conf, connectEC).toManagedZIO
       .map(new TodoItemPersistenceService(_))
-  }
 
 }

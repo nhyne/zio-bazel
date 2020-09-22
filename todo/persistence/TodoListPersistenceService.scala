@@ -13,18 +13,18 @@ import io.scalaland.chimney.dsl._
 import scala.concurrent.ExecutionContext
 
 case class UninsertedTodoList(
-    name: String
+  name: String
 )
 
 case class TodoList(
-    id: Int,
-    name: String
+  id: Int,
+  name: String
 )
 
 case class CalibanTodoList(
-    id: Int,
-    name: String,
-    todoItems: ZIO[TaskPersistence, Throwable, List[TodoItem]]
+  id: Int,
+  name: String,
+  todoItems: ZIO[TaskPersistence, Throwable, List[TodoItem]]
 )
 
 case class TodoListNotFound(id: Int) extends Throwable
@@ -61,9 +61,7 @@ final case class TodoListPersistenceService(tnx: Transactor[Task])
       .withUniqueGeneratedKeys[TodoList]("id", "name")
       .transact(tnx)
       .foldM(
-        err => {
-          Task.fail(err)
-        },
+        err => Task.fail(err),
         insertedList => Task.succeed(insertedList)
       )
 
@@ -78,7 +76,7 @@ final case class TodoListPersistenceService(tnx: Transactor[Task])
       )
 
   override def getTodoLists(
-      limit: Int
+    limit: Int
   ): ZIO[TodoPersistence, Throwable, List[TodoList]] =
     SQL
       .getTodoLists(limit)
@@ -91,11 +89,11 @@ object TodoListPersistenceService {
   trait Service {
     def get(id: Int): ZIO[TodoPersistence, Throwable, CalibanTodoList]
     def create(
-        list: UninsertedTodoList
+      list: UninsertedTodoList
     ): ZIO[TodoPersistence, Throwable, TodoList]
     def delete(id: Int): ZIO[TodoPersistence, Throwable, Boolean]
     def getTodoLists(
-        limit: Int
+      limit: Int
     ): ZIO[TodoPersistence, Throwable, List[TodoList]]
   }
 
@@ -126,7 +124,7 @@ object TodoListPersistenceService {
     RIO.accessM[TodoPersistence](_.get.delete(id))
 
   def createTodoList(
-      todoList: UninsertedTodoList
+    todoList: UninsertedTodoList
   ): RIO[TodoPersistence, TodoList] =
     RIO.accessM[TodoPersistence](_.get.create(todoList))
 
@@ -137,9 +135,8 @@ object TodoListPersistenceService {
     def get(id: Int): Query0[TodoList] =
       sql"""SELECT * FROM TODO_LISTS WHERE ID = $id""".query[TodoList]
 
-    def create(todoList: UninsertedTodoList): Update0 = {
+    def create(todoList: UninsertedTodoList): Update0 =
       sql"""INSERT INTO TODO_LISTS (name) VALUES (${todoList.name})""".update
-    }
 
     def delete(id: Int): Update0 =
       sql"""DELETE FROM TODO_LISTS WHERE id = $id""".update
@@ -149,11 +146,10 @@ object TodoListPersistenceService {
   }
 
   def mkTransactor(
-      conf: DbConfig,
-      connectEC: ExecutionContext
-  ): Managed[Throwable, TodoListPersistenceService] = {
+    conf: DbConfig,
+    connectEC: ExecutionContext
+  ): Managed[Throwable, TodoListPersistenceService] =
     mkBaseTransactor(conf, connectEC).toManagedZIO
       .map(new TodoListPersistenceService(_))
-  }
 
 }

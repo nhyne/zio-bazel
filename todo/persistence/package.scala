@@ -10,8 +10,8 @@ import scala.concurrent.ExecutionContext
 
 package object persistence {
   def mkBaseTransactor(
-      conf: DbConfig,
-      connectEC: ExecutionContext
+    conf: DbConfig,
+    connectEC: ExecutionContext
   ): Resource[Task, HikariTransactor[Task]] =
     for {
       blocker <- Blocker[Task]

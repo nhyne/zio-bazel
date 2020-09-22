@@ -29,29 +29,29 @@ object GraphqlService
 
   case class CreateTodoList(name: String)
   case class CreateTodoItem(
-      listId: Int,
-      title: String,
-      description: Option[String],
-      completed: Boolean
+    listId: Int,
+    title: String,
+    description: Option[String],
+    completed: Boolean
   )
   case class MarkTodoItemComplete(id: Int)
 
   case class Queries(
-      getTodo: GetTodoItemArgs => RIO[TaskPersistence, TodoItem],
-      getTodosForList: GetTodosForListArgs => RIO[TaskPersistence, List[
-        TodoItem
-      ]],
-      getTodoList: GetTodoListArgs => RIO[TodoPersistence, CalibanTodoList],
-      getTodoLists: GetTodoListsArgs => RIO[TodoPersistence, List[TodoList]]
+    getTodo: GetTodoItemArgs => RIO[TaskPersistence, TodoItem],
+    getTodosForList: GetTodosForListArgs => RIO[TaskPersistence, List[
+      TodoItem
+    ]],
+    getTodoList: GetTodoListArgs => RIO[TodoPersistence, CalibanTodoList],
+    getTodoLists: GetTodoListsArgs => RIO[TodoPersistence, List[TodoList]]
   )
 
   case class Mutations(
-      createTodoList: CreateTodoList => RIO[TodoPersistence, TodoList],
-      createTodoItem: CreateTodoItem => RIO[TaskPersistence, TodoItem],
-      markTodoItemComplete: MarkTodoItemComplete => RIO[
-        TaskPersistence,
-        TodoItem
-      ]
+    createTodoList: CreateTodoList => RIO[TodoPersistence, TodoList],
+    createTodoItem: CreateTodoItem => RIO[TaskPersistence, TodoItem],
+    markTodoItemComplete: MarkTodoItemComplete => RIO[
+      TaskPersistence,
+      TodoItem
+    ]
   )
 
   val queries = Queries(
@@ -82,7 +82,7 @@ object GraphqlService
   implicit val queriesSchema = gen[Queries]
 
   val api
-      : GraphQL[Console with Clock with TaskPersistence with TodoPersistence] =
+    : GraphQL[Console with Clock with TaskPersistence with TodoPersistence] =
     graphQL(
       RootResolver(
         queries,
