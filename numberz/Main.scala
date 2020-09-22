@@ -1,17 +1,16 @@
 package dev.nhyne.numberz
 
-import zio.random.{nextIntBounded, Random}
+import zio.random.nextIntBounded
 import zio.console.{getStrLn, putStrLn, Console}
-import zio.{App, ExitCode, IO, ZEnv, ZIO}
+import zio.{App, ExitCode, IO, ZIO}
 import zio._
-
-import scala.sys.process.processInternal.IOException
+import java.io.IOException
 
 object Numberz extends App {
   case class State(number: Int, currentGuess: Int, guessNumber: Int) {
     final def correct: Boolean = number == currentGuess
   }
-  def run(args: List[String]): ZIO[ZEnv, Nothing, Int] =
+  def run(args: List[String]) = //: ZIO[ZEnv, Nothing, Int] =
     game.foldM(
       _ => UIO.succeed(ExitCode.success),
       _ => UIO.succeed(ExitCode.failure)
