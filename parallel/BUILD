@@ -22,6 +22,7 @@ scala_library(
     name = "parallel_lib",
     srcs = [
         "Main.scala",
+        "package.scala",
     ],
     resource_strip_prefix = package_name(),
     scala = "//scala:zinc_2_13_1",
@@ -33,7 +34,7 @@ scala_library(
 
 scala_binary(
     name = "parallel",
-    main_class = "dev.nhyne.parallel.Main",
+    main_class = "parallel.Main",
     resource_strip_prefix = package_name(),
     scala = "//scala:zinc_2_13_1",
     scalacopts = scala_options,
