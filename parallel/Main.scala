@@ -36,3 +36,5 @@ object Main extends App {
       )
   }
 }
+
+trait ExponentialMessages {}

@@ -17,20 +17,6 @@ scala_options = [
     "-feature",
     "-Xfatal-warnings",
 ]
-#
-#scala_library(
-#    name = "parallel_lib",
-#    srcs = [
-#        "Main.scala",
-#        "package.scala",
-#    ],
-#    resource_strip_prefix = package_name(),
-#    scala = "//scala:zinc_2_13_1",
-#    scalacopts = scala_options,
-#    deps = [
-#        "@scala_2_13//:dev_zio_zio_2_13",
-#    ],
-#)
 
 scala_binary(
     name = "parallel",
@@ -44,9 +30,24 @@ scala_binary(
     deps = [
         "@scala_2_13//:dev_zio_zio_2_13",
     ],
-    #    runtime_deps = [
-    #        "parallel_lib",
-    #    ],
+)
+
+scala_test(
+    name = "parallel_test",
+    size = "small",
+    srcs = [
+        "Main.scala",
+        "MainSpec.scala",
+        "package.scala",
+    ],
+    scala = "//scala:zinc_2_13_1",
+    scalacopts = scala_options,
+    runtime_deps = [
+        "@scala_2_13//:dev_zio_zio_test_sbt_2_13",
+    ],
+    deps = [
+        "@scala_2_13//:dev_zio_zio_2_13",
+    ],
 )
 
 scala_repl(
