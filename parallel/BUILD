@@ -39,6 +39,7 @@ scala_test(
     srcs = [
         "Main.scala",
         "MainSpec.scala",
+        "TimedMessageService.scala",
         "package.scala",
     ],
     frameworks = [
