@@ -40,6 +40,9 @@ scala_test(
         "MainSpec.scala",
         "package.scala",
     ],
+    frameworks = [
+        "zio.test.sbt.ZTestFramework",
+    ],
     scala = "//scala:zinc_2_13_1",
     scalacopts = scala_options,
     runtime_deps = [
@@ -47,6 +50,7 @@ scala_test(
     ],
     deps = [
         "@scala_2_13//:dev_zio_zio_2_13",
+        "@scala_2_13//:dev_zio_zio_test_2_13",
     ],
 )
 
