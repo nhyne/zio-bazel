@@ -22,6 +22,7 @@ scala_binary(
     name = "parallel",
     srcs = [
         "Main.scala",
+        "TimedMessageService.scala",
         "package.scala",
     ],
     resource_strip_prefix = package_name(),
