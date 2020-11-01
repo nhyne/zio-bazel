@@ -2,7 +2,7 @@ load("@rules_jvm_external//:defs.bzl", "maven_install")
 load("@rules_jvm_external//:specs.bzl", "maven")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 
-zio_version = "1.0.0"
+zio_version = "1.0.3"
 circe_version = "0.13.0"
 caliban_version = "0.9.1"
 http4s_version = "0.21.1"
