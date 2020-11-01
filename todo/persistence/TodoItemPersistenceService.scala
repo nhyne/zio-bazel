@@ -21,8 +21,8 @@ final case class TodoItem(
   id: Int,
   title: String,
   description: Option[String],
-  completed: Boolean = false,
-  listId: Int
+  listId: Int,
+  completed: Boolean = false
 ) {
 
   final def complete(): TodoItem =
@@ -52,11 +52,20 @@ final class TodoItemPersistenceService(tnx: Transactor[Task])
           Task.require(TodoItemNotFound(id))(Task.succeed(maybeTodoItem))
       )
 
-  override def getTodosForList(listId: Int) =
+  override def getTodosForList(
+    listId: Int
+  ): Task[List[TodoItem]] =
     SQL
-      .getForListId(listId)
+      .getTodosForListId(listId)
       .to[List]
       .transact(tnx)
+      .foldM(
+        err => {
+          println(s"Error: $err")
+          Task.fail(err)
+        },
+        a => Task.succeed(a)
+      )
 
   override def markComplete(
     id: Int
@@ -143,19 +152,19 @@ object TodoItemPersistenceService {
 
   object SQL {
     def get(id: Int): Query0[TodoItem] =
-      sql"""SELECT * FROM TASKS WHERE ID = $id""".query[TodoItem]
+      sql"""SELECT * FROM TODO_ITEMS WHERE ID = $id""".query[TodoItem]
 
-    def getForListId(listId: Int): Query0[TodoItem] =
-      sql"""SELECT * FROM TASKS WHERE LIST_ID = $listId""".query[TodoItem]
-
+    def getTodosForListId(listId: Int): Query0[TodoItem] =
+      sql"""SELECT * FROM TODO_ITEMS WHERE LIST_ID = $listId"""
+        .query[TodoItem]
     def markComplete(id: Int): Update0 =
-      sql"""UPDATE TASKS SET completed = true WHERE id = $id""".update
+      sql"""UPDATE TODO_ITEMS SET completed = true WHERE id = $id""".update
 
     def create(task: UninsertedTodoItem): Update0 =
-      sql"""INSERT INTO TASKS (title, description, list_id) VALUES (${task.title}, ${task.description}, 2)""".update
+      sql"""INSERT INTO TODO_ITEMS (title, description, list_id) VALUES (${task.title}, ${task.description}, 2)""".update
 
     def delete(id: Int): Update0 =
-      sql"""DELETE FROM TASKS WHERE id = $id""".update
+      sql"""DELETE FROM TODO_ITEMS WHERE id = $id""".update
   }
 
   def mkTransactor(

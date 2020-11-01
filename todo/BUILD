@@ -13,9 +13,9 @@ scala_options = [
     "-Ywarn-unused:patvars,-implicits",
     "-Ywarn-value-discard",
     "-opt-warnings",
-    "-deprecation",
+    #    "-deprecation",
     "-feature",
-    "-Xfatal-warnings",
+    #    "-Xfatal-warnings",
 ]
 
 scala_library(
@@ -51,8 +51,8 @@ scala_library(
         "@scala_2_13//:io_scalaland_chimney_2_13",
         "@scala_2_13//:org_http4s_http4s_blaze_server_2_13",
         "@scala_2_13//:org_http4s_http4s_core_2_13",
-        "@scala_2_13//:org_http4s_http4s_server_2_13",
         "@scala_2_13//:org_http4s_http4s_dsl_2_13",
+        "@scala_2_13//:org_http4s_http4s_server_2_13",
         "@scala_2_13//:org_tpolecat_doobie_core_2_13",
         "@scala_2_13//:org_tpolecat_doobie_free_2_13",
         "@scala_2_13//:org_tpolecat_doobie_hikari_2_13",
