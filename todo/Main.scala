@@ -76,7 +76,7 @@ object Main extends App {
               .withHttpApp(httpApp)
               .resource
               .toManagedZIO
-              .useForever
+//              .useForever
           )
     } yield server
 
