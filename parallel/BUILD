@@ -52,6 +52,7 @@ scala_test(
         "@scala_2_13//:dev_zio_zio_test_sbt_2_13",
     ],
     deps = [
+        "@scala_2_13//:dev_zio_izumi_reflect_2_13",
         "@scala_2_13//:dev_zio_zio_2_13",
         "@scala_2_13//:dev_zio_zio_test_2_13",
     ],
