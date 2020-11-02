@@ -83,8 +83,8 @@ final class TodoItemPersistenceService(tnx: Transactor[Task])
         "id",
         "title",
         "description",
-        "completed",
-        "list_id"
+        "list_id",
+        "completed"
       )
       .transact(tnx)
       .foldM(
