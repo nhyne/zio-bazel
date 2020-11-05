@@ -31,12 +31,16 @@ object Numberz extends App {
 
   def gameLoop(state: State): ZIO[Console, IOException, State] =
     for {
-      _ <- putStrLn(s"${state.number}")
       guess <- getGuess
       newState = State(state.number, guess, state.guessNumber + 1)
       _ <-
         if (newState.correct) putStrLn("You guessed correctly!!")
-        else putStrLn("Wrong, guess again")
+        else {
+          val message =
+            if (guess > state.number) "You guessed too high"
+            else "You guessed too low"
+          putStrLn(s"Wrong, guess again! Hint: $message")
+        }
       state <-
         if (newState.correct) IO.succeed(newState)
         else gameLoop(newState)
