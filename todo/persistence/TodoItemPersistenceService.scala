@@ -63,7 +63,8 @@ final class TodoItemPersistenceService(tnx: Transactor[Task])
         err => {
           println(s"Error: $err")
           Task.fail(err)
-        },
+        }
+
         a => Task.succeed(a)
       )
 
