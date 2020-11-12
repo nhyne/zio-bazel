@@ -160,6 +160,7 @@ object TodoItemPersistenceService {
     def markComplete(id: Int): Update0 =
       sql"""UPDATE TODO_ITEMS SET completed = true WHERE id = $id""".update
 
+    // TODO: This ID is hardcoded??
     def create(task: UninsertedTodoItem): Update0 =
       sql"""INSERT INTO TODO_ITEMS (title, description, list_id) VALUES (${task.title}, ${task.description}, 2)""".update
 
