@@ -3,18 +3,20 @@ package dev.nhyne.todo
 import cats.data.Kleisli
 import cats.effect.Blocker
 import cats.effect.{ExitCode => CatsExitCode}
-import dev.nhyne.todo.persistence.TodoListPersistenceService
+import dev.nhyne.todo.persistence.{
+  NotePersistenceService,
+  TodoItemPersistenceService,
+  TodoListPersistenceService
+}
 import org.http4s.dsl.Http4sDsl
 import org.http4s.{HttpRoutes, StaticFile}
 import zio.console.putStrLn
 import zio._
 import dev.nhyne.todo.configuration.Configuration
 import dev.nhyne.todo.configuration.Configuration.Configuration
-import dev.nhyne.todo.persistence.TodoItemPersistenceService
 import org.http4s.{Request, Response}
 import org.http4s.server.Router
 import org.http4s.implicits._
-
 import org.http4s.server.middleware.CORS
 import caliban.Http4sAdapter
 import zio.interop.catz._
@@ -27,6 +29,8 @@ object Main extends App {
     (Configuration.live ++ Blocking.live) >>> TodoItemPersistenceService.live
   val todoListPersistence =
     (Configuration.live ++ Blocking.live) >>> TodoListPersistenceService.live
+  val notePersistence =
+    (Configuration.live ++ Blocking.live) >>> NotePersistenceService.live
   type ProgramEnv = Configuration with Env with ZEnv
 
   type AppTask[A] = RIO[ProgramEnv, A]
@@ -71,7 +75,7 @@ object Main extends App {
 
     program
       .provideSomeLayer[ZEnv](
-        Configuration.live ++ todoPersistence ++ todoListPersistence
+        Configuration.live ++ todoPersistence ++ todoListPersistence ++ notePersistence
       )
       .tapError(err => putStrLn(s"Execution failed with: $err"))
       .fold(_ => ExitCode(1), _ => ExitCode(0))

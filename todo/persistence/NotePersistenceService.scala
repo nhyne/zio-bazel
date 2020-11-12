@@ -7,6 +7,7 @@ import zio._
 import doobie.implicits._
 import zio.interop.catz._
 import zio.blocking.Blocking
+import zio.random.{nextIntBounded, Random}
 
 import scala.concurrent.ExecutionContext
 
@@ -36,6 +37,17 @@ final class NotePersistenceService(tnx: Transactor[Task])
         err => Task.fail(err),
         maybeNote => Task.require(NoteNotFound(id))(Task.succeed(maybeNote))
       )
+
+  def getRandom(): RIO[NotePersistence with Random, Note] =
+    for {
+      ids <-
+        SQL
+          .getIds()
+          .to[List]
+          .transact(tnx)
+      randomInt <- nextIntBounded(ids.length)
+      randomNote <- get(ids(randomInt))
+    } yield randomNote
 
   def create(note: UninsertedNote): Task[Note] =
     SQL
@@ -69,6 +81,7 @@ object NotePersistenceService {
 
   trait Service {
     def get(id: Int): ZIO[NotePersistence, Throwable, Note]
+    def getRandom(): RIO[NotePersistence with Random, Note]
     def create(
       note: UninsertedNote
     ): ZIO[NotePersistence, Throwable, Note]
@@ -96,6 +109,9 @@ object NotePersistenceService {
   def createNote(note: UninsertedNote): RIO[NotePersistence, Note] =
     RIO.accessM[NotePersistence](_.get.create(note))
 
+  def getRandom(): RIO[NotePersistence with Random, Note] =
+    RIO.accessM[NotePersistence with Random](_.get.getRandom())
+
   def deleteNote(id: Int): RIO[NotePersistence, Boolean] =
     RIO.accessM[NotePersistence](_.get.delete(id))
 
@@ -105,6 +121,9 @@ object NotePersistenceService {
 
     def create(note: UninsertedNote): Update0 =
       sql"""INSERT INTO NOTES (title, content) VALUES (${note.title}, ${note.content})""".update
+
+    def getIds(): Query0[Int] =
+      sql"""SELECT id FROM NOTES""".query[Int]
 
     def delete(id: Int): Update0 =
       sql"""DELETE FROM NOTES WHERE id = $id""".update
