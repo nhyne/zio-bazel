@@ -5,3 +5,4 @@ bazel-out
 bazel-testlogs
 bazel-zio-bazel
 explain.txt
+.direnv
